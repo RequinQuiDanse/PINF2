@@ -1,0 +1,22 @@
+RewriteEngine On
+
+# Serve file.html if /file is requested and file.html exists
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^.\/]+)$ $1.html [L]
+
+# Serve file.php if /file is requested and file.php exists
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^.\/]+)$ $1.php [L]
+
+# Rewrite /url to /public/index.html
+RewriteRule ^url$ /public/pages/index.php [L]
+
+# Existing rule
+RewriteRule ^$ /public/pages/index.php [L]
+
+# Redirige /login vers /public/pages/login.php
+RewriteRule ^login$ /public/pages/login.php [L]
