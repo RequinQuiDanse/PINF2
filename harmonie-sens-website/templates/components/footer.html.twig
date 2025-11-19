@@ -1,0 +1,42 @@
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Harmonie & Sens</h3>
+            <p class="footer-tagline">Conduire, relier et restaurer l'équilibre au cœur des organisations</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul class="footer-links">
+                <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                <li><a href="{{ path('app_cabinet_presentation') }}">Le Cabinet</a></li>
+                <li><a href="{{ path('app_services_direction') }}">Services</a></li>
+                <li><a href="{{ path('app_contact') }}">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Services</h4>
+            <ul class="footer-links">
+                <li><a href="{{ path('app_services_direction') }}">Direction de transition</a></li>
+                <li><a href="{{ path('app_services_diagnostic') }}">Diagnostic & Audit</a></li>
+                <li><a href="{{ path('app_services_formations') }}">Formations</a></li>
+                <li><a href="{{ path('app_services_accompagnement') }}">Accompagnement</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <ul class="footer-contact">
+                <li>📞 06 83 42 40 12</li>
+                <li>✉️ contact@harmonieetsens.fr</li>
+                <li>🌍 Interventions sur le territoire national</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; {{ 'now'|date('Y') }} Harmonie & Sens. Tous droits réservés.</p>
+        <p>Direction de confiance, gouvernance humaine et pilotage de transformation durable</p>
+    </div>
+</footer>

@@ -1,0 +1,40 @@
+<nav class="navbar navbar-client">
+    <div class="navbar-container">
+        <div class="navbar-brand">
+            <a href="{{ path('app_home') }}">
+                <h1>Harmonie & Sens</h1>
+                <p class="tagline">Conduire, relier et restaurer l'équilibre</p>
+            </a>
+        </div>
+
+        <ul class="navbar-menu">
+            <li class="navbar-item">
+                <a href="{{ path('app_home') }}" class="navbar-link">Accueil</a>
+            </li>
+            
+            <li class="navbar-item dropdown">
+                <a href="#" class="navbar-link">Services</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('app_services_direction') }}">Direction de transition</a></li>
+                    <li><a href="{{ path('app_services_diagnostic') }}">Diagnostic & Audit</a></li>
+                    <li><a href="{{ path('app_services_formations') }}">Formations</a></li>
+                    <li><a href="{{ path('app_services_accompagnement') }}">Accompagnement</a></li>
+                </ul>
+            </li>
+
+            <li class="navbar-item dropdown">
+                <a href="#" class="navbar-link">Cabinet</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('app_cabinet_presentation') }}">Présentation</a></li>
+                    <li><a href="{{ path('app_cabinet_valeurs') }}">Valeurs</a></li>
+                    <li><a href="{{ path('app_cabinet_methodologie') }}">Méthodologie</a></li>
+                    <li><a href="{{ path('app_cabinet_secteurs') }}">Secteurs d'intervention</a></li>
+                </ul>
+            </li>
+
+            <li class="navbar-item">
+                <a href="{{ path('app_contact') }}" class="navbar-link">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>

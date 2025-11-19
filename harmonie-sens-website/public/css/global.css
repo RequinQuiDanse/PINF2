@@ -1,0 +1,358 @@
+/* ===================================
+   HARMONIE & SENS - GLOBAL STYLES
+   Thème: Crème, Blanc, Noir
+   =================================== */
+
+/* Variables CSS */
+:root {
+    /* Couleurs principales */
+    --color-cream: #F5F5DC;
+    --color-cream-light: #FDFDF8;
+    --color-white: #FFFFFF;
+    --color-black: #1A1A1A;
+    --color-gray-dark: #333333;
+    --color-gray-medium: #666666;
+    --color-gray-light: #CCCCCC;
+    --color-gray-lighter: #E5E5E5;
+    
+    /* Couleurs d'accent (or subtil pour les touches) */
+    --color-gold: #B8956A;
+    --color-gold-light: #D4C5A9;
+    
+    /* Polices */
+    --font-primary: 'Georgia', 'Times New Roman', serif;
+    --font-secondary: 'Helvetica Neue', 'Arial', sans-serif;
+    
+    /* Espacements */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+/* Reset et base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-black);
+    background-color: var(--color-cream-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-black);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+a {
+    color: var(--color-black);
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+a:hover {
+    color: var(--color-gold);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ===================================
+   NAVBAR - CLIENT
+   =================================== */
+
+.navbar {
+    background-color: var(--color-white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--color-black);
+}
+
+.navbar-brand .tagline {
+    font-size: 0.75rem;
+    color: var(--color-gray-medium);
+    font-style: italic;
+    margin: 0;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.navbar-item {
+    position: relative;
+}
+
+.navbar-link {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+}
+
+.navbar-link:hover {
+    color: var(--color-gold);
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    list-style: none;
+    min-width: 220px;
+    padding: var(--spacing-xs) 0;
+    margin-top: var(--spacing-xs);
+    border-top: 2px solid var(--color-gold);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.875rem;
+    transition: var(--transition-fast);
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--color-cream);
+    color: var(--color-black);
+    padding-left: calc(var(--spacing-sm) + 0.5rem);
+}
+
+/* ===================================
+   NAVBAR - ADMIN
+   =================================== */
+
+.navbar-admin {
+    background-color: var(--color-black);
+}
+
+.navbar-admin .navbar-brand h1 {
+    color: var(--color-white);
+}
+
+.navbar-admin .navbar-link {
+    color: var(--color-white);
+}
+
+.navbar-admin .navbar-link:hover {
+    color: var(--color-gold-light);
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+
+.footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.footer-section h3 {
+    color: var(--color-white);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-section h4 {
+    color: var(--color-gold-light);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-tagline {
+    color: var(--color-gray-light);
+    font-style: italic;
+    font-size: 0.875rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-links a {
+    color: var(--color-gray-light);
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--color-gold-light);
+    padding-left: 0.5rem;
+}
+
+.footer-contact {
+    list-style: none;
+}
+
+.footer-contact li {
+    color: var(--color-gray-light);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: var(--spacing-lg) auto 0;
+    padding: var(--spacing-md) var(--spacing-md) 0;
+    border-top: 1px solid var(--color-gray-dark);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: var(--color-gray-light);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+/* ===================================
+   SECTIONS COMMUNES
+   =================================== */
+
+section {
+    padding: var(--spacing-xl) 0;
+}
+
+.page-header {
+    background-color: var(--color-cream);
+    border-bottom: 1px solid var(--color-gray-lighter);
+    padding: var(--spacing-lg) 0;
+}
+
+.page-header h1 {
+    text-align: center;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-light) 100%);
+    padding: var(--spacing-xl) 0;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Admin Sections */
+.admin-header {
+    background-color: var(--color-cream);
+    padding: var(--spacing-md) 0;
+    border-bottom: 3px solid var(--color-black);
+}
+
+.admin-header h1 {
+    margin: 0;
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .navbar-menu {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border-top: none;
+        background-color: var(--color-cream);
+        margin-top: var(--spacing-xs);
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+}

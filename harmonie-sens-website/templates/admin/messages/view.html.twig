@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Message - Admin{% endblock %}
+
+{% block navbar %}
+    {% include 'components/navbar_admin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+<section class="admin-header">
+    <div class="container">
+        <h1>Détails du message</h1>
+    </div>
+</section>
+
+<section class="admin-message-details">
+    <div class="container">
+        {# Détails du message vide #}
+    </div>
+</section>
+{% endblock %}

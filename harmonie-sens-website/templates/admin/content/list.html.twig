@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des contenus - Admin{% endblock %}
+
+{% block navbar %}
+    {% include 'components/navbar_admin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+<section class="admin-header">
+    <div class="container">
+        <h1>Gestion des contenus</h1>
+    </div>
+</section>
+
+<section class="admin-content-list">
+    <div class="container">
+        {# Liste des contenus vide #}
+    </div>
+</section>
+{% endblock %}

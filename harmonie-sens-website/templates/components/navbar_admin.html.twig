@@ -1,0 +1,31 @@
+<nav class="navbar navbar-admin">
+    <div class="navbar-container">
+        <div class="navbar-brand">
+            <a href="{{ path('app_admin_dashboard') }}">
+                <h1>Harmonie & Sens - Admin</h1>
+            </a>
+        </div>
+
+        <ul class="navbar-menu">
+            <li class="navbar-item">
+                <a href="{{ path('app_admin_dashboard') }}" class="navbar-link">Tableau de bord</a>
+            </li>
+            
+            <li class="navbar-item">
+                <a href="{{ path('app_admin_content_list') }}" class="navbar-link">Contenus</a>
+            </li>
+
+            <li class="navbar-item">
+                <a href="{{ path('app_admin_messages_list') }}" class="navbar-link">Messages</a>
+            </li>
+
+            <li class="navbar-item">
+                <a href="{{ path('app_admin_users_list') }}" class="navbar-link">Utilisateurs</a>
+            </li>
+
+            <li class="navbar-item">
+                <a href="{{ path('app_home') }}" class="navbar-link">Voir le site</a>
+            </li>
+        </ul>
+    </div>
+</nav>

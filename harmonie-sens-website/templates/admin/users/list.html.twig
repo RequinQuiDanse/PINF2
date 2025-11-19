@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateurs - Admin{% endblock %}
+
+{% block navbar %}
+    {% include 'components/navbar_admin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+<section class="admin-header">
+    <div class="container">
+        <h1>Gestion des utilisateurs</h1>
+    </div>
+</section>
+
+<section class="admin-users-list">
+    <div class="container">
+        {# Liste des utilisateurs vide #}
+    </div>
+</section>
+{% endblock %}
