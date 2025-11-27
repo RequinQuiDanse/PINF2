@@ -9,19 +9,98 @@
 {% block body %}
 <section class="page-header">
     <div class="container">
-        {# En-tête de page vide #}
+        <h1>Contactez-nous</h1>
+        <p class="subtitle">Nous sommes à votre écoute pour discuter de vos projets de transformation</p>
     </div>
 </section>
 
 <section class="contact-form-section">
     <div class="container">
-        {# Formulaire de contact vide #}
+        <div class="contact-wrapper">
+            <div class="form-content">
+                <h2>Envoyez-nous un message</h2>
+                <p>Harmonie & Sens intervient sur l'ensemble du territoire national. Que vous ayez besoin d'une direction de transition, d'un diagnostic, d'une formation ou d'un accompagnement managérial, nous sommes là pour vous aider.</p>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required placeholder="Votre nom">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="votre@email.fr">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization">Établissement / Structure</label>
+                        <input type="text" id="organization" name="organization" placeholder="Nom de votre établissement">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Sujet de votre demande *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Sélectionnez un sujet</option>
+                            <option value="direction-transition">Direction de transition</option>
+                            <option value="diagnostic-audit">Diagnostic & Audit</option>
+                            <option value="formation">Formations</option>
+                            <option value="accompagnement">Accompagnement managérial</option>
+                            <option value="conseil">Conseil stratégique</option>
+                            <option value="evaluation">Projet d'établissement / Évaluation externe</option>
+                            <option value="autre">Autre demande</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Décrivez votre projet ou besoin *</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Détaillez votre contexte, vos besoins et vos objectifs..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
     </div>
 </section>
 
 <section class="contact-info-section">
     <div class="container">
-        {# Informations de contact vides #}
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📧 Email</h3>
+                <p><strong>contact@harmonieetsens.fr</strong></p>
+                <p class="info-detail">Nous répondons sous 24h ouvrées</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>📞 Téléphone</h3>
+                <p><strong>06 83 42 40 12</strong></p>
+                <p class="info-detail">Du lundi au vendredi, 9h-18h</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🌍 Zone d'intervention</h3>
+                <p><strong>Territoire national</strong></p>
+                <p class="info-detail">Interventions rapides sur site partout en France</p>
+            </div>
+        </div>
+        
+        <div class="founder-info">
+            <h3>Renard Lamharfi Malika - Fondatrice</h3>
+            <p><strong>Direction de confiance, gouvernance humaine et pilotage de transformation durable</strong></p>
+            <p>Directrice de transition expérimentée, spécialisée dans l'accompagnement des établissements sociaux, médico-sociaux et sanitaires en période de transition, de transformation ou de crise.</p>
+            <p>Une approche qui conjugue exigence institutionnelle et engagement humain, rigueur de la méthode et qualité du lien.</p>
+        </div>
+        
+        <div class="urgency-info">
+            <h3>Besoin urgent ?</h3>
+            <p>Pour les situations nécessitant une intervention rapide (crise, départ soudain, redressement urgent), n'hésitez pas à nous contacter directement par téléphone. Harmonie & Sens peut intervenir rapidement sur tout le territoire.</p>
+        </div>
     </div>
 </section>
 {% endblock %}

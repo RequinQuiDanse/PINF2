@@ -9,31 +9,81 @@
 {% block body %}
 <section class="hero-section">
     <div class="hero-content">
-        {# Section hero vide pour l'instant #}
+        <h1>Harmonie & Sens</h1>
+        <p class="hero-subtitle">Conduire, relier et restaurer l'équilibre au cœur des organisations</p>
+        <p class="hero-description">Cabinet spécialisé en direction de transition, gouvernance humaine et pilotage de transformation durable pour les établissements sociaux, médico-sociaux et sanitaires.</p>
+        <a href="{{ path('app_contact') }}" class="btn-primary">Contactez-nous</a>
     </div>
 </section>
 
 <section class="presentation-section">
     <div class="container">
-        {# Section présentation vide pour l'instant #}
+        <h2>Notre Cabinet</h2>
+        <div class="presentation-content">
+            <p>Harmonie & Sens accompagne les établissements sociaux, médico-sociaux et sanitaires dans leurs périodes de transition, de transformation, de crise ou de redéploiement stratégique.</p>
+            <p>Le cabinet intervient également en formation, en conseil et en appui managérial, en apportant une direction stratégique, humaine et opérationnelle à haute valeur ajoutée. Dirigé par une directrice de transition expérimentée, Harmonie & Sens incarne une posture d'équilibre entre exigence institutionnelle et engagement humain.</p>
+            <p>Chaque mission repose sur une éthique du sens et de la responsabilité, avec une approche à la fois structurelle et incarnée, où la rigueur de la méthode se conjugue à la qualité du lien.</p>
+        </div>
     </div>
 </section>
 
 <section class="services-section">
     <div class="container">
-        {# Section services vide pour l'instant #}
+        <h2>Nos Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Direction de Transition</h3>
+                <p>Assurer la continuité, sécuriser la décision et restaurer la confiance. Prise en charge complète de la direction pendant les périodes de fragilité managériale.</p>
+                <a href="{{ path('app_services_direction') }}">En savoir plus →</a>
+            </div>
+            <div class="service-card">
+                <h3>Diagnostic & Audit</h3>
+                <p>Diagnostic institutionnel approfondi : analyse de la gouvernance, des pratiques, de la communication et des risques pour transformer la complexité en clarté.</p>
+                <a href="{{ path('app_services_diagnostic') }}">En savoir plus →</a>
+            </div>
+            <div class="service-card">
+                <h3>Formations</h3>
+                <p>Sessions adaptées aux équipes éducatives, soignantes et de direction : management, bientraitance, gestion de crise, éthique et communication.</p>
+                <a href="{{ path('app_services_formations') }}">En savoir plus →</a>
+            </div>
+            <div class="service-card">
+                <h3>Accompagnement</h3>
+                <p>Accompagnement personnalisé dans les contextes de tension, de perte de repères ou de dysfonctionnements majeurs pour restaurer l'équilibre.</p>
+                <a href="{{ path('app_services_accompagnement') }}">En savoir plus →</a>
+            </div>
+        </div>
     </div>
 </section>
 
 <section class="values-section">
     <div class="container">
-        {# Section valeurs vide pour l'instant #}
+        <h2>Nos Valeurs</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <h3>Éthique & Bientraitance</h3>
+                <p>Replacer l'humain au cœur de la gouvernance avec le respect du droit, de la personne et du collectif.</p>
+            </div>
+            <div class="value-item">
+                <h3>Cohérence & Exigence</h3>
+                <p>Aligner les valeurs, les pratiques et les objectifs avec rigueur et méthode pour garantir la confiance.</p>
+            </div>
+            <div class="value-item">
+                <h3>Sérénité & Performance</h3>
+                <p>Une organisation performante est avant tout une structure apaisée où la coopération est libérée.</p>
+            </div>
+            <div class="value-item">
+                <h3>Responsabilité & Engagement</h3>
+                <p>Engagement total et responsabilité pleine dans le respect du cadre législatif et réglementaire.</p>
+            </div>
+        </div>
     </div>
 </section>
 
 <section class="cta-section">
     <div class="container">
-        {# Section call-to-action vide pour l'instant #}
+        <h2>Prêt à transformer votre organisation ?</h2>
+        <p>Stabiliser, structurer et apaiser les organisations, tout en consolidant leurs fondations à travers la conformité réglementaire et le pilotage de la performance.</p>
+        <a href="{{ path('app_contact') }}" class="btn-primary">Demander un devis</a>
     </div>
 </section>
 {% endblock %}
