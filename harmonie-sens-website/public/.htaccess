@@ -1,0 +1,19 @@
+# Disable MultiViews to prevent issues with Symfony routing
+Options -MultiViews
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Handle Authorization Header
+RewriteCond %{HTTP:Authorization} ^(.+)$
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Redirect to URI without front controller to prevent duplicate content
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
+
+# If the requested filename exists, don't do anything
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Rewrite all other queries to the front controller
+RewriteRule .* index.php [L]

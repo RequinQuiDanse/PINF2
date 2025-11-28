@@ -26,17 +26,17 @@ Votre projet Symfony pour le site web du cabinet Harmonie & Sens est maintenant 
 ## 🎨 Thème et Design
 
 ### Couleurs
-- ✅ Crème (#F5F5DC) - Fond principal
-- ✅ Blanc (#FFFFFF) - Cartes, navbar
-- ✅ Noir (#1A1A1A) - Texte, footer
-- ✅ Or (#B8956A) - Accents
+- ✅ Blanc (#FFFFFF) - Fond principal, cartes
+- ✅ Vert Sauge (#9CAF88) - Couleur principale
+- ✅ Doré (#D4AF37) - Accents
+- ✅ Gris vert (#2F3E2A) - Texte
 
 ### Polices
 - ✅ Georgia (serif) pour les titres
 - ✅ Helvetica Neue (sans-serif) pour le texte
 
 ### Style
-- ✅ Minimaliste et élégant
+- ✅ Naturel et élégant
 - ✅ Professionnel
 - ✅ Responsive design
 - ✅ Transitions douces
