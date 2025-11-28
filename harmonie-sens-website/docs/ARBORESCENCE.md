@@ -87,11 +87,29 @@
 ✅ global.css (complet avec thème crème/blanc/noir)
 ```
 
+### 📁 Images (public/images/)
+```
+✅ 📁 logo/ - Logo et favicon
+✅ 📁 services/ - Images des 4 services
+✅ 📁 team/ - Photos équipe
+✅ 📁 backgrounds/ - Images de fond
+✅ 📁 icons/ - Icônes personnalisées
+✅ README.md - Documentation images
+```
+
+### 📁 Uploads (public/uploads/)
+```
+✅ 📁 content/ - Images uploadées pour contenus
+✅ 📁 testimonies/ - Photos témoignages
+✅ 📁 users/ - Photos profil admin
+```
+
 ### 📁 Documentation (docs/)
 ```
 ✅ DATABASE.md - Structure de la BDD
 ✅ TEAM_ORGANIZATION.md - Organisation équipe
 ✅ DESIGN_GUIDE.md - Charte graphique
+✅ IMAGES_GUIDE.md - Guide des images et assets
 ```
 
 ### 📁 Racine
@@ -263,6 +281,17 @@ harmonie-sens-website/
 ├── 📁 public/
 │   ├── 📁 css/
 │   │   └── ✅ global.css
+│   ├── 📁 images/
+│   │   ├── ✅ logo/
+│   │   ├── ✅ services/
+│   │   ├── ✅ team/
+│   │   ├── ✅ backgrounds/
+│   │   ├── ✅ icons/
+│   │   └── ✅ README.md
+│   ├── 📁 uploads/
+│   │   ├── ✅ content/
+│   │   ├── ✅ testimonies/
+│   │   └── ✅ users/
 │   └── index.php
 │
 ├── 📁 src/
@@ -297,7 +326,8 @@ harmonie-sens-website/
 ├── 📁 docs/
 │   ├── ✅ DATABASE.md
 │   ├── ✅ TEAM_ORGANIZATION.md
-│   └── ✅ DESIGN_GUIDE.md
+│   ├── ✅ DESIGN_GUIDE.md
+│   └── ✅ IMAGES_GUIDE.md
 │
 ├── ✅ README_STRUCTURE.md
 └── ✅ ARBORESCENCE.md
@@ -314,6 +344,7 @@ harmonie-sens-website/
 ✅ Navbar client avec dropdowns
 ✅ Navbar admin
 ✅ Footer partagé
+✅ Structure images et uploads créée
 ✅ Documentation complète
 ✅ Organisation équipe définie
 
@@ -322,7 +353,8 @@ harmonie-sens-website/
 ❌ Formulaires Symfony
 ❌ Sécurité et authentification
 ❌ Contenu des pages
-❌ Images et assets
+❌ Images et assets (logo, photos, etc.)
+❌ Système d'upload admin
 ❌ Tests
 ❌ Déploiement
 
