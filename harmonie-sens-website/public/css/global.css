@@ -11,7 +11,7 @@
     /* Couleurs principales */
     --color-white: #FFFFFF;
     --color-white-soft: #FEFEFE;
-    --color-cream: #FFF8E7;
+    --color-cream: #FFFFFF;
     --color-sage: #9CAF88;
     --color-sage-light: #B8C5A6;
     --color-sage-dark: #7A8F6E;
@@ -408,7 +408,6 @@ section {
     color: var(--color-sage);
     margin-bottom: var(--spacing-md);
     opacity: 1;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 400;
 }
@@ -573,7 +572,7 @@ section {
 }
 
 .news-card {
-    background-color: var(--color-gold-light);
+    background-color: var(--color-white);
     padding: var(--spacing-lg);
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
