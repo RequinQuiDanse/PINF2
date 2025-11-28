@@ -1,3 +1,6 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
 /* ===================================
    HARMONIE & SENS - GLOBAL STYLES
    Thème: Doré, Vert Sauge, Blanc
@@ -8,6 +11,7 @@
     /* Couleurs principales */
     --color-white: #FFFFFF;
     --color-white-soft: #FEFEFE;
+    --color-cream: #FFF8E7;
     --color-sage: #9CAF88;
     --color-sage-light: #B8C5A6;
     --color-sage-dark: #7A8F6E;
@@ -28,6 +32,7 @@
     /* Polices */
     --font-primary: 'Georgia', 'Times New Roman', serif;
     --font-secondary: 'Helvetica Neue', 'Arial', sans-serif;
+    --font-paytone: 'Paytone One', sans-serif;
     
     /* Espacements */
     --spacing-xs: 0.5rem;
@@ -53,7 +58,7 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--color-gray-dark);
-    background-color: var(--color-white-soft);
+    background-color: var(--color-cream);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -97,11 +102,7 @@ a:hover {
    =================================== */
 
 .navbar {
-    background: linear-gradient(135deg, #6d8060 0%, #5a6b52 50%, #4a5945 100%);
-    background-image: 
-        linear-gradient(135deg, rgba(109, 128, 96, 0.95) 0%, rgba(90, 107, 82, 0.95) 50%, rgba(74, 89, 69, 0.95) 100%),
-        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.03) 10px, rgba(255, 255, 255, 0.03) 20px),
-        repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.02) 10px, rgba(0, 0, 0, 0.02) 20px);
+    background: var(--color-cream);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -120,17 +121,17 @@ a:hover {
 .navbar-brand h1 {
     font-size: 1.5rem;
     margin: 0;
-    color: var(--color-white);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    color: var(--color-sage-dark);
+    text-shadow: none;
 }
 
 .navbar-brand .tagline {
     font-size: 0.75rem;
-    color: var(--color-gold-light);
+    color: var(--color-sage);
     font-style: italic;
     margin: 0;
     opacity: 1;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: none;
 }
 
 .navbar-menu {
@@ -150,11 +151,11 @@ a:hover {
     text-transform: uppercase;
     font-size: 0.875rem;
     letter-spacing: 0.5px;
-    color: var(--color-white);
+    color: var(--color-sage-dark);
 }
 
 .navbar-link:hover {
-    color: var(--color-gold-light);
+    color: var(--color-sage);
 }
 
 /* Dropdown */
@@ -167,12 +168,12 @@ a:hover {
     position: absolute;
     top: 100%;
     left: 0;
-    background: linear-gradient(135deg, #6d8060 0%, #5a6b52 50%, #4a5945 100%);
+    background: var(--color-cream);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     list-style: none;
     min-width: 220px;
     padding: var(--spacing-xs) 0;
-    border-top: 2px solid var(--color-gold-light);
+    border-top: 2px solid var(--color-sage);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -206,12 +207,12 @@ a:hover {
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: 0.875rem;
     transition: var(--transition-fast);
-    color: var(--color-white);
+    color: var(--color-sage-dark);
 }
 
 .dropdown-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: var(--color-gold-light);
+    background-color: rgba(122, 143, 110, 0.1);
+    color: var(--color-sage);
     padding-left: calc(var(--spacing-sm) + 0.5rem);
 }
 
@@ -366,7 +367,7 @@ section {
     position: relative;
     z-index: 2;
     text-align: left;
-    color: var(--color-white);
+    color: var(--color-sage-dark);
     width: 50%;
     max-width: 700px;
     min-width: 320px;
@@ -374,11 +375,7 @@ section {
     padding: var(--spacing-xl) var(--spacing-lg);
     padding-top: calc(var(--spacing-xl) + 80px);
     margin-top: -80px;
-    background: linear-gradient(135deg, #6d8060 0%, #5a6b52 50%, #4a5945 100%);
-    background-image: 
-        linear-gradient(135deg, rgba(109, 128, 96, 0.95) 0%, rgba(90, 107, 82, 0.95) 50%, rgba(74, 89, 69, 0.95) 100%),
-        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.03) 10px, rgba(255, 255, 255, 0.03) 20px),
-        repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.02) 10px, rgba(0, 0, 0, 0.02) 20px);
+    background: var(--color-cream);
     border-bottom-right-radius: 80px;
     display: flex;
     flex-direction: column;
@@ -389,44 +386,36 @@ section {
 
 .hero-title {
     font-size: 4rem;
-    background: linear-gradient(135deg, #ffffff 0%, #f4e4bc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: var(--font-paytone);
+    color: var(--color-sage-dark);
     margin-bottom: var(--spacing-md);
     font-weight: 400;
     letter-spacing: 2px;
-    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
     line-height: 1.2;
 }
 
 .hero-slogan {
     font-size: 1.75rem;
-    background: linear-gradient(135deg, #ffffff 0%, #e8ede6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-sage);
     font-style: normal;
     margin-bottom: var(--spacing-xl);
     font-family: var(--font-secondary);
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
     font-weight: 300;
 }
 
 .hero-subtitle-small {
     font-size: 0.85rem;
-    color: var(--color-gold-light);
+    color: var(--color-sage);
     margin-bottom: var(--spacing-md);
     opacity: 1;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 400;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero-description {
     font-size: 1.1rem;
-    color: var(--color-white);
+    color: var(--color-sage-dark);
     line-height: 1.6;
     margin-bottom: var(--spacing-md);
     opacity: 0.95;
@@ -434,7 +423,7 @@ section {
 
 .hero-subtitle {
     font-size: 1rem;
-    color: var(--color-gold-light);
+    color: var(--color-sage);
     font-weight: 500;
     margin-bottom: var(--spacing-lg);
     letter-spacing: 0.5px;
@@ -445,24 +434,22 @@ section {
     align-self: flex-start;
     padding: 0.875rem 2rem;
     background-color: transparent;
-    color: var(--color-gold-light);
+    color: var(--color-sage-dark);
     font-size: 0.95rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 50px;
     transition: all var(--transition-normal);
-    border: 2px solid var(--color-gold-light);
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--color-sage-dark);
 }
 
 .btn-appointment:hover {
-    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
-    color: var(--color-sage-dark);
+    background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-sage-dark) 100%);
+    color: var(--color-cream);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
-    border-color: var(--color-gold);
-    text-shadow: none;
+    box-shadow: 0 8px 20px rgba(122, 143, 110, 0.5);
+    border-color: var(--color-sage);
 }
 
 .hero-scroll-indicator {
@@ -508,7 +495,7 @@ section {
    =================================== */
 
 .presentation-section {
-    background-color: var(--color-white);
+    background-color: var(--color-cream);
 }
 
 .presentation-section h2 {
@@ -537,29 +524,30 @@ section {
 .presentation-item {
     text-align: center;
     padding: var(--spacing-lg);
-    background-color: var(--color-gray-lighter);
+    background-color: var(--color-sage-dark);
     border-radius: 10px;
     transition: all var(--transition-normal);
 }
 
 .presentation-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    background-color: var(--color-white);
+    box-shadow: 0 8px 25px rgba(122, 143, 110, 0.4);
+    background-color: var(--color-sage);
 }
 
 .presentation-icon {
     font-size: 3rem;
     margin-bottom: var(--spacing-sm);
+    color: var(--color-gold-light);
 }
 
 .presentation-item h3 {
-    color: var(--color-sage-dark);
+    color: var(--color-white);
     margin-bottom: var(--spacing-xs);
 }
 
 .presentation-item p {
-    color: var(--color-gray-medium);
+    color: var(--color-gray-lighter);
     font-size: 0.95rem;
 }
 
@@ -568,7 +556,7 @@ section {
    =================================== */
 
 .news-section {
-    background-color: var(--color-gray-lighter);
+    background-color: var(--color-white);
 }
 
 .news-section h2 {
@@ -585,7 +573,7 @@ section {
 }
 
 .news-card {
-    background-color: var(--color-white);
+    background-color: var(--color-gold-light);
     padding: var(--spacing-lg);
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -595,7 +583,7 @@ section {
 }
 
 .news-card.featured {
-    border-top: 4px solid var(--color-gold);
+    border-top: 4px solid var(--color-sage-dark);
 }
 
 .news-card:hover {
@@ -607,7 +595,7 @@ section {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background-color: var(--color-gold);
+    background-color: var(--color-sage-dark);
     color: var(--color-white);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
@@ -654,7 +642,7 @@ section {
    =================================== */
 
 .testimonials-section {
-    background: linear-gradient(135deg, var(--color-white-soft) 0%, var(--color-sage-light) 100%);
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-sage-light) 100%);
 }
 
 .testimonials-section h2 {
@@ -671,7 +659,7 @@ section {
 }
 
 .testimonial-card {
-    background-color: var(--color-white);
+    background-color: var(--color-cream);
     padding: var(--spacing-lg);
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -861,7 +849,7 @@ section {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, var(--color-sage-light) 0%, var(--color-white-soft) 100%);
+    background: linear-gradient(135deg, var(--color-sage-light) 0%, var(--color-cream) 100%);
     padding: var(--spacing-xl) 0;
     min-height: 400px;
     display: flex;
