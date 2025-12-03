@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Direction de Transition - Harmonie & Sens{% endblock %}
+
+{% block navbar %}
+    {% include 'components/navbar_client.html.twig' %}
+{% endblock %}
+
+{% block body %}
+<section class="page-header">
+    <div class="container">
+        <h1>Direction de Transition</h1>
+        <p class="subtitle">Redonner un cap, un cadre et une cohérence aux organisations en mutation</p>
+    </div>
+</section>
+
+<section class="service-content">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2>Direction de Confiance en Phase de Transition</h2>
+            <p>Harmonie & Sens intervient lorsque la structure traverse une période charnière : changement de direction, crise interne, fusion, ou refonte de projet.</p>
+            
+            <p><strong>Notre rôle :</strong> incarner une direction de confiance, à la fois ferme et bienveillante, capable de restaurer la légitimité du cadre et la sérénité des relations professionnelles. En plaçant le dialogue au cœur du pilotage, nous rétablissons la communication interne, apaisons les tensions et réinstaurons un climat propice à la coopération.</p>
+            
+            <h3>Nos Modes d'Intervention</h3>
+            <ul>
+                <li><strong>Direction relais & accompagnement de gouvernance</strong> - Assurer la continuité, sécuriser la décision et restaurer la confiance</li>
+                <li><strong>Direction de confiance en phase de transition</strong> - Redonner un cap, un cadre et une cohérence aux organisations</li>
+                <li><strong>Leadership intérimaire & pilotage de sens</strong> - Diriger avec vision, discernement et humanité</li>
+                <li><strong>Accompagnement managérial de redressement</strong> - Redresser, structurer et relancer les organisations en difficulté</li>
+            </ul>
+            
+            <p>Chaque action est alignée sur les obligations réglementaires (CASF, HAS, RBPP) et sur les valeurs du secteur avec rigueur, bientraitance et transparence.</p>
+            
+            <p><strong>Notre objectif :</strong> créer les conditions d'une transition fluide, apaisée et performante.</p>
+        </div>
+    </div>
+</section>
+
+<section class="service-details">
+    <div class="container">
+        <h2>Détails du Service</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>Durée</h3>
+                <p>De 3 à 12 mois selon les besoins et la complexité du contexte</p>
+            </div>
+            <div class="detail-card">
+                <h3>Format</h3>
+                <p>Direction sur site (temps plein ou partiel) avec présence managériale constante</p>
+            </div>
+            <div class="detail-card">
+                <h3>Public</h3>
+                <p>Établissements sociaux, médico-sociaux et sanitaires en période de transition</p>
+            </div>
+        </div>
+        <div class="cta-box">
+            <p>Besoin d'une direction de transition pour stabiliser votre organisation ?</p>
+            <a href="{{ path('app_contact') }}" class="btn-primary">Contactez-nous</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

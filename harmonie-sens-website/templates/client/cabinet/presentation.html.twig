@@ -7,15 +7,119 @@
 {% endblock %}
 
 {% block body %}
-<section class="page-header">
+<!-- Hero Section avec image de fond -->
+<section class="service-hero" style="background-image: url('{{ asset('images/backgrounds/banner_test.jpg') }}');">
     <div class="container">
-        {# En-tête de page vide #}
+        <h1>Présentation du Cabinet</h1>
+        <p class="subtitle">Direction de confiance, gouvernance humaine et pilotage de transformation durable</p>
     </div>
 </section>
 
-<section class="cabinet-content">
+<!-- Section 1: Qui sommes-nous (Fond Vert, Texte à gauche) -->
+<section class="service-section green">
     <div class="container">
-        {# Contenu présentation vide #}
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Qui sommes-nous ?</h2>
+                <p>Harmonie & Sens accompagne les <span class="highlight">établissements sociaux, médico-sociaux et sanitaires</span> dans leurs périodes de transition, de transformation, de crise ou de redéploiement stratégique.</p>
+                <p>Le cabinet intervient également en <strong>formation, en conseil et en appui managérial</strong>, en apportant une direction stratégique, humaine et opérationnelle à haute valeur ajoutée.</p>
+                <p>Dirigé par une directrice de transition expérimentée, Harmonie & Sens incarne une <span class="highlight">posture d'équilibre</span> entre exigence institutionnelle et engagement humain.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🏢
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2: Notre Mission (Fond Bleu, Texte à droite) -->
+<section class="service-section blue">
+    <div class="container">
+        <div class="service-content-flex reverse">
+            <div class="service-text">
+                <h2>Notre Mission</h2>
+                <p><strong>Remettre de l'harmonie là où le déséquilibre s'est installé, et du sens là où la complexité a pris le dessus.</strong></p>
+                <p>Notre objectif est clair : <span class="highlight">stabiliser, structurer et apaiser</span> les organisations, tout en consolidant leurs fondations à travers :</p>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>Conformité réglementaire</strong>Respect des exigences et des bonnes pratiques</li>
+                        <li><strong>Pilotage de la performance</strong>Gouvernance claire et indicateurs précis</li>
+                        <li><strong>Culture de coopération</strong>Cohésion collective et engagement partagé</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🎯
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Notre Approche (Fond Vert, Texte à gauche) -->
+<section class="service-section green">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Notre Approche</h2>
+                <p>Nos interventions s'appuient sur une <span class="highlight">démarche pragmatique</span>, centrée sur :</p>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>L'écoute active</strong>Besoins des équipes et des gouvernances</li>
+                        <li><strong>Management par objectifs</strong>Pilotage transparent et indicateurs clairs</li>
+                        <li><strong>Responsabilisation progressive</strong>Autonomie des acteurs internes pour la continuité</li>
+                    </ul>
+                </div>
+                <p>En conjuguant <strong>vision stratégique et présence de terrain</strong>, nous apportons aux structures un souffle nouveau, restaurateur de confiance.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    💡
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: Notre Identité (Fond Bleu, Texte à droite) -->
+<section class="service-section blue">
+    <div class="container">
+        <div class="service-content-flex reverse">
+            <div class="service-text">
+                <h2>Notre Identité</h2>
+                <p>Harmonie & Sens incarne une nouvelle génération de management de transition : <span class="highlight">institutionnel mais profondément humain</span>, exigeant mais bienveillant, ferme dans le cadre mais doux dans la relation.</p>
+                <p>Nous intervenons comme un <strong>tiers facilitateur</strong>, capable de relier les enjeux humains, réglementaires et institutionnels dans une logique de sens partagé et d'amélioration durable.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    ⚖️
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Fondatrice (Fond Blanc) -->
+<section class="service-section white">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Renard Lamharfi Malika - Fondatrice</h2>
+                <p><span class="highlight">Directrice de transition expérimentée</span>, fondatrice du cabinet Harmonie & Sens, spécialisée en direction de confiance, gouvernance humaine et pilotage de transformation durable dans le secteur social, médico-social et sanitaire.</p>
+                <p>Une expertise reconnue dans l'accompagnement des organisations en période de transition, avec une approche qui allie <strong>rigueur institutionnelle et humanité managériale</strong>.</p>
+                <div class="service-cta">
+                    <a href="{{ path('app_contact') }}" class="btn-service">Discutons de vos enjeux</a>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    👩‍💼
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

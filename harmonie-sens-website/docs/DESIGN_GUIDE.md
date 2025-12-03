@@ -4,46 +4,48 @@
 
 ### Couleurs principales
 ```css
---color-cream:        #F5F5DC  /* Crème - Fond principal */
---color-cream-light:  #FDFDF8  /* Crème clair - Fond alternatif */
---color-white:        #FFFFFF  /* Blanc - Cartes, navbar */
---color-black:        #1A1A1A  /* Noir - Texte principal, footer */
+--color-white:        #FFFFFF  /* Blanc - Fond principal, cartes */
+--color-white-soft:   #FEFEFE  /* Blanc doux - Fond alternatif */
+--color-sage:         #9CAF88  /* Vert sauge - Couleur principale */
+--color-sage-light:   #B8C5A6  /* Vert sauge clair - Sections douces */
+--color-sage-dark:    #7A8F6E  /* Vert sauge foncé - Texte, footer */
 ```
 
-### Couleurs secondaires (gris)
+### Couleurs d'accent (doré)
 ```css
---color-gray-dark:    #333333  /* Gris foncé - Texte secondaire */
---color-gray-medium:  #666666  /* Gris moyen - Texte tertiaire */
---color-gray-light:   #CCCCCC  /* Gris clair - Bordures */
---color-gray-lighter: #E5E5E5  /* Gris très clair - Séparateurs */
+--color-gold:         #D4AF37  /* Doré - Accents principaux */
+--color-gold-light:   #F4E4BC  /* Doré clair - Accents secondaires */
+--color-gold-dark:    #B8941F  /* Doré foncé - Emphasis */
 ```
 
-### Couleurs d'accent (or subtil)
+### Couleurs neutres
 ```css
---color-gold:         #B8956A  /* Or - Accents, hover */
---color-gold-light:   #D4C5A9  /* Or clair - Accents secondaires */
+--color-gray-dark:    #2F3E2A  /* Gris vert foncé - Texte principal */
+--color-gray-medium:  #5A6B52  /* Gris vert moyen - Texte secondaire */
+--color-gray-light:   #C8D1C3  /* Gris vert clair - Bordures */
+--color-gray-lighter: #E8EDE6  /* Gris vert très clair - Séparateurs */
 ```
 
 ### Utilisation des couleurs
 
 #### Backgrounds
-- **Pages principales** : `--color-cream-light`
-- **Sections alternées** : `--color-cream`
+- **Pages principales** : `--color-white-soft`
+- **Sections alternées** : `--color-sage-light`
 - **Cartes/Boxes** : `--color-white`
-- **Footer** : `--color-black`
-- **Navbar admin** : `--color-black`
+- **Footer** : `--color-sage-dark`
+- **Navbar admin** : `--color-sage-dark`
 - **Navbar client** : `--color-white`
 
 #### Textes
-- **Titres** : `--color-black`
-- **Texte principal** : `--color-black`
+- **Titres** : `--color-sage-dark`
+- **Texte principal** : `--color-gray-dark`
 - **Texte secondaire** : `--color-gray-medium`
 - **Texte footer** : `--color-gray-light`
 
 #### Accents
 - **Liens hover** : `--color-gold`
-- **Boutons primaires** : `--color-black` (fond) + `--color-white` (texte)
-- **Boutons secondaires** : `--color-white` (fond) + `--color-black` (texte) + bordure `--color-gold`
+- **Boutons primaires** : `--color-sage-dark` (fond) + `--color-white` (texte)
+- **Boutons secondaires** : `--color-white` (fond) + `--color-sage-dark` (texte) + bordure `--color-gold`
 - **Éléments actifs** : `--color-gold`
 
 ---

@@ -7,15 +7,137 @@
 {% endblock %}
 
 {% block body %}
-<section class="page-header">
+<!-- Hero Section avec image de fond -->
+<section class="service-hero" style="background-image: url('{{ asset('images/backgrounds/banner_test2.jpg') }}');">
     <div class="container">
-        {# En-tête de page vide #}
+        <h1>Nos Valeurs Fondatrices</h1>
+        <p class="subtitle">Des principes d'action vécus sur le terrain, structurant chaque mission</p>
     </div>
 </section>
 
-<section class="values-content">
+<!-- Section Introduction (Fond Bleu) -->
+<section class="service-section blue">
     <div class="container">
-        {# Contenu valeurs vide #}
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Valeurs Vécues</h2>
+                <p>Chez Harmonie & Sens, les valeurs ne sont pas des principes affichés, mais des <span class="highlight">lignes d'action vécues sur le terrain</span>.</p>
+                <p>Elles structurent chaque mission et guident chaque décision. Elles forment un <strong>socle d'exigence éthique, stratégique et humaine</strong>, garantissant la qualité, la cohérence et la durabilité des accompagnements menés.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    ⭐
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 1: Éthique (Fond Vert, Texte à droite) -->
+<section class="service-section green">
+    <div class="container">
+        <div class="service-content-flex reverse">
+            <div class="service-text">
+                <h2>Éthique & Bientraitance</h2>
+                <p>Replacer <span class="highlight">l'humain au cœur de la gouvernance</span> n'est pas un principe abstrait : c'est un engagement fondamental.</p>
+                <p>Affirmer que le sens de la décision prime sur la rapidité de l'action, c'est rappeler que chaque orientation doit se construire dans le respect du <strong>droit, de la personne et du collectif</strong>.</p>
+                <p>L'éthique guide chacune de nos interventions, s'appuyant sur le CASF, les RBPP (HAS/ANESM), les chartes de bientraitance et de gouvernance responsable.</p>
+                <p><strong>Notre force :</strong> replacer la finalité humaine au centre du pilotage, sans compromis sur la sécurité, la dignité et le sens.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🤲
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2: Cohérence (Fond Bleu, Texte à gauche) -->
+<section class="service-section blue">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Cohérence & Exigence</h2>
+                <p>La transformation réussie d'une organisation ne repose pas sur les discours, mais sur la <span class="highlight">justesse de la méthode, la rigueur du pilotage</span> et la cohérence des décisions.</p>
+                <p>Notre démarche s'appuie sur une double compétence : la <strong>vision stratégique</strong> d'une direction générale et la <strong>maîtrise opérationnelle</strong> du terrain.</p>
+                <p>La cohérence est le premier facteur de confiance. Une gouvernance claire, des process maîtrisés et une communication loyale permettent aux professionnels de retrouver le sens et la fierté du travail collectif.</p>
+                <p><strong>Notre force :</strong> transformer la complexité en clarté, la contrainte en cohérence, et les objectifs en résultats mesurables et durables.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🎯
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Sérénité (Fond Vert, Texte à droite) -->
+<section class="service-section green">
+    <div class="container">
+        <div class="service-content-flex reverse">
+            <div class="service-text">
+                <h2>Sérénité & Performance</h2>
+                <p>Une organisation performante est avant tout une <span class="highlight">structure apaisée</span>. La performance durable ne peut émerger que dans un environnement où les tensions sont reconnues, régulées et transformées en énergie constructive.</p>
+                <p>Nos interventions visent à reconstruire la <strong>stabilité institutionnelle</strong>, à restaurer la confiance entre les acteurs et à réinstaller un climat de travail serein.</p>
+                <p>La sérénité devient un levier de rentabilité humaine et institutionnelle : moins de conflits et de turn-over, plus d'engagement et de motivation.</p>
+                <p><strong>Notre signature :</strong> apaiser pour mieux performer, car la performance ne se décrète pas, elle se cultive.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🌱
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: Responsabilité (Fond Bleu, Texte à gauche) -->
+<section class="service-section blue">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Responsabilité & Engagement</h2>
+                <p>Chaque mission confiée à Harmonie & Sens est portée avec un <span class="highlight">engagement total et une responsabilité pleine et entière</span>.</p>
+                <p>Nos interventions s'appuient sur les <strong>textes fondateurs</strong> : CASF, Code de la santé publique, RBPP, conventions collectives, loi 2002-2.</p>
+                <p>La responsabilité s'exprime dans la transparence du pilotage, la traçabilité des décisions et la justesse des arbitrages.</p>
+                <p><strong>Notre force :</strong> piloter avec courage, éclairer par le droit et transmettre avec conviction dans une logique de continuité, de conformité et de sens partagé.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🛡️
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Philosophie (Fond Blanc) -->
+<section class="service-section white">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Notre Philosophie d'Action</h2>
+                <p>Chaque intervention d'Harmonie & Sens s'inscrit dans une <span class="highlight">dynamique d'équilibre</span> :</p>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>Stratégie & Terrain</strong>Entre vision institutionnelle et réalité opérationnelle</li>
+                        <li><strong>Cadre & Souplesse</strong>Entre réglementation et adaptation relationnelle</li>
+                        <li><strong>Performance & Humanité</strong>Entre résultats attendus et respect des personnes</li>
+                    </ul>
+                </div>
+                <p><strong>Notre force :</strong> être à la fois direction, médiation, conseil et soutien avec la même exigence de résultat et le même engagement humain.</p>
+                <div class="service-cta">
+                    <a href="{{ path('app_contact') }}" class="btn-service">Découvrez notre approche</a>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    ⚖️
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

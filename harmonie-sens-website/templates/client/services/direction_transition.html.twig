@@ -7,21 +7,99 @@
 {% endblock %}
 
 {% block body %}
-<section class="page-header">
+<!-- Hero Section avec image de fond -->
+<section class="service-hero" style="background-image: url('{{ asset('images/backgrounds/banner_test.jpg') }}');">
     <div class="container">
-        {# En-tête de page vide #}
+        <h1>Direction de Transition</h1>
+        <p class="subtitle">Redonner un cap, un cadre et une cohérence aux organisations en mutation</p>
     </div>
 </section>
 
-<section class="service-content">
+<!-- Section 1: Direction de Confiance (Fond Bleu, Texte à gauche) -->
+<section class="service-section blue">
     <div class="container">
-        {# Contenu du service vide #}
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Direction de Confiance</h2>
+                <p>Harmonie & Sens intervient lorsque la structure traverse une période charnière : <span class="highlight">changement de direction, crise interne, fusion, ou refonte de projet</span>.</p>
+                <p><strong>Notre rôle :</strong> incarner une direction de confiance, à la fois ferme et bienveillante, capable de restaurer la légitimité du cadre et la sérénité des relations professionnelles.</p>
+                <p>En plaçant le dialogue au cœur du pilotage, nous rétablissons la communication interne, apaisons les tensions et réinstaurons un climat propice à la coopération.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🎯
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="service-details">
+<!-- Section 2: Modes d'Intervention (Fond Vert, Texte à droite) -->
+<section class="service-section green">
     <div class="container">
-        {# Détails et tarifs vides #}
+        <div class="service-content-flex reverse">
+            <div class="service-text">
+                <h2>Nos Modes d'Intervention</h2>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>Direction relais & accompagnement de gouvernance</strong>Assurer la continuité, sécuriser la décision et restaurer la confiance</li>
+                        <li><strong>Direction de confiance en phase de transition</strong>Redonner un cap, un cadre et une cohérence aux organisations</li>
+                        <li><strong>Leadership intérimaire & pilotage de sens</strong>Diriger avec vision, discernement et humanité</li>
+                        <li><strong>Accompagnement managérial de redressement</strong>Redresser, structurer et relancer les organisations en difficulté</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🚀
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Approche et Objectifs (Fond Bleu, Texte à gauche) -->
+<section class="service-section blue">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Notre Approche</h2>
+                <p>Chaque action est alignée sur les <span class="highlight">obligations réglementaires</span> (CASF, HAS, RBPP) et sur les valeurs du secteur avec rigueur, bientraitance et transparence.</p>
+                <p><strong>Notre objectif :</strong> créer les conditions d'une transition fluide, apaisée et performante.</p>
+                <div class="service-cta">
+                    <a href="{{ path('app_contact') }}" class="btn-service">Parlons de votre projet</a>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    ✨
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Détails (Fond Blanc) -->
+<section class="service-section white">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Informations Pratiques</h2>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>Durée</strong>De 3 à 12 mois selon les besoins et la complexité du contexte</li>
+                        <li><strong>Format</strong>Direction sur site (temps plein ou partiel) avec présence managériale constante</li>
+                        <li><strong>Public</strong>Établissements sociaux, médico-sociaux et sanitaires en période de transition</li>
+                        <li><strong>Livrables</strong>Plan de transition, rapports d'étape, recommandations stratégiques</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    📋
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

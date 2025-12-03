@@ -7,33 +7,39 @@
             </a>
         </div>
 
+        <button class="navbar-toggle" aria-label="Menu" onclick="this.classList.toggle('active'); document.querySelector('.navbar-menu').classList.toggle('active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <ul class="navbar-menu">
             <li class="navbar-item">
-                <a href="{{ path('app_home') }}" class="navbar-link">Accueil</a>
+                <a href="{{ path('app_home') }}" class="navbar-link{% if app.request.attributes.get('_route') == 'app_home' %} active{% endif %}">Accueil</a>
             </li>
             
             <li class="navbar-item dropdown">
-                <a href="#" class="navbar-link">Services</a>
+                <a href="{{ path('app_services_direction') }}" class="navbar-link{% if app.request.attributes.get('_route') starts with 'app_services' %} active{% endif %}">Services</a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ path('app_services_direction') }}">Direction de transition</a></li>
-                    <li><a href="{{ path('app_services_diagnostic') }}">Diagnostic & Audit</a></li>
-                    <li><a href="{{ path('app_services_formations') }}">Formations</a></li>
-                    <li><a href="{{ path('app_services_accompagnement') }}">Accompagnement</a></li>
+                    <li><a href="{{ path('app_services_direction') }}"{% if app.request.attributes.get('_route') == 'app_services_direction' %} class="active"{% endif %}>Direction de transition</a></li>
+                    <li><a href="{{ path('app_services_diagnostic') }}"{% if app.request.attributes.get('_route') == 'app_services_diagnostic' %} class="active"{% endif %}>Diagnostic & Audit</a></li>
+                    <li><a href="{{ path('app_services_formations') }}"{% if app.request.attributes.get('_route') == 'app_services_formations' %} class="active"{% endif %}>Formations</a></li>
+                    <li><a href="{{ path('app_services_accompagnement') }}"{% if app.request.attributes.get('_route') == 'app_services_accompagnement' %} class="active"{% endif %}>Accompagnement</a></li>
                 </ul>
             </li>
 
             <li class="navbar-item dropdown">
-                <a href="#" class="navbar-link">Cabinet</a>
+                <a href="{{ path('app_cabinet_presentation') }}" class="navbar-link{% if app.request.attributes.get('_route') starts with 'app_cabinet' %} active{% endif %}">Cabinet</a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ path('app_cabinet_presentation') }}">Présentation</a></li>
-                    <li><a href="{{ path('app_cabinet_valeurs') }}">Valeurs</a></li>
-                    <li><a href="{{ path('app_cabinet_methodologie') }}">Méthodologie</a></li>
-                    <li><a href="{{ path('app_cabinet_secteurs') }}">Secteurs d'intervention</a></li>
+                    <li><a href="{{ path('app_cabinet_presentation') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_presentation' %} class="active"{% endif %}>Présentation</a></li>
+                    <li><a href="{{ path('app_cabinet_valeurs') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_valeurs' %} class="active"{% endif %}>Valeurs</a></li>
+                    <li><a href="{{ path('app_cabinet_methodologie') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_methodologie' %} class="active"{% endif %}>Méthodologie</a></li>
+                    <li><a href="{{ path('app_cabinet_secteurs') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_secteurs' %} class="active"{% endif %}>Secteurs d'intervention</a></li>
                 </ul>
             </li>
 
-            <li class="navbar-item">
-                <a href="{{ path('app_contact') }}" class="navbar-link">Contact</a>
+            <li class="navbar-item navbar-cta">
+                <a href="{{ path('app_contact') }}" class="navbar-link{% if app.request.attributes.get('_route') == 'app_contact' %} active{% endif %}">Contact</a>
             </li>
         </ul>
     </div>
