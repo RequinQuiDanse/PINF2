@@ -7,43 +7,55 @@
 {% endblock %}
 
 {% block body %}
-<section class="page-header">
+<!-- Hero Section Contact -->
+<section class="contact-hero">
     <div class="container">
-        <h1>Contactez-nous</h1>
-        <p class="subtitle">Nous sommes à votre écoute pour discuter de vos projets de transformation</p>
+        <div class="contact-hero-content">
+            <span class="contact-badge">Prenons contact</span>
+            <h1>Discutons de votre projet</h1>
+            <p class="contact-hero-subtitle">Nous sommes à votre écoute pour accompagner la transformation de votre établissement</p>
+        </div>
     </div>
 </section>
 
-<section class="contact-form-section">
+<!-- Section principale avec formulaire et infos -->
+<section class="contact-main">
     <div class="container">
-        <div class="contact-wrapper">
-            <div class="form-content">
-                <h2>Envoyez-nous un message</h2>
-                <p>Harmonie & Sens intervient sur l'ensemble du territoire national. Que vous ayez besoin d'une direction de transition, d'un diagnostic, d'une formation ou d'un accompagnement managérial, nous sommes là pour vous aider.</p>
+        <div class="contact-grid">
+            <!-- Colonne formulaire -->
+            <div class="contact-form-card">
+                <div class="form-header">
+                    <h2>Envoyez-nous un message</h2>
+                    <p>Décrivez votre projet et nous vous répondrons sous 24h ouvrées</p>
+                </div>
                 
                 <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nom complet *</label>
-                        <input type="text" id="name" name="name" required placeholder="Votre nom">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom complet <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required placeholder="Votre nom">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="votre@email.fr">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="organization">Établissement / Structure</label>
+                            <input type="text" id="organization" name="organization" placeholder="Nom de votre établissement">
+                        </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="votre@email.fr">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Téléphone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="organization">Établissement / Structure</label>
-                        <input type="text" id="organization" name="organization" placeholder="Nom de votre établissement">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Sujet de votre demande *</label>
+                        <label for="subject">Sujet de votre demande <span class="required">*</span></label>
                         <select id="subject" name="subject" required>
                             <option value="">Sélectionnez un sujet</option>
                             <option value="direction-transition">Direction de transition</option>
@@ -57,49 +69,77 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Décrivez votre projet ou besoin *</label>
-                        <textarea id="message" name="message" rows="6" required placeholder="Détaillez votre contexte, vos besoins et vos objectifs..."></textarea>
+                        <label for="message">Décrivez votre projet ou besoin <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Détaillez votre contexte, vos besoins et vos objectifs..."></textarea>
                     </div>
                     
-                    <button type="submit" class="btn-primary">Envoyer le message</button>
+                    <button type="submit" class="btn-submit">
+                        <span>Envoyer le message</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
                 </form>
+            </div>
+            
+            <!-- Colonne informations -->
+            <div class="contact-info-column">
+                <!-- Cartes d'information -->
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <p class="info-value">contact@harmonieetsens.fr</p>
+                            <p class="info-detail">Réponse sous 24h ouvrées</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <h4>Téléphone</h4>
+                            <p class="info-value">06 83 42 40 12</p>
+                            <p class="info-detail">Lun - Ven, 9h - 18h</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">🌍</div>
+                        <div class="info-content">
+                            <h4>Zone d'intervention</h4>
+                            <p class="info-value">Territoire national</p>
+                            <p class="info-detail">Interventions rapides partout en France</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carte urgence -->
+                <div class="urgency-card">
+                    <div class="urgency-icon">⚡</div>
+                    <h4>Besoin urgent ?</h4>
+                    <p>Pour les situations de crise, départ soudain ou redressement urgent, contactez-nous directement par téléphone.</p>
+                    <a href="tel:0683424012" class="btn-urgency">
+                        Appeler maintenant
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="contact-info-section">
+<!-- Section fondatrice -->
+<section class="founder-section">
     <div class="container">
-        <div class="info-grid">
-            <div class="info-card">
-                <h3>📧 Email</h3>
-                <p><strong>contact@harmonieetsens.fr</strong></p>
-                <p class="info-detail">Nous répondons sous 24h ouvrées</p>
+        <div class="founder-card">
+            <div class="founder-content">
+                <span class="founder-badge">À propos</span>
+                <h3>Renard Lamharfi Malika</h3>
+                <p class="founder-title">Fondatrice - Direction de confiance, gouvernance humaine et pilotage de transformation durable</p>
+                <p class="founder-description">Directrice de transition expérimentée, spécialisée dans l'accompagnement des établissements sociaux, médico-sociaux et sanitaires en période de transition, de transformation ou de crise.</p>
+                <p class="founder-quote">"Une approche qui conjugue exigence institutionnelle et engagement humain, rigueur de la méthode et qualité du lien."</p>
             </div>
-            
-            <div class="info-card">
-                <h3>📞 Téléphone</h3>
-                <p><strong>06 83 42 40 12</strong></p>
-                <p class="info-detail">Du lundi au vendredi, 9h-18h</p>
-            </div>
-            
-            <div class="info-card">
-                <h3>🌍 Zone d'intervention</h3>
-                <p><strong>Territoire national</strong></p>
-                <p class="info-detail">Interventions rapides sur site partout en France</p>
-            </div>
-        </div>
-        
-        <div class="founder-info">
-            <h3>Renard Lamharfi Malika - Fondatrice</h3>
-            <p><strong>Direction de confiance, gouvernance humaine et pilotage de transformation durable</strong></p>
-            <p>Directrice de transition expérimentée, spécialisée dans l'accompagnement des établissements sociaux, médico-sociaux et sanitaires en période de transition, de transformation ou de crise.</p>
-            <p>Une approche qui conjugue exigence institutionnelle et engagement humain, rigueur de la méthode et qualité du lien.</p>
-        </div>
-        
-        <div class="urgency-info">
-            <h3>Besoin urgent ?</h3>
-            <p>Pour les situations nécessitant une intervention rapide (crise, départ soudain, redressement urgent), n'hésitez pas à nous contacter directement par téléphone. Harmonie & Sens peut intervenir rapidement sur tout le territoire.</p>
+            <div class="founder-decoration"></div>
         </div>
     </div>
 </section>

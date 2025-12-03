@@ -7,32 +7,98 @@
 {% endblock %}
 
 {% block body %}
-<section class="page-header">
+<!-- Hero Section avec image de fond -->
+<section class="service-hero" style="background-image: url('{{ asset('images/backgrounds/banner_test2.jpg') }}');">
     <div class="container">
         <h1>Diagnostic & Audit</h1>
         <p class="subtitle">Transformer la complexité en clarté et les tensions en leviers de progrès</p>
     </div>
 </section>
 
-<section class="service-content">
+<!-- Section 1: Notre Approche (Fond Vert, Texte à gauche) -->
+<section class="service-section green">
     <div class="container">
-        <div class="content-wrapper">
-            <h2>Redressement, Diagnostic et Transformation</h2>
-            <p>Harmonie & Sens réalise des diagnostics institutionnels approfondis pour analyser la gouvernance, les pratiques, la communication et identifier les risques. Notre approche permet de comprendre les mécanismes de fonctionnement et de proposer des solutions concrètes et durables.</p>
-            
-            <h3>Nos Interventions d'Audit</h3>
-            <ul>
-                <li><strong>Redressement et stabilisation</strong> - Retour à l'équilibre managérial, relationnel et organisationnel</li>
-                <li><strong>Diagnostic institutionnel approfondi</strong> - Analyse de la gouvernance, des pratiques, de la communication et des risques</li>
-                <li><strong>Élaboration de plans d'action</strong> - Outils de pilotage, priorisation et suivi des résultats</li>
-                <li><strong>Transformation organisationnelle</strong> - Révision des process, accompagnement au changement, clarification du cadre</li>
-            </ul>
-            
-            <p>Nos analyses intègrent les dimensions réglementaires, budgétaires, relationnelles et managériales, dans une vision systémique et sans complaisance. Cette phase d'observation et d'écoute fine permet de cerner les enjeux réels et d'identifier les leviers concrets d'amélioration.</p>
-            
-            <h3>Tarification</h3>
-            <p><strong>Diagnostic global et plan d'action :</strong> De 1 800 € à 4 200 € TTC selon le niveau de profondeur</p>
-            <p><strong>Audit flash :</strong> 1 500 € TTC pour une intervention rapide (2 à 3 jours)</p>
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Redressement & Diagnostic</h2>
+                <p>Harmonie & Sens réalise des <span class="highlight">diagnostics institutionnels approfondis</span> pour analyser la gouvernance, les pratiques, la communication et identifier les risques.</p>
+                <p>Notre approche permet de comprendre les mécanismes de fonctionnement et de proposer des solutions concrètes et durables.</p>
+                <p>Nos analyses intègrent les dimensions <strong>réglementaires, budgétaires, relationnelles et managériales</strong>, dans une vision systémique et sans complaisance.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🔍
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2: Nos Interventions (Fond Bleu, Texte à droite) -->
+<section class="service-section blue">
+    <div class="container">
+        <div class="service-content-flex reverse">
+            <div class="service-text">
+                <h2>Nos Interventions d'Audit</h2>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>Redressement et stabilisation</strong>Retour à l'équilibre managérial, relationnel et organisationnel</li>
+                        <li><strong>Diagnostic institutionnel approfondi</strong>Analyse de la gouvernance, des pratiques, de la communication et des risques</li>
+                        <li><strong>Élaboration de plans d'action</strong>Outils de pilotage, priorisation et suivi des résultats</li>
+                        <li><strong>Transformation organisationnelle</strong>Révision des process, accompagnement au changement, clarification du cadre</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    📊
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Méthodologie (Fond Vert, Texte à gauche) -->
+<section class="service-section green">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Notre Méthodologie</h2>
+                <p>Cette phase d'<span class="highlight">observation et d'écoute fine</span> permet de cerner les enjeux réels et d'identifier les leviers concrets d'amélioration.</p>
+                <p>Nous privilégions une approche <strong>collaborative et transparente</strong> qui implique tous les acteurs de l'organisation dans le processus d'amélioration.</p>
+                <div class="service-cta">
+                    <a href="{{ path('app_contact') }}" class="btn-service">Demander un diagnostic</a>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🎯
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Tarification (Fond Blanc) -->
+<section class="service-section white">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Tarification</h2>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>Diagnostic global et plan d'action</strong>De 1 800 € à 4 200 € TTC selon le niveau de profondeur</li>
+                        <li><strong>Audit flash</strong>1 500 € TTC pour une intervention rapide (2 à 3 jours)</li>
+                        <li><strong>Suivi post-diagnostic</strong>Accompagnement personnalisé selon les besoins identifiés</li>
+                        <li><strong>Devis personnalisé</strong>Adapté à la taille et complexité de votre structure</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    💰
+                </div>
+            </div>
         </div>
     </div>
 </section>

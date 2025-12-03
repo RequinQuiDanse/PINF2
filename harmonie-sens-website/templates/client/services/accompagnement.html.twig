@@ -7,37 +7,97 @@
 {% endblock %}
 
 {% block body %}
-<section class="page-header">
+<!-- Hero Section avec image de fond -->
+<section class="service-hero" style="background-image: url('{{ asset('images/backgrounds/banner_test2.jpg') }}');">
     <div class="container">
         <h1>Accompagnement Managérial</h1>
         <p class="subtitle">Redresser, structurer et relancer les organisations en difficulté</p>
     </div>
 </section>
 
-<section class="service-content">
+<!-- Section 1: Notre Mission (Fond Vert, Texte à gauche) -->
+<section class="service-section green">
     <div class="container">
-        <div class="content-wrapper">
-            <h2>Accompagnement Managérial de Redressement</h2>
-            <p>Harmonie & Sens intervient dans les contextes de tension, de perte de repères ou de dysfonctionnements majeurs. Notre mission : analyser, structurer, rétablir le cadre et restaurer la confiance.</p>
-            
-            <p>Par une approche structurée et incarnée, alliant diagnostic, action et transmission, nous accompagnons les équipes et les gouvernances vers un équilibre durable, où le redressement devient une opportunité de transformation et de sens.</p>
-            
-            <h3>Notre Méthodologie d'Intervention</h3>
-            <ol>
-                <li><strong>Analyser :</strong> Comprendre avant d'agir. Diagnostic approfondi du fonctionnement institutionnel, organisationnel et humain avec analyse des mécanismes de gouvernance et identification des leviers d'amélioration.</li>
-                <li><strong>Structurer :</strong> Redonner cadre, cohérence et visibilité. Mise en place d'outils de pilotage clairs et pérennes : fiches de fonction, procédures, indicateurs, reporting, plans d'actions.</li>
-                <li><strong>Accompagner :</strong> Manager, soutenir, relier. Présence active et guidance managériale quotidienne avec impulsion d'une dynamique d'équipe et communication apaisée.</li>
-                <li><strong>Transmettre :</strong> Pérenniser les acquis et sécuriser la suite. Restitution claire, plan d'action hiérarchisé et accompagnement de transition pour garantir la continuité.</li>
-            </ol>
-            
-            <h3>Axes d'Intervention</h3>
-            <ul>
-                <li><strong>Pilotage et gouvernance</strong> - Direction de transition, pilotage stratégique, appui à la gouvernance</li>
-                <li><strong>Climat social et régulation</strong> - Médiation managériale, gestion des situations complexes, restauration du climat d'équipe</li>
-                <li><strong>Qualité et conformité</strong> - Accompagnement au projet d'établissement, préparation à l'évaluation externe, audit qualité</li>
-            </ul>
-            
-            <p><strong>Notre objectif :</strong> transformer la fragilité en stabilité, la crise en opportunité et la tension en cohésion.</p>
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Redressement Organisationnel</h2>
+                <p>Harmonie & Sens intervient dans les contextes de <span class="highlight">tension, de perte de repères ou de dysfonctionnements majeurs</span>.</p>
+                <p><strong>Notre mission :</strong> analyser, structurer, rétablir le cadre et restaurer la confiance.</p>
+                <p>Par une approche structurée et incarnée, alliant diagnostic, action et transmission, nous accompagnons les équipes vers un <span class="highlight">équilibre durable</span>.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🔧
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2: Méthodologie (Fond Bleu, Texte à droite) -->
+<section class="service-section blue">
+    <div class="container">
+        <div class="service-content-flex reverse">
+            <div class="service-text">
+                <h2>Notre Méthodologie</h2>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>Analyser</strong>Diagnostic approfondi du fonctionnement institutionnel, organisationnel et humain</li>
+                        <li><strong>Structurer</strong>Mise en place d'outils de pilotage clairs : fiches de fonction, procédures, indicateurs</li>
+                        <li><strong>Accompagner</strong>Présence active et guidance managériale quotidienne</li>
+                        <li><strong>Transmettre</strong>Plan d'action hiérarchisé et accompagnement de transition</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🚀
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Axes d'Intervention (Fond Vert, Texte à gauche) -->
+<section class="service-section green">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Axes d'Intervention</h2>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>Pilotage et gouvernance</strong>Direction de transition, pilotage stratégique, appui à la gouvernance</li>
+                        <li><strong>Climat social et régulation</strong>Médiation managériale, gestion des situations complexes, restauration du climat d'équipe</li>
+                        <li><strong>Qualité et conformité</strong>Accompagnement au projet d'établissement, préparation à l'évaluation externe, audit qualité</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🎯
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Objectifs (Fond Blanc) -->
+<section class="service-section white">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Notre Objectif</h2>
+                <p><strong>Transformer la fragilité en stabilité</strong>, la crise en opportunité et la tension en cohésion.</p>
+                <p>Le redressement devient une opportunité de <span class="highlight">transformation et de sens</span>, où chaque étape contribue à la construction d'un projet institutionnel solide et durable.</p>
+                <div class="service-cta">
+                    <a href="{{ path('app_contact') }}" class="btn-service">Étudions votre situation</a>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    ✨
+                </div>
+            </div>
         </div>
     </div>
 </section>

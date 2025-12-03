@@ -7,47 +7,99 @@
 {% endblock %}
 
 {% block body %}
-<section class="page-header">
+<!-- Hero Section avec image de fond -->
+<section class="service-hero" style="background-image: url('{{ asset('images/backgrounds/banner_test.jpg') }}');">
     <div class="container">
         <h1>Formations</h1>
         <p class="subtitle">Ancrer durablement les apprentissages et renforcer l'autonomie des équipes</p>
     </div>
 </section>
 
-<section class="service-content">
+<!-- Section 1: Notre Approche (Fond Bleu, Texte à gauche) -->
+<section class="service-section blue">
     <div class="container">
-        <div class="content-wrapper">
-            <h2>Formation et Accompagnement des Compétences</h2>
-            <p>Harmonie & Sens propose des formations adaptées aux réalités du terrain, destinées aux équipes éducatives, soignantes et de direction. Nos sessions visent à renforcer la culture commune, sécuriser les pratiques et développer les compétences managériales et techniques.</p>
-            
-            <h3>Nos Formats de Formation</h3>
-            <div class="programs-list">
-                <div class="program-item">
-                    <h4>Formations sur Site</h4>
-                    <p>Sessions adaptées aux équipes éducatives, soignantes et de direction : management, bientraitance, gestion de crise, éthique, communication.</p>
-                    <p><strong>Tarif :</strong> À partir de 990 € TTC / jour (jusqu'à 15 participants, supports et attestation inclus)</p>
-                </div>
-                <div class="program-item">
-                    <h4>Webinaires Interactifs</h4>
-                    <p>Modules à distance pour accompagner les transformations et renforcer la culture commune. Sessions de 2 heures, modulables selon le nombre de participants.</p>
-                    <p><strong>Tarif :</strong> À partir de 300 € TTC / session</p>
-                </div>
-                <div class="program-item">
-                    <h4>Suivi Post-Intervention</h4>
-                    <p>Bilans, accompagnements courts, conseils ponctuels pour garantir la continuité des effets et la stabilité des résultats.</p>
-                    <p>Appui managérial ciblé, supervision ou coaching : De 190 € à 345 € TTC / heure</p>
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Formation & Compétences</h2>
+                <p>Harmonie & Sens propose des formations adaptées aux <span class="highlight">réalités du terrain</span>, destinées aux équipes éducatives, soignantes et de direction.</p>
+                <p>Nos sessions visent à <strong>renforcer la culture commune</strong>, sécuriser les pratiques et développer les compétences managériales et techniques.</p>
+                <p>Chaque formation est <span class="highlight">personnalisée</span> selon les besoins spécifiques de votre organisation.</p>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🎓
                 </div>
             </div>
-            
-            <h3>Thématiques Proposées</h3>
-            <ul>
-                <li>Management et leadership bienveillant</li>
-                <li>Bientraitance institutionnelle</li>
-                <li>Gestion de crise et régulation des tensions</li>
-                <li>Éthique professionnelle et posture</li>
-                <li>Communication interne et externe</li>
-                <li>Pilotage stratégique et conformité réglementaire</li>
-            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2: Formats (Fond Vert, Texte à droite) -->
+<section class="service-section green">
+    <div class="container">
+        <div class="service-content-flex reverse">
+            <div class="service-text">
+                <h2>Nos Formats de Formation</h2>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>Formations sur Site</strong>Sessions adaptées aux équipes : management, bientraitance, gestion de crise, éthique - À partir de 990€ TTC/jour</li>
+                        <li><strong>Webinaires Interactifs</strong>Modules à distance pour accompagner les transformations (2h) - À partir de 300€ TTC/session</li>
+                        <li><strong>Suivi Post-Intervention</strong>Bilans, accompagnements courts, conseils ponctuels pour garantir la continuité</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    💻
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Thématiques (Fond Bleu, Texte à gauche) -->
+<section class="service-section blue">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Thématiques Proposées</h2>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>Management et leadership bienveillant</strong>Développer un leadership éthique et efficace</li>
+                        <li><strong>Bientraitance institutionnelle</strong>Cultiver les bonnes pratiques au quotidien</li>
+                        <li><strong>Gestion de crise et régulation des tensions</strong>Anticiper et gérer les situations difficiles</li>
+                        <li><strong>Éthique professionnelle et posture</strong>Renforcer l'identité professionnelle</li>
+                        <li><strong>Communication interne et externe</strong>Améliorer les relations et la cohésion</li>
+                        <li><strong>Pilotage stratégique et conformité</strong>Maîtriser les exigences réglementaires</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    📚
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Accompagnement (Fond Blanc) -->
+<section class="service-section white">
+    <div class="container">
+        <div class="service-content-flex">
+            <div class="service-text">
+                <h2>Accompagnement Personnalisé</h2>
+                <p>Au-delà des formations, nous proposons un <span class="highlight">suivi personnalisé</span> pour assurer l'intégration durable des apprentissages.</p>
+                <p><strong>Appui managérial ciblé :</strong> supervision ou coaching individuel - De 190€ à 345€ TTC/heure</p>
+                <div class="service-cta">
+                    <a href="{{ path('app_contact') }}" class="btn-service">Construisons votre plan de formation</a>
+                </div>
+            </div>
+            <div class="service-image">
+                <div class="service-icon">
+                    🤝
+                </div>
+            </div>
         </div>
     </div>
 </section>
