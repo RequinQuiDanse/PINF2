@@ -17,7 +17,7 @@
         <a href="{{ path('app_contact') }}" class="btn-appointment">Prendre rendez-vous</a>
     </div>
     <div class="hero-scroll-indicator">
-        <span>↓</span>
+        <i class="fas fa-chevron-down"></i>
     </div>
 </section>
 
@@ -29,17 +29,17 @@
             <p class="lead">Harmonie & Sens accompagne les établissements sociaux, médico-sociaux et sanitaires dans leurs périodes de transition, de transformation et de redéploiement stratégique.</p>
             <div class="presentation-grid">
                 <div class="presentation-item">
-                    <div class="presentation-icon">🎯</div>
+                    <div class="presentation-icon"><i class="fas fa-bullseye" style="color: var(--color-sage);"></i></div>
                     <h3>Notre expertise</h3>
                     <p>Direction de transition, gouvernance humaine et pilotage de transformation durable</p>
                 </div>
                 <div class="presentation-item">
-                    <div class="presentation-icon">🤝</div>
+                    <div class="presentation-icon"><i class="fas fa-handshake" style="color: var(--color-sage);"></i></div>
                     <h3>Notre approche</h3>
                     <p>Une posture d'équilibre entre exigence institutionnelle et engagement humain</p>
                 </div>
                 <div class="presentation-item">
-                    <div class="presentation-icon">⚖️</div>
+                    <div class="presentation-icon"><i class="fas fa-balance-scale" style="color: var(--color-sage);"></i></div>
                     <h3>Nos domaines</h3>
                     <p>Formation, conseil, appui managérial et direction stratégique opérationnelle</p>
                 </div>
@@ -80,35 +80,35 @@
 <section class="testimonials-section">
     <div class="container">
         <h2>Ils nous font confiance</h2>
+        {% if testimonies is not empty %}
         <div class="testimonials-grid">
+            {% for testimony in testimonies|slice(0, 3) %}
             <div class="testimonial-card">
                 <div class="testimonial-quote">"</div>
-                <p class="testimonial-text">Une intervention décisive qui a permis de restaurer la confiance et de remettre notre établissement sur les rails. L'accompagnement était à la fois rigoureux et bienveillant.</p>
+                <p class="testimonial-text">{{ testimony.content }}</p>
                 <div class="testimonial-author">
-                    <p class="author-name">Marie D.</p>
-                    <p class="author-position">Présidente - EHPAD (78 lits)</p>
+                    {% if testimony.imagePath %}
+                    <img src="{{ testimony.imagePath }}" alt="{{ testimony.clientName }}" class="author-avatar">
+                    {% endif %}
+                    <div>
+                        <p class="author-name">{{ testimony.clientName }}</p>
+                        <p class="author-position">{{ testimony.position ? testimony.position ~ ' - ' : '' }}{{ testimony.organization }}</p>
+                    </div>
                 </div>
-                <div class="testimonial-rating">★★★★★</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-quote">"</div>
-                <p class="testimonial-text">Un professionnalisme remarquable. La direction de transition a su apaiser les tensions et redresser la situation financière en quelques mois seulement.</p>
-                <div class="testimonial-author">
-                    <p class="author-name">Jean-Pierre L.</p>
-                    <p class="author-position">Directeur Général - Association médico-sociale</p>
+                <div class="testimonial-rating">
+                    {% for i in 1..testimony.rating %}
+                    <i class="fas fa-star"></i>
+                    {% endfor %}
+                    {% for i in testimony.rating+1..5 %}
+                    <i class="far fa-star"></i>
+                    {% endfor %}
                 </div>
-                <div class="testimonial-rating">★★★★★</div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-quote">"</div>
-                <p class="testimonial-text">Les formations proposées ont transformé nos pratiques managériales. Une approche concrète, applicable immédiatement sur le terrain.</p>
-                <div class="testimonial-author">
-                    <p class="author-name">Sophie M.</p>
-                    <p class="author-position">Chef de service - Foyer d'accueil médicalisé</p>
-                </div>
-                <div class="testimonial-rating">★★★★★</div>
-            </div>
+            {% endfor %}
         </div>
+        {% else %}
+        <p style="text-align:center; color: var(--color-gray-medium);">Aucun témoignage disponible pour le moment.</p>
+        {% endif %}
     </div>
 </section>
 
@@ -120,26 +120,26 @@
                 <h2>Webinaires gratuits</h2>
                 <p class="webinar-subtitle">Participez à nos sessions en ligne pour échanger sur les enjeux du secteur</p>
                 <ul class="webinar-benefits">
-                    <li>✓ Sessions interactives de 1h30</li>
-                    <li>✓ Thématiques actuelles du secteur médico-social</li>
-                    <li>✓ Questions/réponses avec l'experte</li>
-                    <li>✓ Certificat de participation</li>
+                    <li><i class="fas fa-check" style="color: var(--color-sage);"></i> Sessions interactives de 1h30</li>
+                    <li><i class="fas fa-check" style="color: var(--color-sage);"></i> Thématiques actuelles du secteur médico-social</li>
+                    <li><i class="fas fa-check" style="color: var(--color-sage);"></i> Questions/réponses avec l'experte</li>
+                    <li><i class="fas fa-check" style="color: var(--color-sage);"></i> Certificat de participation</li>
                 </ul>
             </div>
             <div class="webinar-upcoming">
                 <h3>Prochains webinaires</h3>
-                <div class="webinar-item">
-                    <div class="webinar-date">15 Décembre 2025</div>
-                    <h4>Préparer le bilan social 2025</h4>
-                    <p>14h00 - 15h30</p>
-                    <a href="#" class="btn-secondary">S'inscrire</a>
-                </div>
-                <div class="webinar-item">
-                    <div class="webinar-date">22 Janvier 2026</div>
-                    <h4>Gérer les situations conflictuelles</h4>
-                    <p>14h00 - 15h30</p>
-                    <a href="#" class="btn-secondary">S'inscrire</a>
-                </div>
+                {% if upcoming_webinars is not empty %}
+                    {% for webinar in upcoming_webinars|slice(0, 2) %}
+                    <div class="webinar-item">
+                        <div class="webinar-date">{{ webinar.date|date('d F Y') }}</div>
+                        <h4>{{ webinar.name }}</h4>
+                        <p>{{ webinar.date|date('H:i') }}{% if webinar.duration %} - {{ webinar.duration }} min{% endif %}</p>
+                        <a href="{{ webinar.link }}" target="_blank" class="btn-secondary">S'inscrire</a>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="color: var(--color-gray-medium);">Aucun webinaire programmé pour le moment. Revenez bientôt !</p>
+                {% endif %}
             </div>
         </div>
     </div>

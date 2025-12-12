@@ -1,0 +1,44 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}{{ service.id ? 'Modifier' : 'Nouveau' }} tarif{% endblock %}
+{% block body %}
+<div class="admin-content">
+    <div class="page-header">
+        <h1>{{ service.id ? 'Modifier' : 'Nouveau' }} tarif</h1>
+        <a href="{{ path('admin_service_pricing_index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Retour</a>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.serviceName) }}
+                    {{ form_widget(form.serviceName, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.description) }}
+                    {{ form_widget(form.description, {'attr': {'class': 'form-control', 'rows': 4}}) }}
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form_label(form.unitPrice) }}
+                        {{ form_widget(form.unitPrice, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.pricingUnit) }}
+                        {{ form_widget(form.pricingUnit, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        {{ form_widget(form.isActive, {'attr': {'class': 'form-check-input'}}) }}
+                        {{ form_label(form.isActive, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Enregistrer</button>
+                    <a href="{{ path('admin_service_pricing_index') }}" class="btn btn-secondary">Annuler</a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

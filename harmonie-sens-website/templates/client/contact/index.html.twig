@@ -29,48 +29,49 @@
                     <p>Décrivez votre projet et nous vous répondrons sous 24h ouvrées</p>
                 </div>
                 
-                <form class="contact-form">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+                
+                {{ form_start(form, {'attr': {'class': 'contact-form'}}) }}
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Nom complet <span class="required">*</span></label>
-                            <input type="text" id="name" name="name" required placeholder="Votre nom">
+                            {{ form_label(form.firstName) }} <span class="required">*</span>
+                            {{ form_widget(form.firstName) }}
+                            {{ form_errors(form.firstName) }}
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required placeholder="votre@email.fr">
+                            {{ form_label(form.lastName) }} <span class="required">*</span>
+                            {{ form_widget(form.lastName) }}
+                            {{ form_errors(form.lastName) }}
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+                            {{ form_label(form.email) }} <span class="required">*</span>
+                            {{ form_widget(form.email) }}
+                            {{ form_errors(form.email) }}
                         </div>
                         
                         <div class="form-group">
-                            <label for="organization">Établissement / Structure</label>
-                            <input type="text" id="organization" name="organization" placeholder="Nom de votre établissement">
+                            {{ form_label(form.phone) }}
+                            {{ form_widget(form.phone) }}
+                            {{ form_errors(form.phone) }}
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="subject">Sujet de votre demande <span class="required">*</span></label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Sélectionnez un sujet</option>
-                            <option value="direction-transition">Direction de transition</option>
-                            <option value="diagnostic-audit">Diagnostic & Audit</option>
-                            <option value="formation">Formations</option>
-                            <option value="accompagnement">Accompagnement managérial</option>
-                            <option value="conseil">Conseil stratégique</option>
-                            <option value="evaluation">Projet d'établissement / Évaluation externe</option>
-                            <option value="autre">Autre demande</option>
-                        </select>
+                        {{ form_label(form.subject) }} <span class="required">*</span>
+                        {{ form_widget(form.subject) }}
+                        {{ form_errors(form.subject) }}
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Décrivez votre projet ou besoin <span class="required">*</span></label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Détaillez votre contexte, vos besoins et vos objectifs..."></textarea>
+                        {{ form_label(form.message) }} <span class="required">*</span>
+                        {{ form_widget(form.message) }}
+                        {{ form_errors(form.message) }}
                     </div>
                     
                     <button type="submit" class="btn-submit">
@@ -79,7 +80,7 @@
                             <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
                         </svg>
                     </button>
-                </form>
+                {{ form_end(form) }}
             </div>
             
             <!-- Colonne informations -->
@@ -87,7 +88,7 @@
                 <!-- Cartes d'information -->
                 <div class="info-cards">
                     <div class="info-card">
-                        <div class="info-icon">📧</div>
+                        <div class="info-icon"><i class="fas fa-envelope" style="color: var(--color-sage);"></i></div>
                         <div class="info-content">
                             <h4>Email</h4>
                             <p class="info-value">contact@harmonieetsens.fr</p>
@@ -96,7 +97,7 @@
                     </div>
                     
                     <div class="info-card">
-                        <div class="info-icon">📞</div>
+                        <div class="info-icon"><i class="fas fa-phone-alt" style="color: var(--color-sage);"></i></div>
                         <div class="info-content">
                             <h4>Téléphone</h4>
                             <p class="info-value">06 83 42 40 12</p>
@@ -105,7 +106,7 @@
                     </div>
                     
                     <div class="info-card">
-                        <div class="info-icon">🌍</div>
+                        <div class="info-icon"><i class="fas fa-globe-europe" style="color: var(--color-sage);"></i></div>
                         <div class="info-content">
                             <h4>Zone d'intervention</h4>
                             <p class="info-value">Territoire national</p>
@@ -116,7 +117,7 @@
                 
                 <!-- Carte urgence -->
                 <div class="urgency-card">
-                    <div class="urgency-icon">⚡</div>
+                    <div class="urgency-icon"><i class="fas fa-bolt" style="color: var(--color-gold);"></i></div>
                     <h4>Besoin urgent ?</h4>
                     <p>Pour les situations de crise, départ soudain ou redressement urgent, contactez-nous directement par téléphone.</p>
                     <a href="tel:0683424012" class="btn-urgency">

@@ -1,0 +1,82 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ testimony.id ? 'Modifier' : 'Nouveau' }} témoignage{% endblock %}
+
+{% block body %}
+<div class="admin-content">
+    <div class="page-header">
+        <h1>{{ testimony.id ? 'Modifier' : 'Nouveau' }} témoignage</h1>
+        <a href="{{ path('admin_testimony_index') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            {{ form_start(form) }}
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form_label(form.clientName) }}
+                        {{ form_widget(form.clientName, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.clientName) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.position) }}
+                        {{ form_widget(form.position, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.position) }}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form_label(form.organization) }}
+                        {{ form_widget(form.organization, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.organization) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.rating) }}
+                        {{ form_widget(form.rating, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.rating) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.content) }}
+                    {{ form_widget(form.content, {'attr': {'class': 'form-control', 'rows': 6}}) }}
+                    {{ form_errors(form.content) }}
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form_label(form.imageFile) }}
+                        {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.imageFile) }}
+                        {% if testimony.imagePath %}
+                            <small>Image actuelle : <a href="{{ testimony.imagePath }}" target="_blank">Voir</a></small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.displayOrder) }}
+                        {{ form_widget(form.displayOrder, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.displayOrder) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-check">
+                        {{ form_widget(form.isPublished, {'attr': {'class': 'form-check-input'}}) }}
+                        {{ form_label(form.isPublished, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Enregistrer
+                    </button>
+                    <a href="{{ path('admin_testimony_index') }}" class="btn btn-secondary">Annuler</a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

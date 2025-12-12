@@ -1,0 +1,48 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}{{ webinar.id ? 'Modifier' : 'Nouveau' }} webinaire{% endblock %}
+{% block body %}
+<div class="admin-content">
+    <div class="page-header">
+        <h1>{{ webinar.id ? 'Modifier' : 'Nouveau' }} webinaire</h1>
+        <a href="{{ path('admin_webinar_index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Retour</a>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.description) }}
+                    {{ form_widget(form.description, {'attr': {'class': 'form-control', 'rows': 5}}) }}
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form_label(form.date) }}
+                        {{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.duration) }}
+                        {{ form_widget(form.duration, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.link) }}
+                    {{ form_widget(form.link, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        {{ form_widget(form.isActive, {'attr': {'class': 'form-check-input'}}) }}
+                        {{ form_label(form.isActive, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Enregistrer</button>
+                    <a href="{{ path('admin_webinar_index') }}" class="btn btn-secondary">Annuler</a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

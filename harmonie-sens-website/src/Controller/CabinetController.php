@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\TestimonyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,10 +10,17 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/cabinet')]
 class CabinetController extends AbstractController
 {
+    public function __construct(
+        private TestimonyRepository $testimonyRepository
+    ) {}
+
     #[Route('/presentation', name: 'app_cabinet_presentation')]
     public function presentation(): Response
     {
-        return $this->render('client/cabinet/presentation.html.twig');
+        $testimonies = $this->testimonyRepository->findPublishedTestimonies();
+        return $this->render('client/cabinet/presentation.html.twig', [
+            'testimonies' => $testimonies,
+        ]);
     }
 
     #[Route('/valeurs', name: 'app_cabinet_valeurs')]

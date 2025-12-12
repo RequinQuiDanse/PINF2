@@ -1,0 +1,44 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}{{ timetable.id ? 'Modifier' : 'Nouvel' }} horaire{% endblock %}
+{% block body %}
+<div class="admin-content">
+    <div class="page-header">
+        <h1>{{ timetable.id ? 'Modifier' : 'Nouvel' }} horaire</h1>
+        <a href="{{ path('admin_timetable_index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Retour</a>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.dayOfWeek) }}
+                    {{ form_widget(form.dayOfWeek, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form_label(form.startTime) }}
+                        {{ form_widget(form.startTime, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.endTime) }}
+                        {{ form_widget(form.endTime, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.notes) }}
+                    {{ form_widget(form.notes, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        {{ form_widget(form.isAvailable, {'attr': {'class': 'form-check-input'}}) }}
+                        {{ form_label(form.isAvailable, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Enregistrer</button>
+                    <a href="{{ path('admin_timetable_index') }}" class="btn btn-secondary">Annuler</a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

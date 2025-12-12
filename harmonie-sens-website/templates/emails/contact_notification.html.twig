@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background: #f9f9f9;">
+        <div style="background: #fff; padding: 30px; border-radius: 8px;">
+            <h2 style="color: #7A8F6E; margin-bottom: 20px;">Nouveau message de contact</h2>
+            
+            <div style="margin-bottom: 15px;">
+                <strong>De :</strong> {{ message.firstName }} {{ message.lastName }}
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <strong>Email :</strong> <a href="mailto:{{ message.email }}">{{ message.email }}</a>
+            </div>
+            
+            {% if message.phone %}
+            <div style="margin-bottom: 15px;">
+                <strong>Téléphone :</strong> {{ message.phone }}
+            </div>
+            {% endif %}
+            
+            <div style="margin-bottom: 15px;">
+                <strong>Sujet :</strong> {{ message.subject }}
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <strong>Date :</strong> {{ message.createdAt|date('d/m/Y à H:i') }}
+            </div>
+            
+            <div style="margin-top: 25px; padding: 20px; background: #f5f5f5; border-left: 4px solid #7A8F6E; border-radius: 4px;">
+                <strong>Message :</strong><br><br>
+                {{ message.message|nl2br }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

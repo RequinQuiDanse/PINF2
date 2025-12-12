@@ -1,27 +1,86 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
-{% block title %}Tableau de bord - Admin{% endblock %}
-
-{% block navbar %}
-    {% include 'components/navbar_admin.html.twig' %}
-{% endblock %}
+{% block title %}Dashboard{% endblock %}
 
 {% block body %}
-<section class="admin-header">
-    <div class="container">
+<div class="admin-content">
+    <div class="page-header">
         <h1>Tableau de bord</h1>
+        <p>Bienvenue {{ app.user.firstName }} {{ app.user.lastName }}</p>
     </div>
-</section>
 
-<section class="admin-stats">
-    <div class="container">
-        {# Statistiques vides #}
-    </div>
-</section>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: var(--color-gold-light);">
+                <i class="fas fa-envelope" style="color: var(--color-gold-dark);"></i>
+            </div>
+            <div class="stat-content">
+                <h3>{{ unread_messages }}</h3>
+                <p>Messages non lus</p>
+            </div>
+        </div>
 
-<section class="admin-recent">
-    <div class="container">
-        {# Activités récentes vides #}
+        <div class="stat-card">
+            <div class="stat-icon" style="background: var(--color-sage-light);">
+                <i class="fas fa-users" style="color: var(--color-sage-dark);"></i>
+            </div>
+            <div class="stat-content">
+                <h3>{{ total_persons }}</h3>
+                <p>Personnes</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon" style="background: #E8F4F8;">
+                <i class="fas fa-newspaper" style="color: #4A90B8;"></i>
+            </div>
+            <div class="stat-content">
+                <h3>{{ newsletter_subscribers }}</h3>
+                <p>Abonnés newsletter</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon" style="background: #F0F8ED;">
+                <i class="fas fa-star" style="color: #7BB26B;"></i>
+            </div>
+            <div class="stat-content">
+                <h3>{{ published_testimonies }}</h3>
+                <p>Témoignages publiés</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon" style="background: var(--color-gold-light);">
+                <i class="fas fa-video" style="color: var(--color-gold-dark);"></i>
+            </div>
+            <div class="stat-content">
+                <h3>{{ upcoming_webinars }}</h3>
+                <p>Webinaires à venir</p>
+            </div>
+        </div>
     </div>
-</section>
+
+    <div class="quick-actions">
+        <h2>Actions rapides</h2>
+        <div class="actions-grid">
+            <a href="{{ path('admin_message_index') }}" class="action-card">
+                <i class="fas fa-envelope"></i>
+                <span>Voir les messages</span>
+            </a>
+            <a href="{{ path('admin_testimony_new') }}" class="action-card">
+                <i class="fas fa-plus"></i>
+                <span>Nouveau témoignage</span>
+            </a>
+            <a href="{{ path('admin_webinar_new') }}" class="action-card">
+                <i class="fas fa-video"></i>
+                <span>Nouveau webinaire</span>
+            </a>
+            <a href="{{ path('admin_person_index') }}" class="action-card">
+                <i class="fas fa-users"></i>
+                <span>Gérer les personnes</span>
+            </a>
+        </div>
+    </div>
+</div>
 {% endblock %}

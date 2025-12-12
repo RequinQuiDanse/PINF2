@@ -1,0 +1,61 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Témoignages{% endblock %}
+
+{% block body %}
+<div class="admin-content">
+    <div class="page-header">
+        <h1>Témoignages</h1>
+        <a href="{{ path('admin_testimony_new') }}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Nouveau témoignage
+        </a>
+    </div>
+
+    <div class="table-container">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Organisation</th>
+                    <th>Note</th>
+                    <th>Statut</th>
+                    <th>Ordre</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for testimony in testimonies %}
+                <tr>
+                    <td>{{ testimony.clientName }}</td>
+                    <td>{{ testimony.organization }}</td>
+                    <td>{{ testimony.rating }}/5</td>
+                    <td>
+                        {% if testimony.isPublished %}
+                            <span class="badge badge-success">Publié</span>
+                        {% else %}
+                            <span class="badge badge-secondary">Brouillon</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ testimony.displayOrder }}</td>
+                    <td class="actions">
+                        <a href="{{ path('admin_testimony_edit', {id: testimony.id}) }}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <form method="post" action="{{ path('admin_testimony_delete', {id: testimony.id}) }}" style="display:inline;">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ testimony.id) }}">
+                            <button class="btn btn-sm btn-danger" onclick="return confirm('Supprimer?')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" style="text-align:center;">Aucun témoignage</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

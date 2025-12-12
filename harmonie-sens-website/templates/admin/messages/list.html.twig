@@ -1,21 +1,59 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
-{% block title %}Messages - Admin{% endblock %}
-
-{% block navbar %}
-    {% include 'components/navbar_admin.html.twig' %}
-{% endblock %}
+{% block title %}Messages{% endblock %}
 
 {% block body %}
-<section class="admin-header">
-    <div class="container">
-        <h1>Messages reçus</h1>
+<div class="admin-content">
+    <div class="page-header">
+        <h1>Messages de contact</h1>
+        <p>Gérez les messages reçus des visiteurs</p>
     </div>
-</section>
 
-<section class="admin-messages-list">
-    <div class="container">
-        {# Liste des messages vide #}
+    <div class="table-container">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Sujet</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message in messages %}
+                <tr class="{% if not message.isRead %}unread{% endif %}">
+                    <td>{{ message.createdAt|date('d/m/Y H:i') }}</td>
+                    <td>{{ message.firstName }} {{ message.lastName }}</td>
+                    <td>{{ message.email }}</td>
+                    <td>{{ message.subject }}</td>
+                    <td>
+                        {% if message.isRead %}
+                            <span class="badge badge-success">Lu</span>
+                        {% else %}
+                            <span class="badge badge-warning">Non lu</span>
+                        {% endif %}
+                    </td>
+                    <td class="actions">
+                        <a href="{{ path('admin_message_view', {id: message.id}) }}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <form method="post" action="{{ path('admin_message_delete', {id: message.id}) }}" style="display:inline;">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ message.id) }}">
+                            <button class="btn btn-sm btn-danger" onclick="return confirm('Supprimer?')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" style="text-align:center;">Aucun message</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-</section>
+</div>
 {% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}Emploi du temps{% endblock %}
+{% block body %}
+<div class="admin-content">
+    <div class="page-header">
+        <h1>Emploi du temps</h1>
+        <a href="{{ path('admin_timetable_new') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Nouvel horaire</a>
+    </div>
+    <div class="table-container">
+        <table class="admin-table">
+            <thead>
+                <tr><th>Jour</th><th>Horaires</th><th>Disponible</th><th>Notes</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+                {% for timetable in timetables %}
+                <tr>
+                    <td>{{ timetable.dayOfWeek|capitalize }}</td>
+                    <td>{{ timetable.startTime }} - {{ timetable.endTime }}</td>
+                    <td>
+                        {% if timetable.isAvailable %}<span class="badge badge-success">Oui</span>
+                        {% else %}<span class="badge badge-secondary">Non</span>{% endif %}
+                    </td>
+                    <td>{{ timetable.notes ?? '-' }}</td>
+                    <td class="actions">
+                        <a href="{{ path('admin_timetable_edit', {id: timetable.id}) }}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                        <form method="post" action="{{ path('admin_timetable_delete', {id: timetable.id}) }}" style="display:inline;">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ timetable.id) }}">
+                            <button class="btn btn-sm btn-danger" onclick="return confirm('Supprimer?')"><i class="fas fa-trash"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}<tr><td colspan="5" style="text-align:center;">Aucun horaire</td></tr>{% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

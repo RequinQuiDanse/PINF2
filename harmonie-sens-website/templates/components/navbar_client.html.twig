@@ -38,6 +38,10 @@
                 </ul>
             </li>
 
+            <li class="navbar-item">
+                <a href="{{ path('app_quote') }}" class="navbar-link{% if app.request.attributes.get('_route') == 'app_quote' %} active{% endif %}">Faire mon devis</a>
+            </li>
+
             <li class="navbar-item navbar-cta">
                 <a href="{{ path('app_contact') }}" class="navbar-link{% if app.request.attributes.get('_route') == 'app_contact' %} active{% endif %}">Contact</a>
             </li>

@@ -1,0 +1,37 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}Webinaires{% endblock %}
+{% block body %}
+<div class="admin-content">
+    <div class="page-header">
+        <h1>Webinaires</h1>
+        <a href="{{ path('admin_webinar_new') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Nouveau webinaire</a>
+    </div>
+    <div class="table-container">
+        <table class="admin-table">
+            <thead>
+                <tr><th>Nom</th><th>Date</th><th>Durée</th><th>Statut</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+                {% for webinar in webinars %}
+                <tr>
+                    <td>{{ webinar.name }}</td>
+                    <td>{{ webinar.date|date('d/m/Y H:i') }}</td>
+                    <td>{{ webinar.duration ?? '-' }} min</td>
+                    <td>
+                        {% if webinar.isActive %}<span class="badge badge-success">Actif</span>
+                        {% else %}<span class="badge badge-secondary">Inactif</span>{% endif %}
+                    </td>
+                    <td class="actions">
+                        <a href="{{ path('admin_webinar_edit', {id: webinar.id}) }}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                        <form method="post" action="{{ path('admin_webinar_delete', {id: webinar.id}) }}" style="display:inline;">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ webinar.id) }}">
+                            <button class="btn btn-sm btn-danger" onclick="return confirm('Supprimer?')"><i class="fas fa-trash"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}<tr><td colspan="5" style="text-align:center;">Aucun webinaire</td></tr>{% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

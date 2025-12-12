@@ -1,21 +1,42 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
-{% block title %}Message - Admin{% endblock %}
-
-{% block navbar %}
-    {% include 'components/navbar_admin.html.twig' %}
-{% endblock %}
+{% block title %}Message{% endblock %}
 
 {% block body %}
-<section class="admin-header">
-    <div class="container">
-        <h1>Détails du message</h1>
+<div class="admin-content">
+    <div class="page-header">
+        <h1>Message de {{ message.firstName }} {{ message.lastName }}</h1>
+        <a href="{{ path('admin_message_index') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
     </div>
-</section>
 
-<section class="admin-message-details">
-    <div class="container">
-        {# Détails du message vide #}
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <strong>De :</strong> {{ message.firstName }} {{ message.lastName }}
+            </div>
+            <div class="form-group">
+                <strong>Email :</strong> <a href="mailto:{{ message.email }}">{{ message.email }}</a>
+            </div>
+            {% if message.phone %}
+            <div class="form-group">
+                <strong>Téléphone :</strong> {{ message.phone }}
+            </div>
+            {% endif %}
+            <div class="form-group">
+                <strong>Date :</strong> {{ message.createdAt|date('d/m/Y à H:i') }}
+            </div>
+            <div class="form-group">
+                <strong>Sujet :</strong> {{ message.subject }}
+            </div>
+            <div class="form-group">
+                <strong>Message :</strong>
+                <div style="margin-top: 0.5rem; padding: 1rem; background: var(--color-gray-lighter); border-radius: 6px;">
+                    {{ message.message|nl2br }}
+                </div>
+            </div>
+        </div>
     </div>
-</section>
+</div>
 {% endblock %}

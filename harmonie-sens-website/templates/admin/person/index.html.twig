@@ -1,0 +1,61 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Personnes{% endblock %}
+
+{% block body %}
+<div class="admin-content">
+    <div class="page-header">
+        <h1>Personnes & Newsletter</h1>
+        <a href="{{ path('admin_person_new') }}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Nouvelle personne
+        </a>
+    </div>
+
+    <div class="table-container">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Organisation</th>
+                    <th>Newsletter</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in persons %}
+                <tr>
+                    <td>{{ person.firstName }} {{ person.lastName }}</td>
+                    <td>{{ person.email }}</td>
+                    <td>{{ person.phone ?? '-' }}</td>
+                    <td>{{ person.organization ?? '-' }}</td>
+                    <td>
+                        {% if person.subscribedToNewsletter %}
+                            <span class="badge badge-success">Oui</span>
+                        {% else %}
+                            <span class="badge badge-secondary">Non</span>
+                        {% endif %}
+                    </td>
+                    <td class="actions">
+                        <a href="{{ path('admin_person_edit', {id: person.id}) }}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <form method="post" action="{{ path('admin_person_delete', {id: person.id}) }}" style="display:inline;">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ person.id) }}">
+                            <button class="btn btn-sm btn-danger" onclick="return confirm('Supprimer?')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" style="text-align:center;">Aucune personne</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
