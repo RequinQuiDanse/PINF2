@@ -95,12 +95,11 @@
                         <p class="author-position">{{ testimony.position ? testimony.position ~ ' - ' : '' }}{{ testimony.organization }}</p>
                     </div>
                 </div>
-                <div class="testimonial-rating">
-                    {% for i in 1..testimony.rating %}
-                    <i class="fas fa-star"></i>
-                    {% endfor %}
-                    {% for i in testimony.rating+1..5 %}
-                    <i class="far fa-star"></i>
+                {% set rating = (testimony.rating|default(0))|round(0, 'floor') %}
+                {% set rating = rating < 0 ? 0 : (rating > 5 ? 5 : rating) %}
+                <div class="testimonial-rating" title="{{ rating }}/5">
+                    {% for i in 1..5 %}
+                        <i class="{{ i <= rating ? 'fas' : 'far' }} fa-star"></i>
                     {% endfor %}
                 </div>
             </div>

@@ -1152,7 +1152,19 @@ section {
 }
 
 .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
     margin-bottom: var(--spacing-sm);
+}
+
+.author-avatar {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid rgba(156, 175, 136, 0.2);
 }
 
 .author-name {

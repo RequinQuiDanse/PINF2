@@ -3,11 +3,12 @@
 {% block title %}Gestion des Services{% endblock %}
 
 {% block body %}
-<div class="admin-header">
-    <h1>Gestion des Services et Tarifs</h1>
-</div>
-
 <div class="admin-content">
+    <div class="page-header">
+        <h1>Gestion des Services et Tarifs</h1>
+        <p>Gérez les services et mettez à jour les tarifs affichés sur le site</p>
+    </div>
+
     <div class="services-grid">
         {% for service in services %}
         <div class="service-card">
@@ -55,101 +56,4 @@
         {% endfor %}
     </div>
 </div>
-
-<style>
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.service-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-card-header {
-    background: var(--color-sage-green);
-    color: white;
-    padding: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.service-card-header h3 {
-    margin: 0;
-    font-size: 1.25rem;
-}
-
-.service-card-body {
-    padding: 1.5rem;
-    flex: 1;
-}
-
-.service-description {
-    color: #666;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.service-pricing-info {
-    background: #f8f9fa;
-    padding: 1rem;
-    border-radius: 6px;
-    border-left: 4px solid var(--color-gold);
-}
-
-.pricing-label {
-    font-size: 0.875rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.5rem;
-}
-
-.pricing-value {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-sage-green);
-    margin-bottom: 0.75rem;
-}
-
-.pricing-unit {
-    font-size: 0.875rem;
-    color: #666;
-    font-weight: normal;
-}
-
-.pricing-details {
-    font-size: 0.875rem;
-    color: #555;
-    line-height: 1.8;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #ddd;
-}
-
-.service-card-footer {
-    padding: 1.5rem;
-    background: #f8f9fa;
-    border-top: 1px solid #eee;
-}
-
-.service-card-footer .btn {
-    width: 100%;
-    justify-content: center;
-}
-
-@media (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
 {% endblock %}
