@@ -3,15 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Harmonie & Sens{% endblock %}</title>
+    
+    {# SEO Meta Tags #}
+    <title>{% block title %}Harmonie & Sens - Cabinet de conseil et direction de transition{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Harmonie & Sens : cabinet de conseil, audit et formation pour établissements de santé, médico-sociaux et ESMS. Direction de transition, accompagnement managérial et formations sur-mesure.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}direction de transition, cabinet conseil santé, ESMS, médico-social, formation établissement santé, audit EHPAD, management transition, accompagnement gouvernance{% endblock %}">
+    <meta name="author" content="Harmonie & Sens">
+    <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}">
+    
+    {# Canonical URL #}
+    <link rel="canonical" href="{% block canonical_url %}{{ app.request.schemeAndHttpHost ~ app.request.pathInfo }}{% endblock %}">
+    
+    {# Open Graph / Facebook #}
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:url" content="{{ app.request.uri }}">
+    <meta property="og:title" content="{% block og_title %}Harmonie & Sens - Direction de transition & conseil{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Cabinet de conseil, audit et formation pour établissements de santé et médico-sociaux. Direction de transition et accompagnement managérial.{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ absolute_url(asset('images/og-image.jpg')) }}{% endblock %}">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Harmonie & Sens">
+    
+    {# Twitter Card #}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Harmonie & Sens - Direction de transition{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Cabinet de conseil et formation pour établissements de santé et médico-sociaux.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ absolute_url(asset('images/og-image.jpg')) }}{% endblock %}">
+    
+    {# Geo Tags #}
+    <meta name="geo.region" content="FR">
+    <meta name="geo.placename" content="France">
+    
+    {# Favicon #}
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
+    
+    {# Preconnect for performance #}
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     {% block stylesheets %}{% endblock %}
+    
+    {# JSON-LD Structured Data #}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Harmonie & Sens",
+        "description": "Cabinet de conseil, audit et formation pour établissements de santé, médico-sociaux et ESMS. Direction de transition et accompagnement managérial.",
+        "url": "{{ app.request.schemeAndHttpHost }}",
+        "telephone": "+33683424012",
+        "email": "contact@harmonieetsens.fr",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "FR"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "France"
+        },
+        "serviceArea": {
+            "@type": "Country",
+            "name": "France"
+        },
+        "priceRange": "€€€",
+        "sameAs": []
+    }
+    </script>
+    {% block structured_data %}{% endblock %}
 </head>
 <body>
     {% block navbar %}{% endblock %}
     
-    <main>
+    <main role="main">
         {% block body %}{% endblock %}
     </main>
 

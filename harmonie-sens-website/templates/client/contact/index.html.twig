@@ -1,6 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact - Harmonie & Sens{% endblock %}
+{% block title %}Contact | Demande de Devis - Harmonie & Sens{% endblock %}
+
+{% block meta_description %}Contactez Harmonie & Sens pour vos projets de direction de transition, audit, formation ou accompagnement. Réponse sous 24h. Tél : 06 83 42 40 12. Interventions sur tout le territoire français.{% endblock %}
+
+{% block meta_keywords %}contact cabinet conseil santé, devis direction transition, demande audit EHPAD, contact formation médico-social, prendre rendez-vous{% endblock %}
+
+{% block og_title %}Contactez-nous | Harmonie & Sens{% endblock %}
+{% block og_description %}Contactez Harmonie & Sens pour discuter de votre projet. Réponse garantie sous 24h ouvrées.{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Harmonie & Sens",
+    "description": "Contactez Harmonie & Sens pour vos projets de direction de transition, audit ou formation.",
+    "mainEntity": {
+        "@type": "Organization",
+        "name": "Harmonie & Sens",
+        "telephone": "+33683424012",
+        "email": "contact@harmonieetsens.fr"
+    }
+}
+</script>
+{% endblock %}
 
 {% block navbar %}
     {% include 'components/navbar_client.html.twig' %}

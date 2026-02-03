@@ -1,6 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil - Harmonie & Sens{% endblock %}
+{% block title %}Harmonie & Sens | Cabinet de conseil, audit et formation santé & médico-social{% endblock %}
+
+{% block meta_description %}Harmonie & Sens accompagne les établissements de santé, EHPAD et ESMS : direction de transition, audit, diagnostic, formations sur-mesure et accompagnement managérial. Expertise reconnue en secteur médico-social.{% endblock %}
+
+{% block meta_keywords %}cabinet conseil santé, direction transition EHPAD, formation médico-social, audit ESMS, accompagnement managérial santé, conseil établissement médico-social, gouvernance sanitaire{% endblock %}
+
+{% block og_title %}Harmonie & Sens | Expert en direction de transition et conseil médico-social{% endblock %}
+{% block og_description %}Cabinet de conseil spécialisé dans l'accompagnement des établissements de santé et médico-sociaux. Direction de transition, audit, formations.{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Harmonie & Sens",
+    "description": "Cabinet de conseil, audit et formation pour établissements de santé et médico-sociaux",
+    "url": "{{ app.request.schemeAndHttpHost }}",
+    "logo": "{{ absolute_url(asset('images/logo/logo.png')) }}",
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+33683424012",
+        "contactType": "customer service",
+        "email": "contact@harmonieetsens.fr",
+        "availableLanguage": "French"
+    },
+    "areaServed": "FR",
+    "serviceType": ["Direction de transition", "Audit et diagnostic", "Formation professionnelle", "Accompagnement managérial"]
+}
+</script>
+{% endblock %}
 
 {% block navbar %}
     {% include 'components/navbar_client.html.twig' %}

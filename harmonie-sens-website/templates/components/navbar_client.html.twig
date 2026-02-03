@@ -1,50 +1,52 @@
-<nav class="navbar navbar-client">
+<header role="banner">
+<nav class="navbar navbar-client" aria-label="Navigation principale">
     <div class="navbar-container">
-        <div class="navbar-brand">
-            <a href="{{ path('app_home') }}">
-                <h1>Harmonie & Sens</h1>
-                <p class="tagline">Conduire, relier et restaurer l'équilibre</p>
+        <div class="navbar-brand" itemscope itemtype="https://schema.org/Organization">
+            <a href="{{ path('app_home') }}" itemprop="url">
+                <h1 itemprop="name">Harmonie & Sens</h1>
+                <p class="tagline" itemprop="slogan">Conduire, relier et restaurer l'équilibre</p>
             </a>
         </div>
 
-        <button class="navbar-toggle" aria-label="Menu" onclick="this.classList.toggle('active'); document.querySelector('.navbar-menu').classList.toggle('active');">
+        <button class="navbar-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="main-menu" onclick="this.classList.toggle('active'); document.querySelector('.navbar-menu').classList.toggle('active'); this.setAttribute('aria-expanded', this.classList.contains('active'));">
             <span></span>
             <span></span>
             <span></span>
         </button>
 
-        <ul class="navbar-menu">
-            <li class="navbar-item">
-                <a href="{{ path('app_home') }}" class="navbar-link{% if app.request.attributes.get('_route') == 'app_home' %} active{% endif %}">Accueil</a>
+        <ul class="navbar-menu" id="main-menu" role="menubar">
+            <li class="navbar-item" role="none">
+                <a href="{{ path('app_home') }}" class="navbar-link{% if app.request.attributes.get('_route') == 'app_home' %} active{% endif %}" role="menuitem">Accueil</a>
             </li>
             
-            <li class="navbar-item dropdown">
-                <a href="{{ path('app_services_direction') }}" class="navbar-link{% if app.request.attributes.get('_route') starts with 'app_services' %} active{% endif %}">Services</a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ path('app_services_direction') }}"{% if app.request.attributes.get('_route') == 'app_services_direction' %} class="active"{% endif %}>Direction de transition</a></li>
-                    <li><a href="{{ path('app_services_diagnostic') }}"{% if app.request.attributes.get('_route') == 'app_services_diagnostic' %} class="active"{% endif %}>Diagnostic & Audit</a></li>
-                    <li><a href="{{ path('app_services_formations') }}"{% if app.request.attributes.get('_route') == 'app_services_formations' %} class="active"{% endif %}>Formations</a></li>
-                    <li><a href="{{ path('app_services_accompagnement') }}"{% if app.request.attributes.get('_route') == 'app_services_accompagnement' %} class="active"{% endif %}>Accompagnement</a></li>
+            <li class="navbar-item dropdown" role="none">
+                <a href="{{ path('app_services_direction') }}" class="navbar-link{% if app.request.attributes.get('_route') starts with 'app_services' %} active{% endif %}" role="menuitem" aria-haspopup="true">Services</a>
+                <ul class="dropdown-menu" role="menu" aria-label="Sous-menu Services">
+                    <li role="none"><a href="{{ path('app_services_direction') }}"{% if app.request.attributes.get('_route') == 'app_services_direction' %} class="active"{% endif %} role="menuitem">Direction de transition</a></li>
+                    <li role="none"><a href="{{ path('app_services_diagnostic') }}"{% if app.request.attributes.get('_route') == 'app_services_diagnostic' %} class="active"{% endif %} role="menuitem">Diagnostic & Audit</a></li>
+                    <li role="none"><a href="{{ path('app_services_formations') }}"{% if app.request.attributes.get('_route') == 'app_services_formations' %} class="active"{% endif %} role="menuitem">Formations</a></li>
+                    <li role="none"><a href="{{ path('app_services_accompagnement') }}"{% if app.request.attributes.get('_route') == 'app_services_accompagnement' %} class="active"{% endif %} role="menuitem">Accompagnement</a></li>
                 </ul>
             </li>
 
-            <li class="navbar-item dropdown">
-                <a href="{{ path('app_cabinet_presentation') }}" class="navbar-link{% if app.request.attributes.get('_route') starts with 'app_cabinet' %} active{% endif %}">Cabinet</a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ path('app_cabinet_presentation') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_presentation' %} class="active"{% endif %}>Présentation</a></li>
-                    <li><a href="{{ path('app_cabinet_valeurs') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_valeurs' %} class="active"{% endif %}>Valeurs</a></li>
-                    <li><a href="{{ path('app_cabinet_methodologie') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_methodologie' %} class="active"{% endif %}>Méthodologie</a></li>
-                    <li><a href="{{ path('app_cabinet_secteurs') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_secteurs' %} class="active"{% endif %}>Secteurs d'intervention</a></li>
+            <li class="navbar-item dropdown" role="none">
+                <a href="{{ path('app_cabinet_presentation') }}" class="navbar-link{% if app.request.attributes.get('_route') starts with 'app_cabinet' %} active{% endif %}" role="menuitem" aria-haspopup="true">Cabinet</a>
+                <ul class="dropdown-menu" role="menu" aria-label="Sous-menu Cabinet">
+                    <li role="none"><a href="{{ path('app_cabinet_presentation') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_presentation' %} class="active"{% endif %} role="menuitem">Présentation</a></li>
+                    <li role="none"><a href="{{ path('app_cabinet_valeurs') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_valeurs' %} class="active"{% endif %} role="menuitem">Valeurs</a></li>
+                    <li role="none"><a href="{{ path('app_cabinet_methodologie') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_methodologie' %} class="active"{% endif %} role="menuitem">Méthodologie</a></li>
+                    <li role="none"><a href="{{ path('app_cabinet_secteurs') }}"{% if app.request.attributes.get('_route') == 'app_cabinet_secteurs' %} class="active"{% endif %} role="menuitem">Secteurs d'intervention</a></li>
                 </ul>
             </li>
 
-            <li class="navbar-item">
-                <a href="{{ path('app_quote') }}" class="navbar-link{% if app.request.attributes.get('_route') == 'app_quote' %} active{% endif %}">Faire mon devis</a>
+            <li class="navbar-item" role="none">
+                <a href="{{ path('app_quote') }}" class="navbar-link{% if app.request.attributes.get('_route') == 'app_quote' %} active{% endif %}" role="menuitem">Faire mon devis</a>
             </li>
 
-            <li class="navbar-item navbar-cta">
-                <a href="{{ path('app_contact') }}" class="navbar-link{% if app.request.attributes.get('_route') == 'app_contact' %} active{% endif %}">Contact</a>
+            <li class="navbar-item navbar-cta" role="none">
+                <a href="{{ path('app_contact') }}" class="navbar-link{% if app.request.attributes.get('_route') == 'app_contact' %} active{% endif %}" role="menuitem">Contact</a>
             </li>
         </ul>
     </div>
 </nav>
+</header>

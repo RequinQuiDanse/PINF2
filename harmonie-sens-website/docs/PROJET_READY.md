@@ -311,6 +311,7 @@ php -S localhost:8000 -t public/
 - 📞 06 83 42 40 12
 - 🌍 Interventions sur le territoire national
 - 💼 Fondatrice : Renard Lamharfi Malika
+- 🎓 Diplômes : Université Catholique de Lille, EDHEC Business School
 
 **Slogan :**
 "Conduire, relier et restaurer l'équilibre au cœur des organisations"

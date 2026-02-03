@@ -1,6 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Direction de Transition - Harmonie & Sens{% endblock %}
+{% block title %}Direction de Transition | Management intérimaire EHPAD & ESMS - Harmonie & Sens{% endblock %}
+
+{% block meta_description %}Direction de transition pour établissements de santé et médico-sociaux. Pilotage de crise, gouvernance intérimaire, redressement managérial pour EHPAD, ESMS et structures sanitaires. Intervention de 3 à 12 mois.{% endblock %}
+
+{% block meta_keywords %}direction transition EHPAD, management intérimaire médico-social, directeur transition ESMS, pilotage crise sanitaire, gouvernance intérimaire, redressement établissement santé{% endblock %}
+
+{% block og_title %}Direction de Transition | Harmonie & Sens{% endblock %}
+{% block og_description %}Direction de transition et management intérimaire pour établissements de santé et médico-sociaux. Restaurer la confiance et piloter le changement.{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Direction de Transition",
+    "description": "Direction de transition pour établissements de santé et médico-sociaux. Pilotage de crise, gouvernance intérimaire, redressement managérial.",
+    "provider": {
+        "@type": "Organization",
+        "name": "Harmonie & Sens"
+    },
+    "areaServed": "FR",
+    "serviceType": "Direction de transition"
+}
+</script>
+{% endblock %}
 
 {% block navbar %}
     {% include 'components/navbar_client.html.twig' %}

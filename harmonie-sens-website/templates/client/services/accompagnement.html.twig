@@ -1,6 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accompagnement - Harmonie & Sens{% endblock %}
+{% block title %}Accompagnement Managérial | Redressement EHPAD & ESMS - Harmonie & Sens{% endblock %}
+
+{% block meta_description %}Accompagnement managérial et redressement organisationnel pour établissements de santé et médico-sociaux. Appui à la gouvernance, restructuration et coaching de direction pour EHPAD et ESMS.{% endblock %}
+
+{% block meta_keywords %}accompagnement managérial EHPAD, redressement organisationnel, appui gouvernance médico-social, restructuration ESMS, coaching direction santé, accompagnement établissement{% endblock %}
+
+{% block og_title %}Accompagnement Managérial | Harmonie & Sens{% endblock %}
+{% block og_description %}Accompagnement managérial et redressement pour établissements en difficulté. Restructuration et coaching de direction.{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Accompagnement Managérial",
+    "description": "Accompagnement managérial et redressement organisationnel pour établissements de santé.",
+    "provider": {
+        "@type": "Organization",
+        "name": "Harmonie & Sens"
+    },
+    "areaServed": "FR",
+    "serviceType": "Accompagnement managérial"
+}
+</script>
+{% endblock %}
 
 {% block navbar %}
     {% include 'components/navbar_client.html.twig' %}

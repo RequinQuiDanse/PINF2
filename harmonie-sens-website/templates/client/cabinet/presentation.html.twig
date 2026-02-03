@@ -1,6 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Présentation - Harmonie & Sens{% endblock %}
+{% block title %}Présentation du Cabinet | Expert Santé & Médico-social - Harmonie & Sens{% endblock %}
+
+{% block meta_description %}Découvrez Harmonie & Sens, cabinet de conseil spécialisé dans l'accompagnement des établissements de santé, EHPAD et ESMS. Direction de transition, gouvernance humaine et transformation durable.{% endblock %}
+
+{% block meta_keywords %}cabinet conseil santé, présentation Harmonie Sens, expert médico-social, accompagnement EHPAD, conseil ESMS, direction transition{% endblock %}
+
+{% block og_title %}Présentation du Cabinet | Harmonie & Sens{% endblock %}
+{% block og_description %}Cabinet de conseil spécialisé dans l'accompagnement des établissements de santé et médico-sociaux. Direction de confiance et gouvernance humaine.{% endblock %}
 
 {% block navbar %}
     {% include 'components/navbar_client.html.twig' %}
@@ -109,6 +116,7 @@
             <div class="service-text">
                 <h2>Renard Lamharfi Malika - Fondatrice</h2>
                 <p><span class="highlight">Directrice de transition expérimentée</span>, fondatrice du cabinet Harmonie & Sens, spécialisée en direction de confiance, gouvernance humaine et pilotage de transformation durable dans le secteur social, médico-social et sanitaire.</p>
+                <p>Diplômée de l'<strong>Université Catholique de Lille</strong> et de l'<strong>EDHEC Business School</strong>, elle apporte une solide formation académique à son expertise terrain.</p>
                 <p>Une expertise reconnue dans l'accompagnement des organisations en période de transition, avec une approche qui allie <strong>rigueur institutionnelle et humanité managériale</strong>.</p>
                 <div class="service-cta">
                     <a href="{{ path('app_contact') }}" class="btn-service">Discutons de vos enjeux</a>

@@ -1,6 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Formations - Harmonie & Sens{% endblock %}
+{% block title %}Formations Santé & Médico-social | Management, Bientraitance - Harmonie & Sens{% endblock %}
+
+{% block meta_description %}Formations professionnelles pour établissements de santé et médico-sociaux : management bienveillant, gestion de crise, bientraitance institutionnelle, leadership éthique. Sessions sur-mesure pour EHPAD et ESMS.{% endblock %}
+
+{% block meta_keywords %}formation médico-social, formation management EHPAD, formation bientraitance, formation gestion crise santé, formation leadership établissement, formation professionnelle ESMS{% endblock %}
+
+{% block og_title %}Formations professionnelles santé & médico-social | Harmonie & Sens{% endblock %}
+{% block og_description %}Formations sur-mesure pour établissements de santé : management, bientraitance, gestion de crise, éthique professionnelle.{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Formations",
+    "description": "Formations professionnelles pour établissements de santé et médico-sociaux.",
+    "provider": {
+        "@type": "Organization",
+        "name": "Harmonie & Sens"
+    },
+    "areaServed": "FR",
+    "serviceType": "Formation professionnelle"
+}
+</script>
+{% endblock %}
 
 {% block navbar %}
     {% include 'components/navbar_client.html.twig' %}

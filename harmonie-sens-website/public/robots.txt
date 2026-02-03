@@ -1,0 +1,22 @@
+# Robots.txt for Harmonie & Sens
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://harmonieetsens.fr/sitemap.xml
+
+# Disallow admin section
+Disallow: /admin/
+Disallow: /login
+
+# Disallow uploads directory indexing (but allow specific files)
+Disallow: /uploads/
+
+# Allow search engines to crawl CSS and JS
+Allow: /css/
+Allow: /images/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
