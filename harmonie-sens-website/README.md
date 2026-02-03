@@ -6,8 +6,8 @@ Site vitrine pour le cabinet de conseil Harmonie & Sens.
 
 - **PHP** >= 8.2
 - **Composer** >= 2.0
-- **Docker** et **Docker Compose** (pour la base de données)
-- **Symfony CLI** (optionnel mais recommandé)
+- **MySQL** >= 8.0 (ou MariaDB)
+- **Apache** ou **Nginx** (ou Symfony CLI pour le dev)
 
 ## 🚀 Installation
 
@@ -34,36 +34,48 @@ cp .env.example .env.local
 
 Puis éditer `.env.local` avec vos valeurs :
 - `APP_SECRET` : générer avec `php -r "echo bin2hex(random_bytes(16));"`
-- `DATABASE_URL` : adapter si nécessaire
+- `DATABASE_URL` : adapter selon votre configuration MySQL
+  ```
+  DATABASE_URL="mysql://UTILISATEUR:MOT_DE_PASSE@127.0.0.1:3306/harmonie_sens?serverVersion=8.0&charset=utf8mb4"
+  ```
 
-### 4. Démarrer la base de données
-
-```bash
-docker compose up -d
-```
-
-### 5. Créer la base de données et exécuter les migrations
+### 4. Créer la base de données et exécuter les migrations
 
 ```bash
 php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 ```
 
-### 6. (Optionnel) Initialiser les données de base
+### 5. (Optionnel) Initialiser les données de base
 
 ```bash
 php bin/console app:init-services
 php bin/console app:create-admin
 ```
 
-### 7. Démarrer le serveur
+### 6. Configurer le serveur web
 
-**Avec Symfony CLI (recommandé) :**
+**Option A : Apache (production/développement)**
+
+Configurer un VirtualHost pointant vers le dossier `public/` :
+```apache
+<VirtualHost *:80>
+    ServerName harmonie-sens.local
+    DocumentRoot /chemin/vers/harmonie-sens-website/public
+
+    <Directory /chemin/vers/harmonie-sens-website/public>
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
+
+**Option B : Symfony CLI (développement)**
 ```bash
 symfony server:start
 ```
 
-**Ou avec PHP :**
+**Option C : PHP built-in server (développement)**
 ```bash
 php -S localhost:8000 -t public/
 ```
@@ -112,24 +124,7 @@ php bin/console app:create-admin
 php bin/console app:init-services
 ```
 
-## 🐳 Docker
-
-### Démarrer les services
-```bash
-docker compose up -d
-```
-
-### Arrêter les services
-```bash
-docker compose down
-```
-
-### Voir les logs
-```bash
-docker compose logs -f database
-```
-
-## 📖 Documentation
+##  Documentation
 
 Consultez le dossier [docs/](docs/) pour plus de détails :
 - [QUICKSTART.md](docs/QUICKSTART.md) - Guide de démarrage rapide

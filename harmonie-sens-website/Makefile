@@ -1,7 +1,7 @@
 # Harmonie & Sens - Makefile
 # Commandes utilitaires pour le développement
 
-.PHONY: help install start stop db-start db-stop db-reset migrate fresh cache test
+.PHONY: help install start db-create db-reset migrate fresh cache admin lint
 
 # Couleurs
 GREEN  := $(shell tput -Txterm setaf 2)
@@ -23,26 +23,20 @@ install: ## Installe les dépendances et configure le projet
 	@if [ ! -f .env.local ]; then \
 		echo "${YELLOW}Création de .env.local...${RESET}"; \
 		cp .env.example .env.local; \
-		echo "${YELLOW}⚠️  Pensez à éditer .env.local avec vos valeurs${RESET}"; \
+		echo "${YELLOW}⚠️  Pensez à éditer .env.local avec vos identifiants MySQL${RESET}"; \
 	fi
 	@echo "${GREEN}✅ Installation terminée${RESET}"
 
 ## Serveur
-start: ## Démarre le serveur de développement (Symfony CLI)
-	symfony server:start
-
-start-php: ## Démarre le serveur de développement (PHP built-in)
+start: ## Démarre le serveur de développement (PHP built-in)
 	php -S localhost:8000 -t public/
 
-## Docker / Base de données
-db-start: ## Démarre la base de données (Docker)
-	docker compose up -d
+start-symfony: ## Démarre le serveur de développement (Symfony CLI)
+	symfony server:start
 
-db-stop: ## Arrête la base de données (Docker)
-	docker compose down
-
-db-logs: ## Affiche les logs de la base de données
-	docker compose logs -f database
+## Base de données
+db-create: ## Crée la base de données MySQL
+	php bin/console doctrine:database:create --if-not-exists
 
 db-reset: ## Supprime et recrée la base de données
 	php bin/console doctrine:database:drop --force --if-exists
@@ -57,9 +51,8 @@ migration: ## Crée une nouvelle migration
 	php bin/console make:migration
 
 ## Setup complet
-fresh: db-start ## Installation fraîche complète (DB + migrations + données initiales)
-	@echo "${GREEN}Attente du démarrage de PostgreSQL...${RESET}"
-	@sleep 3
+fresh: ## Installation fraîche complète (DB + migrations + données initiales)
+	@echo "${GREEN}Création de la base de données...${RESET}"
 	php bin/console doctrine:database:create --if-not-exists
 	php bin/console doctrine:migrations:migrate --no-interaction
 	php bin/console app:init-services || true
