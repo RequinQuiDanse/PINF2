@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Message;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -17,6 +18,10 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('requestType', HiddenType::class, [
+                'data' => 'contact',
+                'attr' => ['id' => 'request-type-field']
+            ])
             ->add('firstName', TextType::class, [
                 'label' => 'Prénom',
                 'attr' => ['placeholder' => 'Votre prénom'],
@@ -64,6 +69,17 @@ class ContactType extends AbstractType
                     new Assert\NotBlank(['message' => 'Le message est obligatoire']),
                     new Assert\Length(['min' => 10])
                 ]
+            ])
+            ->add('appointmentDate', HiddenType::class, [
+                'mapped' => false,
+                'required' => false,
+                'attr' => ['id' => 'appointment-date-field']
+            ])
+            ->add('appointmentDuration', HiddenType::class, [
+                'mapped' => false,
+                'required' => false,
+                'attr' => ['id' => 'appointment-duration-field'],
+                'data' => '30'
             ])
         ;
     }
