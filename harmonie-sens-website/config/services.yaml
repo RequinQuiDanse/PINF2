@@ -4,6 +4,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    microsoft_client_id: '%env(MICROSOFT_CLIENT_ID)%'
+    microsoft_client_secret: '%env(MICROSOFT_CLIENT_SECRET)%'
+    microsoft_refresh_token: '%env(MICROSOFT_REFRESH_TOKEN)%'
     # Configuration email
     app.email.from_address: '%env(MAIL_FROM_ADDRESS)%'
     app.email.from_name: '%env(MAIL_FROM_NAME)%'
@@ -20,6 +23,12 @@ services:
     App\:
         resource: '../src/'
 
+    # Configuration du service Microsoft Graph
+    App\Service\MicrosoftGraphService:
+        arguments:
+            $microsoftClientId: '%microsoft_client_id%'
+            $microsoftClientSecret: '%microsoft_client_secret%'
+            $microsoftRefreshToken: '%microsoft_refresh_token%'
     # Configuration du service d'email avec les paramètres
     App\Service\EmailService:
         arguments:

@@ -57,6 +57,83 @@
                     <div class="alert alert-success">{{ message }}</div>
                 {% endfor %}
                 
+                {{ form_start(form, {'attr': {'class': 'contact-form', 'id': 'contact-form'}}) }}
+                    
+                    {# Champ caché pour le type de demande #}
+                    {{ form_widget(form.requestType) }}
+                    
+                    {# Sélection du type de demande #}
+                    <div class="form-group request-type-group">
+                        <label>Type de demande</label>
+                        <div class="request-type-buttons">
+                            <div class="request-type-btn active" data-type="contact">
+                                <i class="fas fa-envelope"></i>
+                                <span>Simple message</span>
+                            </div>
+                            <div class="request-type-btn" data-type="appointment">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Prendre rendez-vous</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# Section calendrier (cachée par défaut) #}
+                    <div class="appointment-section" id="appointment-section" style="display: none;">
+                        <div class="appointment-header">
+                            <h3><i class="fas fa-calendar-alt"></i> Sélectionnez un créneau</h3>
+                            <p>Choisissez une date et un horaire parmi nos disponibilités</p>
+                        </div>
+                        
+                        <div class="calendar-container">
+                            <div class="calendar-navigation">
+                                <button type="button" class="calendar-nav-btn" id="prev-week">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <span class="calendar-week-label" id="week-label">Semaine en cours</span>
+                                <button type="button" class="calendar-nav-btn" id="next-week">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="time-period-selector">
+                                <button type="button" class="period-btn active" data-period="morning">
+                                    <i class="fas fa-sun"></i> Matin (8h-12h)
+                                </button>
+                                <button type="button" class="period-btn" data-period="afternoon">
+                                    <i class="fas fa-cloud-sun"></i> Après-midi (14h-17h)
+                                </button>
+                            </div>
+                            
+                            <div class="calendar-loading" id="calendar-loading">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <span>Chargement des disponibilités...</span>
+                            </div>
+                            
+                            <div class="calendar-grid" id="calendar-grid">
+                                {# Les créneaux seront injectés ici via JavaScript #}
+                            </div>
+                            
+                            <div class="duration-selector" id="duration-selector">
+                                <label>Durée :</label>
+                                <div class="duration-buttons">
+                                    <button type="button" class="duration-btn active" data-duration="30">30 min</button>
+                                    <button type="button" class="duration-btn" data-duration="60">1 heure</button>
+                                </div>
+                            </div>
+                            
+                            <div class="selected-slot-display" id="selected-slot-display" style="display: none;">
+                                <i class="fas fa-check-circle"></i>
+                                <span id="selected-slot-text"></span>
+                                <button type="button" class="clear-slot-btn" id="clear-slot">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        {{ form_widget(form.appointmentDate) }}
+                        {{ form_widget(form.appointmentDuration) }}
+                    </div>
+
                 {% for message in app.flashes('warning') %}
                     <div class="alert alert-warning">⚠️ {{ message }}</div>
                 {% endfor %}
@@ -135,8 +212,8 @@
                         {{ form_errors(form.message) }}
                     </div>
                     
-                    <button type="submit" class="btn-submit">
-                        <span>Envoyer le message</span>
+                    <button type="submit" class="btn-submit" id="submit-btn" name="submit_contact">
+                        <span id="submit-text">Envoyer le message</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
                         </svg>
@@ -205,4 +282,202 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Éléments du DOM
+    const requestTypeBtns = document.querySelectorAll('.request-type-btn');
+    const requestTypeField = document.querySelector('input[name="contact[requestType]"]');
+    const appointmentSection = document.getElementById('appointment-section');
+    const calendarGrid = document.getElementById('calendar-grid');
+    const calendarLoading = document.getElementById('calendar-loading');
+    const appointmentDateField = document.querySelector('input[name="contact[appointmentDate]"]');
+    const appointmentDurationField = document.querySelector('input[name="contact[appointmentDuration]"]');
+    const selectedSlotDisplay = document.getElementById('selected-slot-display');
+    const selectedSlotText = document.getElementById('selected-slot-text');
+    const clearSlotBtn = document.getElementById('clear-slot');
+    const submitText = document.getElementById('submit-text');
+    const weekLabel = document.getElementById('week-label');
+    const prevWeekBtn = document.getElementById('prev-week');
+    const nextWeekBtn = document.getElementById('next-week');
+    const durationBtns = document.querySelectorAll('.duration-btn');
+    const periodBtns = document.querySelectorAll('.period-btn');
+    
+    // Variables d'état
+    let currentWeekOffset = 0;
+    let selectedDuration = 30;
+    let selectedPeriod = 'morning';
+    
+    // Gestion du type de demande
+    requestTypeBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            requestTypeBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const type = this.dataset.type;
+            if (requestTypeField) {
+                requestTypeField.value = type;
+            }
+            
+            if (type === 'appointment') {
+                appointmentSection.style.display = 'block';
+                submitText.textContent = 'Confirmer le rendez-vous';
+                loadAvailableSlots();
+            } else {
+                appointmentSection.style.display = 'none';
+                submitText.textContent = 'Envoyer le message';
+                if (appointmentDateField) appointmentDateField.value = '';
+            }
+        });
+    });
+    
+    // Gestion de la période (matin/après-midi)
+    periodBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            periodBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            selectedPeriod = this.dataset.period;
+            filterSlotsByPeriod();
+        });
+    });
+    
+    // Gestion de la durée
+    durationBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            durationBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            selectedDuration = parseInt(this.dataset.duration);
+            if (appointmentDurationField) {
+                appointmentDurationField.value = selectedDuration;
+            }
+        });
+    });
+    
+    // Navigation semaines
+    prevWeekBtn.addEventListener('click', function() {
+        if (currentWeekOffset > 0) {
+            currentWeekOffset--;
+            loadAvailableSlots();
+        }
+    });
+    
+    nextWeekBtn.addEventListener('click', function() {
+        if (currentWeekOffset < 4) {
+            currentWeekOffset++;
+            loadAvailableSlots();
+        }
+    });
+    
+    // Effacer le créneau sélectionné
+    if (clearSlotBtn) {
+        clearSlotBtn.addEventListener('click', function() {
+            if (appointmentDateField) appointmentDateField.value = '';
+            selectedSlotDisplay.style.display = 'none';
+            document.querySelectorAll('.time-slot.selected').forEach(s => s.classList.remove('selected'));
+        });
+    }
+    
+    // Charger les créneaux disponibles
+    function loadAvailableSlots() {
+        calendarLoading.style.display = 'flex';
+        calendarGrid.innerHTML = '';
+        
+        fetch(`/api/calendar/available-slots?weekOffset=${currentWeekOffset}`)
+            .then(response => response.json())
+            .then(data => {
+                calendarLoading.style.display = 'none';
+                
+                if (data.error) {
+                    calendarGrid.innerHTML = `<div class="calendar-error"><i class="fas fa-exclamation-triangle"></i> ${data.error}</div>`;
+                    return;
+                }
+                
+                weekLabel.textContent = data.weekLabel || 'Semaine';
+                renderCalendar(data.slots);
+                filterSlotsByPeriod();
+            })
+            .catch(error => {
+                calendarLoading.style.display = 'none';
+                calendarGrid.innerHTML = '<div class="calendar-error"><i class="fas fa-exclamation-triangle"></i> Erreur de chargement</div>';
+            });
+    }
+    
+    // Afficher le calendrier
+    function renderCalendar(slots) {
+        calendarGrid.innerHTML = '';
+        
+        if (!slots || Object.keys(slots).length === 0) {
+            calendarGrid.innerHTML = '<div class="no-slots">Aucun créneau disponible cette semaine</div>';
+            return;
+        }
+        
+        const daysOrder = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'];
+        
+        daysOrder.forEach(dayName => {
+            if (slots[dayName]) {
+                const dayColumn = document.createElement('div');
+                dayColumn.className = 'day-column';
+                dayColumn.dataset.day = dayName;
+                
+                const dayHeader = document.createElement('div');
+                dayHeader.className = 'day-header';
+                dayHeader.innerHTML = `<span class="day-name">${dayName}</span><span class="day-date">${slots[dayName].date || ''}</span>`;
+                dayColumn.appendChild(dayHeader);
+                
+                const slotsContainer = document.createElement('div');
+                slotsContainer.className = 'slots-container';
+                
+                if (slots[dayName].times && slots[dayName].times.length > 0) {
+                    slots[dayName].times.forEach(slot => {
+                        const slotEl = document.createElement('div');
+                        slotEl.className = 'time-slot';
+                        slotEl.dataset.datetime = slot.datetime;
+                        slotEl.dataset.time = slot.time;
+                        
+                        const hour = parseInt(slot.time.split(':')[0]);
+                        slotEl.dataset.period = hour < 12 ? 'morning' : 'afternoon';
+                        
+                        if (slot.available === false) {
+                            slotEl.classList.add('unavailable');
+                            slotEl.innerHTML = `<span class="slot-time">${slot.time}</span><span class="slot-status">Réservé</span>`;
+                        } else {
+                            slotEl.textContent = slot.time;
+                            slotEl.addEventListener('click', function() {
+                                document.querySelectorAll('.time-slot.selected').forEach(s => s.classList.remove('selected'));
+                                this.classList.add('selected');
+                                
+                                if (appointmentDateField) {
+                                    appointmentDateField.value = slot.datetime;
+                                }
+                                
+                                selectedSlotText.textContent = `${dayName} ${slots[dayName].date} à ${slot.time}`;
+                                selectedSlotDisplay.style.display = 'flex';
+                            });
+                        }
+                        
+                        slotsContainer.appendChild(slotEl);
+                    });
+                }
+                
+                dayColumn.appendChild(slotsContainer);
+                calendarGrid.appendChild(dayColumn);
+            }
+        });
+    }
+    
+    // Filtrer par période
+    function filterSlotsByPeriod() {
+        document.querySelectorAll('.time-slot').forEach(slot => {
+            if (slot.dataset.period === selectedPeriod) {
+                slot.style.display = 'flex';
+            } else {
+                slot.style.display = 'none';
+            }
+        });
+    }
+});
+</script>
 {% endblock %}

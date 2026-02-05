@@ -44,6 +44,21 @@ class Message
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $repliedAt = null;
 
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $requestType = null; // 'contact' ou 'appointment'
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $appointmentDate = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $appointmentEndDate = null;
+
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $appointmentStatus = null; // 'pending', 'confirmed', 'cancelled'
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $microsoftEventId = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -161,6 +176,61 @@ class Message
     public function setRepliedAt(?\DateTimeImmutable $repliedAt): static
     {
         $this->repliedAt = $repliedAt;
+        return $this;
+    }
+
+    public function getRequestType(): ?string
+    {
+        return $this->requestType;
+    }
+
+    public function setRequestType(?string $requestType): static
+    {
+        $this->requestType = $requestType;
+        return $this;
+    }
+
+    public function getAppointmentDate(): ?\DateTimeImmutable
+    {
+        return $this->appointmentDate;
+    }
+
+    public function setAppointmentDate(?\DateTimeImmutable $appointmentDate): static
+    {
+        $this->appointmentDate = $appointmentDate;
+        return $this;
+    }
+
+    public function getAppointmentEndDate(): ?\DateTimeImmutable
+    {
+        return $this->appointmentEndDate;
+    }
+
+    public function setAppointmentEndDate(?\DateTimeImmutable $appointmentEndDate): static
+    {
+        $this->appointmentEndDate = $appointmentEndDate;
+        return $this;
+    }
+
+    public function getAppointmentStatus(): ?string
+    {
+        return $this->appointmentStatus;
+    }
+
+    public function setAppointmentStatus(?string $appointmentStatus): static
+    {
+        $this->appointmentStatus = $appointmentStatus;
+        return $this;
+    }
+
+    public function getMicrosoftEventId(): ?string
+    {
+        return $this->microsoftEventId;
+    }
+
+    public function setMicrosoftEventId(?string $microsoftEventId): static
+    {
+        $this->microsoftEventId = $microsoftEventId;
         return $this;
     }
 }
