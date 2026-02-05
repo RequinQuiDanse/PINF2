@@ -24,6 +24,14 @@ cd harmonie-sens-website
 composer install
 ```
 
+**Dépendances principales requises :**
+- `symfony/http-client` : pour l'intégration avec Microsoft Graph API (calendrier)
+
+Si une dépendance manque, installez-la avec :
+```bash
+composer require symfony/http-client
+```
+
 ### 3. Configurer l'environnement
 
 Copier le fichier d'exemple et l'adapter :

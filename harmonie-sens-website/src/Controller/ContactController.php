@@ -9,9 +9,11 @@ use App\Service\MicrosoftGraphService;
 use App\Repository\PersonRepository;
 use App\Service\EmailService;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
 use Psr\Log\LoggerInterface;
 
