@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Devis Gratuit | Estimation Direction de Transition & Conseil - Harmonie & Sens{% endblock %}
+{% block title %}Devis Gratuit | Estimation Direction de Transition & Conseil - Solution, Stratégie et Sens{% endblock %}
 
 {% block meta_description %}Obtenez un devis gratuit et personnalisé pour vos besoins en direction de transition, audit, formation ou accompagnement managérial. Estimation en ligne pour établissements de santé et médico-sociaux.{% endblock %}
 
 {% block meta_keywords %}devis direction transition, estimation audit EHPAD, tarif formation médico-social, prix accompagnement ESMS, devis gratuit conseil santé{% endblock %}
 
-{% block og_title %}Devis Gratuit | Harmonie & Sens{% endblock %}
+{% block og_title %}Devis Gratuit | Solution, Stratégie et Sens{% endblock %}
 {% block og_description %}Estimez le coût de votre accompagnement en direction de transition, audit ou formation. Devis personnalisé gratuit.{% endblock %}
 
 {% block navbar %}
@@ -115,7 +115,7 @@
                 </div>
                 
                 <div class="result-actions">
-                    <a href="{{ path('app_contact') }}" class="btn-contact">
+                    <a href="{{ path('app_contact') }}" id="contactLink" class="btn-contact">
                         <i class="fas fa-envelope"></i>
                         Demander un devis détaillé
                     </a>
@@ -221,6 +221,17 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 document.getElementById('resultDetails').style.display = 'none';
             }
+            
+            // Construire l'URL du lien contact avec les paramètres du devis
+            const contactLink = document.getElementById('contactLink');
+            const baseContactUrl = '{{ path('app_contact') }}';
+            const params = new URLSearchParams({
+                service: data.service_name,
+                duration: duration,
+                unit: data.pricing_unit || 'unité(s)',
+                estimation: data.price_range
+            });
+            contactLink.href = baseContactUrl + '?' + params.toString();
             
             // Afficher le résultat avec animation
             quoteResult.style.display = 'block';
@@ -579,17 +590,95 @@ document.addEventListener('DOMContentLoaded', function() {
     font-size: 0.95rem;
 }
 
+/* Responsive tablettes */
 @media (max-width: 968px) {
     .quote-container {
         grid-template-columns: 1fr;
     }
     
-    .quote-info {
-        grid-template-columns: 1fr;
-    }
-    
     .result-actions {
         flex-direction: column;
+    }
+}
+
+/* Responsive mobile */
+@media (max-width: 767px) {
+    .quote-hero {
+        padding: 3rem 0 2rem;
+    }
+    
+    .quote-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .quote-hero .subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .quote-section {
+        padding: 2rem 0;
+    }
+    
+    .quote-form-wrapper,
+    .quote-result {
+        padding: 1.5rem;
+    }
+    
+    .quote-info {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .quote-info .info-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        padding: 1.25rem;
+        gap: 1rem;
+    }
+    
+    .quote-info .info-card i {
+        font-size: 1.75rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    
+    .quote-info .info-card h4 {
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+    }
+    
+    .quote-info .info-card p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .price-range {
+        font-size: 1.5rem;
+    }
+    
+    .btn-quote {
+        padding: 0.875rem;
+        font-size: 1rem;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 375px) {
+    .quote-hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .quote-form-wrapper,
+    .quote-result {
+        padding: 1rem;
+    }
+    
+    .quote-info .info-card {
+        padding: 1rem;
     }
 }
 </style>

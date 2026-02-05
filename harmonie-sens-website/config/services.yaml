@@ -7,6 +7,10 @@ parameters:
     microsoft_client_id: '%env(MICROSOFT_CLIENT_ID)%'
     microsoft_client_secret: '%env(MICROSOFT_CLIENT_SECRET)%'
     microsoft_refresh_token: '%env(MICROSOFT_REFRESH_TOKEN)%'
+    # Configuration email
+    app.email.from_address: '%env(MAIL_FROM_ADDRESS)%'
+    app.email.from_name: '%env(MAIL_FROM_NAME)%'
+    app.email.admin_address: '%env(MAIL_ADMIN_ADDRESS)%'
 
 services:
     # default configuration for services in *this* file
@@ -25,6 +29,17 @@ services:
             $microsoftClientId: '%microsoft_client_id%'
             $microsoftClientSecret: '%microsoft_client_secret%'
             $microsoftRefreshToken: '%microsoft_refresh_token%'
+    # Configuration du service d'email avec les paramètres
+    App\Service\EmailService:
+        arguments:
+            $fromEmail: '%app.email.from_address%'
+            $fromName: '%app.email.from_name%'
+            $adminEmail: '%app.email.admin_address%'
+
+    # Configuration de la commande de test email
+    App\Command\TestEmailCommand:
+        arguments:
+            $adminEmail: '%app.email.admin_address%'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background: #f9f9f9;">
+        <div style="background: #fff; padding: 30px; border-radius: 8px;">
+            <h2 style="color: #7A8F6E; margin-bottom: 20px;">Confirmation de réception de votre message</h2>
+            
+            <p>Bonjour {{ message.firstName }},</p>
+            
+            <p>Nous avons bien reçu votre message et nous vous en remercions.</p>
+            
+            <div style="margin: 25px 0; padding: 20px; background: #f5f5f5; border-left: 4px solid #7A8F6E; border-radius: 4px;">
+                <strong>Récapitulatif de votre message :</strong><br><br>
+                <strong>Sujet :</strong> {{ message.subject }}<br>
+                <strong>Date d'envoi :</strong> {{ message.createdAt|date('d/m/Y à H:i') }}<br><br>
+                <strong>Votre message :</strong><br>
+                {{ message.message|nl2br }}
+            </div>
+            
+            <p>Notre équipe vous répondra dans les plus brefs délais.</p>
+            
+            <p style="margin-top: 30px;">
+                Cordialement,<br>
+                <strong style="color: #7A8F6E;">L'équipe Solution, Stratégie et Sens</strong>
+            </p>
+            
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #666;">
+                <p>Cet email a été envoyé automatiquement, merci de ne pas y répondre directement.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

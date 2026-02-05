@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background: #f9f9f9;">
+        <div style="background: #fff; padding: 30px; border-radius: 8px;">
+            <h2 style="color: #7A8F6E; margin-bottom: 20px;">{{ title }}</h2>
+            
+            <div style="margin-bottom: 20px;">
+                {{ content|raw }}
+            </div>
+            
+            {% if button_url %}
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="{{ button_url }}" style="display: inline-block; padding: 12px 30px; background-color: #7A8F6E; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                    {{ button_text|default('Voir les détails') }}
+                </a>
+            </div>
+            {% endif %}
+            
+            {% if footer_text %}
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">
+                <p>{{ footer_text }}</p>
+            </div>
+            {% endif %}
+            
+            <div style="margin-top: 30px;">
+                <p>
+                    Cordialement,<br>
+                    <strong style="color: #7A8F6E;">L'équipe Solution, Stratégie et Sens</strong>
+                </p>
+            </div>
+            
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #666; text-align: center;">
+                <p>Solution, Stratégie et Sens | {{ 'now'|date('Y') }}</p>
+                {% if no_reply %}
+                <p>Cet email a été envoyé automatiquement, merci de ne pas y répondre directement.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

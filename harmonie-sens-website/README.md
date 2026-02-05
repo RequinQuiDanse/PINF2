@@ -1,6 +1,6 @@
-# 🌿 Harmonie & Sens - Site Web
+# 🌿 Solution, Stratégie et Sens (3S Managers) - Site Web
 
-Site vitrine pour le cabinet de conseil Harmonie & Sens.
+Site vitrine pour le cabinet de conseil Solution, Stratégie et Sens.
 
 ## 📋 Prérequis
 

@@ -49,7 +49,17 @@ class ContactType extends AbstractType
             ->add('phone', TelType::class, [
                 'label' => 'Téléphone',
                 'required' => false,
-                'attr' => ['placeholder' => '06 12 34 56 78']
+                'attr' => ['placeholder' => '06 12 34 56 78'],
+                'constraints' => [
+                    new Assert\Length([
+                        'max' => 20,
+                        'maxMessage' => 'Le numéro de téléphone ne peut pas dépasser {{ limit }} caractères'
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/^[\d\s\+\-\.\(\)]*$/',
+                        'message' => 'Le numéro de téléphone contient des caractères invalides'
+                    ])
+                ]
             ])
             ->add('subject', TextType::class, [
                 'label' => 'Sujet',

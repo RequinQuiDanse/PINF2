@@ -37,9 +37,9 @@ class CreateAdminCommand extends Command
         }
 
         $user = new User();
-        $user->setEmail('admin@harmonieetsens.fr');
+        $user->setEmail('admin@3s-managers.fr');
         $user->setFirstName('Admin');
-        $user->setLastName('Harmonie & Sens');
+        $user->setLastName('3S Managers');
         $user->setRoles(['ROLE_ADMIN']);
         
         $hashedPassword = $this->passwordHasher->hashPassword($user, 'admin123');
@@ -49,7 +49,7 @@ class CreateAdminCommand extends Command
         $this->entityManager->flush();
 
         $io->success('Utilisateur admin créé avec succès!');
-        $io->info('Email: admin@harmonieetsens.fr');
+        $io->info('Email: admin@3s-managers.fr');
         $io->info('Mot de passe: admin123');
         $io->warning('Pensez à changer le mot de passe après la première connexion!');
 

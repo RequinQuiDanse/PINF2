@@ -11,6 +11,35 @@
         </a>
     </div>
 
+    <!-- Barre de recherche -->
+    <div class="search-bar-container">
+        <form method="get" action="{{ path('admin_person_index') }}" class="search-form">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input 
+                    type="text" 
+                    name="q" 
+                    value="{{ search }}" 
+                    placeholder="Rechercher par nom, email, téléphone, organisation..."
+                    class="search-input"
+                >
+                {% if search %}
+                    <a href="{{ path('admin_person_index') }}" class="search-clear" title="Effacer la recherche">
+                        <i class="fas fa-times"></i>
+                    </a>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary btn-search">
+                <i class="fas fa-search"></i> Rechercher
+            </button>
+        </form>
+        {% if search %}
+            <div class="search-results-info">
+                <span class="badge badge-info">{{ persons|length }} résultat(s) pour "{{ search }}"</span>
+            </div>
+        {% endif %}
+    </div>
+
     <div class="table-container">
         <table class="admin-table">
             <thead>

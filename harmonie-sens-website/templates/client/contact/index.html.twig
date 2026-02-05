@@ -1,24 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact | Demande de Devis - 3s-managers{% endblock %}
+{% block title %}Contact | Demande de Devis - Solution, Stratégie et Sens{% endblock %}
 
-{% block meta_description %}Contactez 3s-managers pour vos projets de direction de transition, audit, formation ou accompagnement. Réponse sous 24h. Tél : 06 83 42 40 12. Interventions sur tout le territoire français.{% endblock %}
+{% block meta_description %}Contactez Solution, Stratégie et Sens pour vos projets de direction de transition, audit, formation ou accompagnement. Réponse sous 24h. Tél : 06 83 42 40 12. Interventions sur tout le territoire français.{% endblock %}
 
 {% block meta_keywords %}contact cabinet conseil santé, devis direction transition, demande audit EHPAD, contact formation médico-social, prendre rendez-vous{% endblock %}
 
-{% block og_title %}Contactez-nous | 3s-managers{% endblock %}
-{% block og_description %}Contactez 3s-managers pour discuter de votre projet. Réponse garantie sous 24h ouvrées.{% endblock %}
+{% block og_title %}Contactez-nous | Solution, Stratégie et Sens{% endblock %}
+{% block og_description %}Contactez Solution, Stratégie et Sens pour discuter de votre projet. Réponse garantie sous 24h ouvrées.{% endblock %}
 
 {% block structured_data %}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Contact 3s-managers",
-    "description": "Contactez 3s-managers pour vos projets de direction de transition, audit ou formation.",
+    "name": "Contact Solution, Stratégie et Sens",
+    "description": "Contactez Solution, Stratégie et Sens pour vos projets de direction de transition, audit ou formation.",
     "mainEntity": {
         "@type": "Organization",
-        "name": "3s-managers",
+        "name": "Solution, Stratégie et Sens",
         "telephone": "+33683424012",
         "email": "contact@3s-managers.fr"
     }
@@ -134,6 +134,44 @@
                         {{ form_widget(form.appointmentDuration) }}
                     </div>
 
+                {% for message in app.flashes('warning') %}
+                    <div class="alert alert-warning">⚠️ {{ message }}</div>
+                {% endfor %}
+                
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger">❌ {{ message }}</div>
+                {% endfor %}
+                
+                {% if quoteData %}
+                <div class="quote-summary-card">
+                    <div class="quote-summary-header">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <h4>Récapitulatif de votre estimation</h4>
+                    </div>
+                    <div class="quote-summary-content">
+                        <div class="quote-summary-item">
+                            <span class="label">📋 Service :</span>
+                            <span class="value">{{ quoteData.service }}</span>
+                        </div>
+                        {% if quoteData.duration and quoteData.unit %}
+                        <div class="quote-summary-item">
+                            <span class="label">⏱️ Durée :</span>
+                            <span class="value">{{ quoteData.duration }} {{ quoteData.unit }}</span>
+                        </div>
+                        {% endif %}
+                        <div class="quote-summary-item estimation">
+                            <span class="label">💰 Estimation :</span>
+                            <span class="value">{{ quoteData.estimation }}</span>
+                        </div>
+                    </div>
+                    <p class="quote-summary-note">
+                        <i class="fas fa-info-circle"></i>
+                        Ces informations sont pré-remplies dans le formulaire ci-dessous.
+                    </p>
+                </div>
+                {% endif %}
+                
+                {{ form_start(form, {'attr': {'class': 'contact-form'}}) }}
                     <div class="form-row">
                         <div class="form-group">
                             {{ form_label(form.firstName) }} <span class="required">*</span>
