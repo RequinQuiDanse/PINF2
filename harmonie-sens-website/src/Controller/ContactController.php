@@ -9,11 +9,9 @@ use App\Service\MicrosoftGraphService;
 use App\Repository\PersonRepository;
 use App\Service\EmailService;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
 use Psr\Log\LoggerInterface;
 
@@ -138,19 +136,6 @@ class ContactController extends AbstractController
                 }
             }
 
-            $em->persist($message);
-            $em->flush();
-
-            // Envoyer un email à l'admin
-            $email = (new TemplatedEmail())
-                ->from(new Address('noreply@harmonieetsens.fr', 'Harmonie & Sens'))
-                ->to('contact@harmonieetsens.fr')
-                ->subject('Nouveau message de contact - ' . $message->getSubject())
-                ->htmlTemplate('emails/contact_notification.html.twig')
-                ->context([
-                    'message' => $message,
-                ]);
-
             try {
                 // Créer ou mettre à jour le profil Person
                 $person = $this->findOrCreatePerson($message, $personRepository);
@@ -166,7 +151,12 @@ class ContactController extends AbstractController
                 // Envoyer un email de confirmation à l'expéditeur
                 $confirmationSent = $emailService->sendContactConfirmation($message);
 
-                if ($emailSent && $confirmationSent) {
+                if ($message->getRequestType() === 'appointment' && $message->getAppointmentDate()) {
+                    $this->addFlash('success', sprintf(
+                        'Votre demande de rendez-vous pour le %s a été enregistrée. Vous recevrez une confirmation par email.',
+                        $message->getAppointmentDate()->format('d/m/Y à H:i')
+                    ));
+                } elseif ($emailSent && $confirmationSent) {
                     $this->addFlash('success', 'Votre message a été envoyé avec succès. Un email de confirmation vous a été envoyé. Nous vous répondrons dans les plus brefs délais.');
                 } elseif ($emailSent) {
                     $this->addFlash('success', 'Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.');
@@ -175,15 +165,6 @@ class ContactController extends AbstractController
                 }
             } catch (\Exception $e) {
                 $this->addFlash('error', 'Une erreur est survenue : ' . $e->getMessage());
-            }
-
-            if ($message->getRequestType() === 'appointment' && $message->getAppointmentDate()) {
-                $this->addFlash('success', sprintf(
-                    'Votre demande de rendez-vous pour le %s a été enregistrée. Vous recevrez une confirmation par email.',
-                    $message->getAppointmentDate()->format('d/m/Y à H:i')
-                ));
-            } else {
-                $this->addFlash('success', 'Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.');
             }
             
             return $this->redirectToRoute('app_contact');
