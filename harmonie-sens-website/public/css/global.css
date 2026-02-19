@@ -787,6 +787,49 @@ a:hover {
     color: var(--color-gold-light);
 }
 
+/* Lien de gestion des cookies dans le footer */
+.footer-separator {
+    margin: 0 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-link-cookies {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.footer-link-cookies:hover {
+    color: var(--color-gold) !important;
+    text-decoration: underline;
+}
+
+.footer-link-cookies i {
+    font-size: 0.9rem;
+}
+
+/* Liens légaux dans le footer */
+.footer-legal-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-legal-links a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+    color: var(--color-gold-light);
+}
+
 /* ===================================
    SECTIONS COMMUNES
    =================================== */
@@ -4299,3 +4342,11 @@ section {
         width: 100% !important;
     }
 }
+
+/* ===================================
+   COOKIE CONSENT BANNER - RGPD
+   =================================== */
+
+/* Les styles du système de cookies ont été déplacés vers un fichier dédié :
+   public/css/cookie-consent.css
+   Ce fichier est chargé dans templates/base.html.twig */

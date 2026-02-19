@@ -43,6 +43,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cookie-consent.css') }}">
     {% block stylesheets %}{% endblock %}
     
     {# JSON-LD Structured Data #}
@@ -81,7 +82,11 @@
     </main>
 
     {% include 'components/footer.html.twig' %}
+    
+    {# Système de gestion du consentement des cookies #}
+    {% include 'components/cookie-consent.html.twig' %}
 
+    <script src="{{ asset('js/cookie-consent.js') }}"></script>
     {% block javascripts %}{% endblock %}
 </body>
 </html>

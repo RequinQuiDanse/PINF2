@@ -1,0 +1,377 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Politique de confidentialité RGPD - Solution, Stratégie et Sens{% endblock %}
+
+{% block meta_robots %}index, follow{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/legal-pages.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="legal-page privacy-page">
+    <div class="container">
+        <header class="legal-header">
+            <h1>Politique de confidentialité</h1>
+            <p class="legal-intro">Conformément au RGPD et à la loi Informatique et Libertés</p>
+        </header>
+
+        <div class="privacy-intro-box">
+            <p>
+                <i class="fas fa-shield-alt"></i>
+                Solution, Stratégie et Sens s'engage à protéger la vie privée de ses utilisateurs et à 
+                traiter leurs données personnelles de manière transparente et sécurisée.
+            </p>
+        </div>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-info-circle"></i> 1. Responsable du traitement</h2>
+            <div class="legal-info">
+                <p><strong>Identité du responsable :</strong> Solution, Stratégie et Sens</p>
+                <p><strong>Adresse :</strong> [À COMPLÉTER]</p>
+                <p><strong>Email :</strong> <a href="mailto:contact@3s-managers.fr">contact@3s-managers.fr</a></p>
+                <p><strong>Téléphone :</strong> <a href="tel:+33683424012">06 83 42 40 12</a></p>
+                <p><strong>DPO (Délégué à la Protection des Données) :</strong> [À COMPLÉTER si applicable]</p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-database"></i> 2. Données collectées</h2>
+            <div class="legal-info">
+                <p>Nous collectons les données personnelles suivantes :</p>
+                
+                <h3><i class="fas fa-envelope"></i> Via le formulaire de contact</h3>
+                <ul>
+                    <li>Nom et prénom</li>
+                    <li>Adresse email</li>
+                    <li>Numéro de téléphone (optionnel)</li>
+                    <li>Organisation/entreprise (optionnel)</li>
+                    <li>Sujet et message</li>
+                    <li>Date et heure de soumission</li>
+                </ul>
+
+                <h3><i class="fas fa-star"></i> Via les témoignages</h3>
+                <ul>
+                    <li>Nom et prénom (ou pseudonyme)</li>
+                    <li>Poste et organisation</li>
+                    <li>Photo (optionnelle)</li>
+                    <li>Témoignage écrit</li>
+                </ul>
+
+                <h3><i class="fas fa-user-circle"></i> Via la création de compte (si applicable)</h3>
+                <ul>
+                    <li>Identifiants de connexion</li>
+                    <li>Informations de profil</li>
+                </ul>
+
+                <h3><i class="fas fa-chart-line"></i> Données de navigation</h3>
+                <ul>
+                    <li>Cookies analytiques (avec votre consentement)</li>
+                    <li>Adresse IP</li>
+                    <li>Pages visitées</li>
+                    <li>Données de connexion</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-bullseye"></i> 3. Finalités du traitement</h2>
+            <div class="legal-info">
+                <p>Vos données personnelles sont collectées pour les finalités suivantes :</p>
+                
+                <div class="purpose-box">
+                    <h4>📧 Gestion des demandes de contact</h4>
+                    <p><strong>Base légale :</strong> Consentement / Intérêt légitime</p>
+                    <p>Pour répondre à vos questions, demandes de devis et demandes d'information.</p>
+                </div>
+
+                <div class="purpose-box">
+                    <h4>💼 Gestion de la relation client</h4>
+                    <p><strong>Base légale :</strong> Exécution du contrat</p>
+                    <p>Pour assurer le suivi des prestations, la facturation et les échanges commerciaux.</p>
+                </div>
+
+                <div class="purpose-box">
+                    <h4>📊 Analyses statistiques</h4>
+                    <p><strong>Base légale :</strong> Consentement (cookies analytiques)</p>
+                    <p>Pour améliorer notre site et comprendre l'utilisation de nos services.</p>
+                </div>
+
+                <div class="purpose-box">
+                    <h4>📢 Communication marketing</h4>
+                    <p><strong>Base légale :</strong> Consentement</p>
+                    <p>Pour vous informer de nos actualités et offres (uniquement avec votre accord explicite).</p>
+                </div>
+
+                <div class="purpose-box">
+                    <h4>⚖️ Respect des obligations légales</h4>
+                    <p><strong>Base légale :</strong> Obligation légale</p>
+                    <p>Conservation des factures, documents comptables, etc.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-users"></i> 4. Destinataires des données</h2>
+            <div class="legal-info">
+                <p>Vos données personnelles sont destinées à :</p>
+                <ul>
+                    <li><strong>Notre équipe interne</strong> : personnel autorisé de Solution, Stratégie et Sens</li>
+                    <li><strong>Prestataires techniques</strong> : hébergeur du site, outil de messagerie</li>
+                    <li><strong>Services analytiques</strong> : si vous avez accepté les cookies analytiques</li>
+                </ul>
+                <p>
+                    <strong><i class="fas fa-ban"></i> Nous ne vendons ni ne louons jamais vos données personnelles à des tiers.</strong>
+                </p>
+                <p>
+                    Tous nos prestataires sont soumis à des obligations de confidentialité et ne peuvent utiliser 
+                    vos données que dans le cadre des services qu'ils nous fournissent.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-clock"></i> 5. Durée de conservation</h2>
+            <div class="legal-info">
+                <table class="retention-table">
+                    <thead>
+                        <tr>
+                            <th>Type de données</th>
+                            <th>Durée de conservation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Messages de contact (prospects)</td>
+                            <td>3 ans après le dernier contact</td>
+                        </tr>
+                        <tr>
+                            <td>Données clients (contrats en cours)</td>
+                            <td>Durée du contrat + 5 ans (archivage légal)</td>
+                        </tr>
+                        <tr>
+                            <td>Factures et documents comptables</td>
+                            <td>10 ans (obligation légale)</td>
+                        </tr>
+                        <tr>
+                            <td>Cookies analytiques</td>
+                            <td>13 mois maximum</td>
+                        </tr>
+                        <tr>
+                            <td>Témoignages</td>
+                            <td>Jusqu'à retrait du consentement</td>
+                        </tr>
+                        <tr>
+                            <td>Comptes utilisateurs inactifs</td>
+                            <td>3 ans après la dernière connexion</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    À l'issue de ces durées, vos données sont supprimées de façon sécurisée ou anonymisées.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-lock"></i> 6. Sécurité des données</h2>
+            <div class="legal-info">
+                <p>Nous mettons en œuvre toutes les mesures techniques et organisationnelles appropriées pour protéger vos données :</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Connexion sécurisée HTTPS/SSL</li>
+                    <li><i class="fas fa-check"></i> Chiffrement des données sensibles</li>
+                    <li><i class="fas fa-check"></i> Sauvegardes régulières</li>
+                    <li><i class="fas fa-check"></i> Accès restreint aux données (authentification)</li>
+                    <li><i class="fas fa-check"></i> Hébergement sécurisé en France/UE</li>
+                    <li><i class="fas fa-check"></i> Surveillance et mise à jour des systèmes</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="legal-section" id="cookies">
+            <h2><i class="fas fa-cookie-bite"></i> 7. Cookies et traceurs</h2>
+            <div class="legal-info">
+                <p>Notre site utilise des cookies. Vous pouvez à tout moment gérer vos préférences :</p>
+                
+                <div class="cookie-banner-link">
+                    <a href="#" id="open-cookie-banner" class="btn-manage-cookies">
+                        <i class="fas fa-cog"></i> Gérer mes préférences de cookies
+                    </a>
+                </div>
+
+                <h3>Types de cookies utilisés :</h3>
+                
+                <div class="cookie-type-box">
+                    <h4>🔐 Cookies essentiels (sans consentement)</h4>
+                    <ul>
+                        <li>Cookie de session PHP</li>
+                        <li>Cookie de consentement</li>
+                        <li>Token CSRF pour la sécurité des formulaires</li>
+                    </ul>
+                    <p><em>Ces cookies sont nécessaires au fonctionnement du site.</em></p>
+                </div>
+
+                <div class="cookie-type-box">
+                    <h4>📊 Cookies analytiques (avec consentement)</h4>
+                    <ul>
+                        <li>Google Analytics / Matomo : mesure d'audience</li>
+                        <li>Durée : 13 mois maximum</li>
+                    </ul>
+                    <p><em>Ces cookies nous aident à améliorer notre site.</em></p>
+                </div>
+
+                <div class="cookie-type-box">
+                    <h4>🎯 Cookies marketing (avec consentement)</h4>
+                    <ul>
+                        <li>Facebook Pixel, Google Ads : publicité ciblée</li>
+                        <li>Durée : 13 mois maximum</li>
+                    </ul>
+                    <p><em>Ces cookies personnalisent les publicités.</em></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="legal-section highlight-section">
+            <h2><i class="fas fa-hand-paper"></i> 8. Vos droits RGPD</h2>
+            <div class="legal-info">
+                <p class="rights-intro">
+                    Conformément au RGPD, vous disposez des droits suivants concernant vos données personnelles :
+                </p>
+
+                <div class="rights-grid">
+                    <div class="right-card">
+                        <h4><i class="fas fa-eye"></i> Droit d'accès</h4>
+                        <p>Obtenir une copie de vos données personnelles que nous détenons.</p>
+                    </div>
+
+                    <div class="right-card">
+                        <h4><i class="fas fa-edit"></i> Droit de rectification</h4>
+                        <p>Corriger vos données si elles sont inexactes ou incomplètes.</p>
+                    </div>
+
+                    <div class="right-card">
+                        <h4><i class="fas fa-trash"></i> Droit à l'effacement</h4>
+                        <p>Demander la suppression de vos données ("droit à l'oubli").</p>
+                    </div>
+
+                    <div class="right-card">
+                        <h4><i class="fas fa-pause"></i> Droit à la limitation</h4>
+                        <p>Limiter temporairement le traitement de vos données.</p>
+                    </div>
+
+                    <div class="right-card">
+                        <h4><i class="fas fa-ban"></i> Droit d'opposition</h4>
+                        <p>Vous opposer au traitement de vos données pour des raisons légitimes.</p>
+                    </div>
+
+                    <div class="right-card">
+                        <h4><i class="fas fa-download"></i> Droit à la portabilité</h4>
+                        <p>Récupérer vos données dans un format structuré et réutilisable.</p>
+                    </div>
+                </div>
+
+                <div class="exercise-rights">
+                    <h3>Comment exercer vos droits ?</h3>
+                    <p>Pour exercer l'un de ces droits, contactez-nous :</p>
+                    <ul>
+                        <li><strong>Par email :</strong> <a href="mailto:contact@3s-managers.fr">contact@3s-managers.fr</a></li>
+                        <li><strong>Par téléphone :</strong> <a href="tel:+33683424012">06 83 42 40 12</a></li>
+                        <li><strong>Par courrier :</strong> [ADRESSE À COMPLÉTER]</li>
+                    </ul>
+                    <p>
+                        <strong>Délai de réponse :</strong> Nous nous engageons à répondre dans un délai d'<strong>1 mois</strong> 
+                        à compter de votre demande (pouvant être porté à 3 mois en cas de complexité).
+                    </p>
+                    <p>
+                        <strong>Pièce d'identité :</strong> Pour des raisons de sécurité, une copie de votre pièce d'identité 
+                        pourra vous être demandée.
+                    </p>
+                </div>
+
+                <div class="cnil-info">
+                    <p>
+                        <i class="fas fa-info-circle"></i>
+                        Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation 
+                        auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) :
+                    </p>
+                    <ul>
+                        <li><strong>Site web :</strong> <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a></li>
+                        <li><strong>Adresse :</strong> 3 Place de Fontenoy, TSA 80715, 75334 PARIS CEDEX 07</li>
+                        <li><strong>Téléphone :</strong> 01 53 73 22 22</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-globe"></i> 9. Transfert de données hors UE</h2>
+            <div class="legal-info">
+                <p>
+                    Vos données personnelles sont hébergées et traitées au sein de l'Union Européenne.
+                </p>
+                <p>
+                    En cas de transfert vers un pays tiers, nous nous assurons que des garanties appropriées 
+                    sont mises en place (clauses contractuelles types de la Commission Européenne, certification 
+                    Privacy Shield, etc.).
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-baby"></i> 10. Mineurs</h2>
+            <div class="legal-info">
+                <p>
+                    Notre site ne s'adresse pas aux mineurs de moins de 16 ans. Nous ne collectons pas 
+                    sciemment de données personnelles de mineurs sans le consentement de leurs représentants légaux.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-sync"></i> 11. Modifications de la politique</h2>
+            <div class="legal-info">
+                <p>
+                    Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. 
+                    Les modifications entreront en vigueur dès leur mise en ligne sur cette page.
+                </p>
+                <p>
+                    Nous vous encourageons à consulter régulièrement cette page pour rester informé(e) de la 
+                    façon dont nous protégeons vos données.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-question-circle"></i> 12. Contact</h2>
+            <div class="legal-info">
+                <p>Pour toute question concernant cette politique de confidentialité ou le traitement de vos données :</p>
+                <div class="contact-box">
+                    <p><strong>Solution, Stratégie et Sens</strong></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:contact@3s-managers.fr">contact@3s-managers.fr</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+33683424012">06 83 42 40 12</a></p>
+                    <p><i class="fas fa-paper-plane"></i> <a href="{{ path('app_contact') }}">Formulaire de contact</a></p>
+                </div>
+            </div>
+        </section>
+
+        <div class="legal-update">
+            <p><em><i class="fas fa-calendar-alt"></i> Dernière mise à jour : {{ 'now'|date('d/m/Y') }}</em></p>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('open-cookie-banner')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (window.cookieConsent) {
+        window.cookieConsent.showBanner();
+    }
+});
+document.getElementById('open-cookie-settings')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (window.cookieConsent) {
+        window.cookieConsent.showBanner();
+    }
+});
+</script>
+{% endblock %}

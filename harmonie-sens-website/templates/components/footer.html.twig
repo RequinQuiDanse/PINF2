@@ -42,7 +42,42 @@
     </div>
 
     <div class="footer-bottom">
+        <div class="footer-legal-links">
+            <a href="{{ path('app_legal_notice') }}">Mentions légales</a>
+            <span class="footer-separator">|</span>
+            <a href="{{ path('app_privacy_policy') }}">Politique de confidentialité</a>
+            <span class="footer-separator">|</span>
+            <a href="{{ path('app_terms') }}">CGU</a>
+            <span class="footer-separator">|</span>
+            <a href="#" id="manage-cookies-footer" class="footer-link-cookies" title="Gérer mes préférences de cookies">
+                <i class="fas fa-cookie-bite"></i> Gérer les cookies
+            </a>
+        </div>
         <p>&copy; {{ 'now'|date('Y') }} Solution, Stratégie et Sens. Tous droits réservés.</p>
         <p>Direction de confiance, gouvernance humaine et pilotage de transformation durable</p>
     </div>
 </footer>
+
+<script>
+    // Lien pour gérer les cookies depuis le footer
+    document.addEventListener('DOMContentLoaded', function() {
+        const manageCookiesLink = document.getElementById('manage-cookies-footer');
+        if (manageCookiesLink) {
+            manageCookiesLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (window.cookieConsent) {
+                    window.cookieConsent.showBanner();
+                }
+            });
+        }
+    });
+</script>
+            manageCookiesLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (window.cookieConsent) {
+                    window.cookieConsent.showBanner();
+                }
+            });
+        }
+    });
+</script>
