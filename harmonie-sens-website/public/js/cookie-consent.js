@@ -42,7 +42,7 @@ class CookieConsent {
         // Bouton "Personnaliser"
         const customizeBtn = document.getElementById('cookie-accept-selected');
         if (customizeBtn) {
-            customizeBtn.addEventListener('click', () => this.acceptSelected());
+            customizeBtn.addEventListener('click', () => this.toggleDetails());
         }
         
         // Bouton "Tout refuser"

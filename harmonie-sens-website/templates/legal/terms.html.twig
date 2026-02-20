@@ -8,13 +8,20 @@
     <link rel="stylesheet" href="{{ asset('css/legal-pages.css') }}">
 {% endblock %}
 
+{% block navbar %}
+    {% include 'components/navbar_client.html.twig' %}
+{% endblock %}
+
 {% block body %}
+<section class="legal-hero">
+    <div class="container">
+        <h1>Conditions Générales d'Utilisation</h1>
+        <p class="subtitle">Conditions d'accès et d'utilisation du site</p>
+    </div>
+</section>
+
 <div class="legal-page">
     <div class="container">
-        <header class="legal-header">
-            <h1>Conditions Générales d'Utilisation</h1>
-            <p class="legal-intro">Conditions d'accès et d'utilisation du site</p>
-        </header>
 
         <section class="legal-section">
             <h2><i class="fas fa-file-contract"></i> 1. Objet</h2>
@@ -303,7 +310,7 @@
         </section>
 
         <div class="legal-update">
-            <p><em><i class="fas fa-calendar-alt"></i> Dernière mise à jour : {{ 'now'|date('d/m/Y') }}</em></p>
+            <p><em><i class="fas fa-calendar-alt"></i> Dernière mise à jour : 19/02/2026</em></p>
         </div>
     </div>
 </div>
