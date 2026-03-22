@@ -33,6 +33,9 @@
                 <a href="{{ path('admin_webinar_index') }}" class="sidebar-link{% if app.request.attributes.get('_route') starts with 'admin_webinar' %} active{% endif %}">
                     <i class="fas fa-video"></i> Webinaires
                 </a>
+                <a href="{{ path('admin_appointment_index') }}" class="sidebar-link{% if app.request.attributes.get('_route') starts with 'admin_appointment' %} active{% endif %}">
+                    <i class="fas fa-calendar-check"></i> Rendez-vous
+                </a>
                 <a href="{{ path('admin_timetable_index') }}" class="sidebar-link{% if app.request.attributes.get('_route') starts with 'admin_timetable' %} active{% endif %}">
                     <i class="fas fa-calendar"></i> Emploi du temps
                 </a>

@@ -1,0 +1,84 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Rendez-vous - {{ appointment.fullName }}{% endblock %}
+
+{% block body %}
+<div class="admin-content">
+    <div class="page-header">
+        <h1>Rendez-vous de {{ appointment.fullName }}</h1>
+        <a href="{{ path('admin_appointment_index') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <strong>Statut :</strong>
+                <span class="badge {{ appointment.statusBadgeClass }}">{{ appointment.statusLabel }}</span>
+            </div>
+            <div class="form-group">
+                <strong>Nom :</strong> {{ appointment.firstName }} {{ appointment.lastName }}
+            </div>
+            <div class="form-group">
+                <strong>Email :</strong> <a href="mailto:{{ appointment.email }}">{{ appointment.email }}</a>
+            </div>
+            {% if appointment.phone %}
+            <div class="form-group">
+                <strong>Téléphone :</strong> <a href="tel:{{ appointment.phone }}">{{ appointment.phone }}</a>
+            </div>
+            {% endif %}
+            {% if appointment.organization %}
+            <div class="form-group">
+                <strong>Organisation :</strong> {{ appointment.organization }}
+            </div>
+            {% endif %}
+            <div class="form-group">
+                <strong>Service :</strong> {{ appointment.service }}
+            </div>
+            <div class="form-group">
+                <strong>Date souhaitée :</strong> {{ appointment.desiredDate|date('d/m/Y') }} à {{ appointment.desiredTime }}
+            </div>
+            <div class="form-group">
+                <strong>Demande reçue le :</strong> {{ appointment.createdAt|date('d/m/Y à H:i') }}
+            </div>
+            {% if appointment.notes %}
+            <div class="form-group">
+                <strong>Notes :</strong>
+                <div class="admin-message-box">{{ appointment.notes|nl2br }}</div>
+            </div>
+            {% endif %}
+
+            {% if appointment.confirmedAt %}
+            <div class="form-group">
+                <strong>Confirmé le :</strong> {{ appointment.confirmedAt|date('d/m/Y à H:i') }}
+            </div>
+            {% endif %}
+
+            {% if appointment.rejectedAt %}
+            <div class="form-group">
+                <strong>Refusé le :</strong> {{ appointment.rejectedAt|date('d/m/Y à H:i') }}
+            </div>
+            {% endif %}
+
+            {% if appointment.rejectionReason %}
+            <div class="form-group">
+                <strong>Motif du refus :</strong>
+                <div class="admin-message-box">{{ appointment.rejectionReason|nl2br }}</div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if appointment.isPending %}
+    <div style="margin-top: 20px; display: flex; gap: 10px;">
+        <a href="{{ path('admin_appointment_confirm', {token: appointment.token}) }}" class="btn btn-success" onclick="return confirm('Confirmer ce rendez-vous ?')">
+            <i class="fas fa-check"></i> Confirmer le rendez-vous
+        </a>
+        <a href="{{ path('admin_appointment_reject', {token: appointment.token}) }}" class="btn btn-danger">
+            <i class="fas fa-times"></i> Refuser le rendez-vous
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

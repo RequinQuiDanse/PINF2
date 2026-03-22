@@ -1,0 +1,158 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prendre rendez-vous - Harmonie & Sens{% endblock %}
+
+{% block meta_description %}Prenez rendez-vous avec Harmonie & Sens pour discuter de votre projet de direction de transition, audit, formation ou accompagnement.{% endblock %}
+
+{% block meta_keywords %}rendez-vous cabinet conseil santé, prendre rendez-vous direction transition, consultation EHPAD{% endblock %}
+
+{% block og_title %}Prendre rendez-vous | Harmonie & Sens{% endblock %}
+{% block og_description %}Réservez un créneau avec notre équipe pour discuter de votre projet.{% endblock %}
+
+{% block navbar %}
+    {% include 'components/navbar_client.html.twig' %}
+{% endblock %}
+
+{% block body %}
+<!-- Hero Section -->
+<section class="contact-hero">
+    <div class="container">
+        <div class="contact-hero-content">
+            <span class="contact-badge">Rendez-vous</span>
+            <h1>Prenez rendez-vous</h1>
+            <p class="contact-hero-subtitle">Choisissez un créneau et nous vous confirmerons votre rendez-vous sous 24h ouvrées</p>
+        </div>
+    </div>
+</section>
+
+<!-- Section formulaire -->
+<section class="contact-main">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Colonne formulaire -->
+            <div class="contact-form-card">
+                <div class="form-header">
+                    <h2>Demande de rendez-vous</h2>
+                    <p>Remplissez le formulaire ci-dessous et nous vous confirmerons le créneau par email</p>
+                </div>
+
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+
+                {{ form_start(form, {'attr': {'class': 'contact-form'}}) }}
+                    <div class="form-row">
+                        <div class="form-group">
+                            {{ form_label(form.firstName) }} <span class="required">*</span>
+                            {{ form_widget(form.firstName) }}
+                            {{ form_errors(form.firstName) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.lastName) }} <span class="required">*</span>
+                            {{ form_widget(form.lastName) }}
+                            {{ form_errors(form.lastName) }}
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            {{ form_label(form.email) }} <span class="required">*</span>
+                            {{ form_widget(form.email) }}
+                            {{ form_errors(form.email) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.phone) }}
+                            {{ form_widget(form.phone) }}
+                            {{ form_errors(form.phone) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.organization) }}
+                        {{ form_widget(form.organization) }}
+                        {{ form_errors(form.organization) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.service) }} <span class="required">*</span>
+                        {{ form_widget(form.service) }}
+                        {{ form_errors(form.service) }}
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            {{ form_label(form.desiredDate) }} <span class="required">*</span>
+                            {{ form_widget(form.desiredDate) }}
+                            {{ form_errors(form.desiredDate) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.desiredTime) }} <span class="required">*</span>
+                            {{ form_widget(form.desiredTime) }}
+                            {{ form_errors(form.desiredTime) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.notes) }}
+                        {{ form_widget(form.notes) }}
+                        {{ form_errors(form.notes) }}
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <span>Demander un rendez-vous</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </button>
+                {{ form_end(form) }}
+            </div>
+
+            <!-- Colonne informations -->
+            <div class="contact-info-column">
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-clock" style="color: var(--color-sage);"></i></div>
+                        <div class="info-content">
+                            <h4>Comment ça marche ?</h4>
+                            <p class="info-detail">1. Remplissez le formulaire<br>2. Nous examinons votre demande<br>3. Vous recevez un email de confirmation</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-calendar-check" style="color: var(--color-sage);"></i></div>
+                        <div class="info-content">
+                            <h4>Disponibilités</h4>
+                            <p class="info-value">Lun - Ven</p>
+                            <p class="info-detail">9h00 - 17h00</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-phone-alt" style="color: var(--color-sage);"></i></div>
+                        <div class="info-content">
+                            <h4>Besoin urgent ?</h4>
+                            <p class="info-value">06 83 42 40 12</p>
+                            <p class="info-detail">Appelez-nous directement</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="urgency-card">
+                    <div class="urgency-icon"><i class="fas fa-envelope" style="color: var(--color-gold);"></i></div>
+                    <h4>Préférez un message ?</h4>
+                    <p>Vous pouvez aussi nous contacter via notre formulaire de contact classique.</p>
+                    <a href="{{ path('app_contact') }}" class="btn-urgency">
+                        Nous écrire
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

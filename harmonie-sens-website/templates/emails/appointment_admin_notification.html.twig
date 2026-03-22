@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background: #f9f9f9;">
+        <div style="background: #fff; padding: 30px; border-radius: 8px;">
+            <h2 style="color: #7A8F6E; margin-bottom: 20px;">Nouvelle demande de rendez-vous</h2>
+
+            <div style="margin-bottom: 15px;">
+                <strong>De :</strong> {{ appointment.firstName }} {{ appointment.lastName }}
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <strong>Email :</strong> <a href="mailto:{{ appointment.email }}">{{ appointment.email }}</a>
+            </div>
+
+            {% if appointment.phone %}
+            <div style="margin-bottom: 15px;">
+                <strong>Téléphone :</strong> {{ appointment.phone }}
+            </div>
+            {% endif %}
+
+            {% if appointment.organization %}
+            <div style="margin-bottom: 15px;">
+                <strong>Organisation :</strong> {{ appointment.organization }}
+            </div>
+            {% endif %}
+
+            <div style="margin-bottom: 15px;">
+                <strong>Service demandé :</strong> {{ appointment.service }}
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <strong>Date souhaitée :</strong> {{ appointment.desiredDate|date('d/m/Y') }} à {{ appointment.desiredTime }}
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <strong>Demande reçue le :</strong> {{ appointment.createdAt|date('d/m/Y à H:i') }}
+            </div>
+
+            {% if appointment.notes %}
+            <div style="margin-top: 20px; padding: 15px; background: #f5f5f5; border-left: 4px solid #7A8F6E; border-radius: 4px;">
+                <strong>Notes :</strong><br><br>
+                {{ appointment.notes|nl2br }}
+            </div>
+            {% endif %}
+
+            <div style="margin-top: 30px; text-align: center;">
+                <p style="margin-bottom: 20px; font-weight: bold; color: #555;">Souhaitez-vous confirmer ce rendez-vous ?</p>
+
+                <a href="{{ confirm_url }}" style="display: inline-block; padding: 12px 30px; background: #7A8F6E; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; margin-right: 10px;">
+                    Confirmer le rendez-vous
+                </a>
+
+                <a href="{{ reject_url }}" style="display: inline-block; padding: 12px 30px; background: #e74c3c; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; margin-left: 10px;">
+                    Refuser le rendez-vous
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

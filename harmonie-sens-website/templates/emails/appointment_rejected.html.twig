@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background: #f9f9f9;">
+        <div style="background: #fff; padding: 30px; border-radius: 8px;">
+            <h2 style="color: #7A8F6E; margin-bottom: 10px; text-align: center;">Concernant votre demande de rendez-vous</h2>
+
+            <p style="text-align: center; color: #666; margin-bottom: 25px;">
+                Bonjour {{ appointment.firstName }},
+            </p>
+
+            <p style="color: #555; margin-bottom: 20px;">
+                Nous vous remercions pour votre demande de rendez-vous du <strong>{{ appointment.desiredDate|date('d/m/Y') }}</strong> à <strong>{{ appointment.desiredTime }}</strong> pour le service <strong>{{ appointment.service }}</strong>.
+            </p>
+
+            <p style="color: #555; margin-bottom: 20px;">
+                Malheureusement, nous ne sommes pas en mesure de confirmer ce créneau.
+            </p>
+
+            {% if reason %}
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #7A8F6E;">
+                <strong>Motif :</strong><br>
+                {{ reason|nl2br }}
+            </div>
+            {% endif %}
+
+            <div style="background: #f0f7ee; padding: 25px; border-radius: 8px; margin-bottom: 25px;">
+                <h3 style="color: #7A8F6E; margin-top: 0; margin-bottom: 15px; text-align: center;">Que souhaitez-vous faire ?</h3>
+
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <a href="{{ reschedule_url }}" style="display: inline-block; padding: 14px 35px; background: #7A8F6E; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                        Reprogrammer un rendez-vous
+                    </a>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 15px; color: #888;">
+                    &mdash; ou &mdash;
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="tel:0683424012" style="display: inline-block; padding: 14px 35px; background: #fff; color: #7A8F6E; text-decoration: none; border-radius: 6px; font-weight: bold; border: 2px solid #7A8F6E;">
+                        Nous appeler : 06 83 42 40 12
+                    </a>
+                </div>
+            </div>
+
+            <p style="color: #888; text-align: center; font-size: 14px;">
+                Vous pouvez également nous contacter par email à <a href="mailto:contact@harmonieetsens.fr" style="color: #7A8F6E;">contact@harmonieetsens.fr</a>
+            </p>
+
+            <p style="color: #666; text-align: center; margin-top: 20px;">
+                Nous restons à votre disposition,<br>
+                <strong>L'équipe Harmonie & Sens</strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
