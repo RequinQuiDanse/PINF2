@@ -1,0 +1,345 @@
+{# Exemple d'utilisation du système de gestion des cookies #}
+{# Placez ce template dans templates/example/ pour référence #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Exemple - Gestion des cookies{% endblock %}
+
+{% block body %}
+<div class="container" style="padding: 3rem 0;">
+    <h1>🍪 Système de gestion des cookies</h1>
+    
+    <div class="cookie-demo-section">
+        <h2>Démonstration</h2>
+        
+        <div class="demo-buttons">
+            <button id="demo-show-banner" class="btn btn-primary">
+                <i class="fas fa-eye"></i> Afficher la bannière
+            </button>
+            
+            <button id="demo-check-consent" class="btn btn-secondary">
+                <i class="fas fa-check-circle"></i> Vérifier le consentement
+            </button>
+            
+            <button id="demo-clear-consent" class="btn btn-danger">
+                <i class="fas fa-trash"></i> Supprimer le consentement
+            </button>
+        </div>
+        
+        <div id="consent-status" class="consent-status">
+            <h3>État du consentement :</h3>
+            <pre id="consent-data">Chargement...</pre>
+        </div>
+        
+        <div class="demo-tracking">
+            <h3>Test des événements de tracking</h3>
+            <button id="demo-track-event" class="btn btn-info">
+                <i class="fas fa-chart-line"></i> Envoyer un événement
+            </button>
+            <p class="demo-note">
+                Ouvrez la console du navigateur pour voir les événements
+            </p>
+        </div>
+    </div>
+    
+    <div class="cookie-documentation">
+        <h2>API JavaScript disponible</h2>
+        
+        <div class="api-method">
+            <h4>🔍 Vérifier une catégorie de cookies</h4>
+            <code>window.checkCookieConsent('analytics')</code>
+            <p>Retourne <code>true</code> ou <code>false</code></p>
+        </div>
+        
+        <div class="api-method">
+            <h4>📋 Obtenir le consentement complet</h4>
+            <code>window.cookieConsent.getConsent()</code>
+            <p>Retourne l'objet de consentement complet</p>
+        </div>
+        
+        <div class="api-method">
+            <h4>👁️ Afficher la bannière</h4>
+            <code>window.cookieConsent.showBanner()</code>
+            <p>Affiche la bannière même si l'utilisateur a déjà fait un choix</p>
+        </div>
+        
+        <div class="api-method">
+            <h4>📊 Tracker un événement</h4>
+            <code>window.trackEvent('Category', 'Action', 'Label', 123)</code>
+            <p>Envoie un événement aux services analytiques (si autorisés)</p>
+        </div>
+        
+        <div class="api-method">
+            <h4>💰 Tracker une conversion</h4>
+            <code>window.trackConversion('Purchase', 99.99)</code>
+            <p>Envoie une conversion aux services marketing (si autorisés)</p>
+        </div>
+    </div>
+    
+    <div class="cookie-categories">
+        <h2>Catégories de cookies gérées</h2>
+        
+        <div class="category-card">
+            <h4>🔐 Cookies essentiels</h4>
+            <p>Toujours actifs - Nécessaires au fonctionnement du site</p>
+            <ul>
+                <li>Gestion de session</li>
+                <li>Authentification</li>
+                <li>Préférences de cookies</li>
+                <li>Protection CSRF</li>
+            </ul>
+        </div>
+        
+        <div class="category-card">
+            <h4>📊 Cookies analytiques</h4>
+            <p>Optionnels - Mesure d'audience et analyse</p>
+            <ul>
+                <li>Google Analytics</li>
+                <li>Matomo</li>
+                <li>Hotjar</li>
+                <li>Google Tag Manager</li>
+            </ul>
+        </div>
+        
+        <div class="category-card">
+            <h4>🎯 Cookies marketing</h4>
+            <p>Optionnels - Personnalisation et publicité</p>
+            <ul>
+                <li>Facebook Pixel</li>
+                <li>Google Ads</li>
+                <li>LinkedIn Insights</li>
+                <li>Publicités personnalisées</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+    .cookie-demo-section {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        margin: 2rem 0;
+    }
+    
+    .demo-buttons {
+        display: flex;
+        gap: 1rem;
+        margin: 1.5rem 0;
+        flex-wrap: wrap;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .btn i {
+        font-size: 1rem;
+    }
+    
+    .btn-primary {
+        background: var(--color-sage);
+        color: white;
+    }
+    
+    .btn-primary:hover {
+        background: var(--color-sage-dark);
+        transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+        background: var(--color-gold);
+        color: white;
+    }
+    
+    .btn-secondary:hover {
+        background: var(--color-gold-dark);
+        transform: translateY(-2px);
+    }
+    
+    .btn-danger {
+        background: #e74c3c;
+        color: white;
+    }
+    
+    .btn-danger:hover {
+        background: #c0392b;
+        transform: translateY(-2px);
+    }
+    
+    .btn-info {
+        background: var(--service-blue);
+        color: white;
+    }
+    
+    .btn-info:hover {
+        background: var(--color-gray-dark);
+        transform: translateY(-2px);
+    }
+    
+    .consent-status {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 1.5rem 0;
+    }
+    
+    .consent-status h3 {
+        margin: 0 0 1rem 0;
+        font-size: 1.1rem;
+        color: var(--color-gray-dark);
+    }
+    
+    .consent-status pre {
+        background: white;
+        padding: 1rem;
+        border-radius: 6px;
+        border: 1px solid #dee2e6;
+        overflow-x: auto;
+        font-size: 0.875rem;
+    }
+    
+    .demo-tracking {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: var(--service-blue-light);
+        border-radius: 8px;
+    }
+    
+    .demo-note {
+        margin-top: 0.75rem;
+        font-size: 0.875rem;
+        color: var(--color-gray-medium);
+        font-style: italic;
+    }
+    
+    .cookie-documentation,
+    .cookie-categories {
+        margin: 3rem 0;
+    }
+    
+    .api-method {
+        background: white;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        border-radius: 8px;
+        border-left: 4px solid var(--color-sage);
+        box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    
+    .api-method h4 {
+        margin: 0 0 0.75rem 0;
+        color: var(--color-gray-dark);
+    }
+    
+    .api-method code {
+        background: #f8f9fa;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        display: block;
+        margin: 0.75rem 0;
+        font-family: 'Courier New', monospace;
+        color: #e83e8c;
+    }
+    
+    .api-method p {
+        color: var(--color-gray-medium);
+        margin: 0.5rem 0 0 0;
+        font-size: 0.9rem;
+    }
+    
+    .category-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .category-card h4 {
+        margin: 0 0 0.75rem 0;
+        color: var(--color-gray-dark);
+    }
+    
+    .category-card ul {
+        margin: 0.75rem 0 0 0;
+        padding-left: 1.5rem;
+    }
+    
+    .category-card li {
+        color: var(--color-gray-medium);
+        margin: 0.25rem 0;
+    }
+</style>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Fonction pour afficher l'état du consentement
+    function displayConsentStatus() {
+        const consentData = document.getElementById('consent-data');
+        if (window.cookieConsent) {
+            const consent = window.cookieConsent.getConsent();
+            if (consent) {
+                consentData.textContent = JSON.stringify(consent, null, 2);
+            } else {
+                consentData.textContent = 'Aucun consentement enregistré';
+            }
+        } else {
+            consentData.textContent = 'Système non initialisé';
+        }
+    }
+    
+    // Afficher l'état initial
+    setTimeout(displayConsentStatus, 500);
+    
+    // Bouton pour afficher la bannière
+    document.getElementById('demo-show-banner').addEventListener('click', function() {
+        if (window.cookieConsent) {
+            window.cookieConsent.showBanner();
+        }
+    });
+    
+    // Bouton pour vérifier le consentement
+    document.getElementById('demo-check-consent').addEventListener('click', function() {
+        displayConsentStatus();
+        alert('Consentement mis à jour dans la zone ci-dessous');
+    });
+    
+    // Bouton pour supprimer le consentement
+    document.getElementById('demo-clear-consent').addEventListener('click', function() {
+        if (confirm('Êtes-vous sûr de vouloir supprimer votre consentement ?')) {
+            localStorage.removeItem('cookie_consent');
+            displayConsentStatus();
+            alert('Consentement supprimé ! Rechargez la page pour voir la bannière.');
+        }
+    });
+    
+    // Bouton pour tester le tracking
+    document.getElementById('demo-track-event').addEventListener('click', function() {
+        if (window.trackEvent) {
+            window.trackEvent('Demo', 'Click', 'Test Event', 1);
+            alert('Événement envoyé ! Vérifiez la console.');
+        } else {
+            alert('La fonction trackEvent n\'est pas disponible. Chargez tracking-integration.js');
+        }
+    });
+    
+    // Écouter les changements de consentement
+    document.addEventListener('cookieConsentUpdated', function(event) {
+        console.log('🔔 Consentement mis à jour:', event.detail);
+        displayConsentStatus();
+    });
+});
+</script>
+{% endblock %}

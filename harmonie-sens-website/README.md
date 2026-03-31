@@ -1,6 +1,6 @@
-# 🌿 Harmonie & Sens - Site Web
+# 🌿 Solution, Stratégie et Sens (3S Managers) - Site Web
 
-Site vitrine pour le cabinet de conseil Harmonie & Sens.
+Site vitrine pour le cabinet de conseil Solution, Stratégie et Sens.
 
 ## 📋 Prérequis
 
@@ -22,6 +22,14 @@ cd harmonie-sens-website
 
 ```bash
 composer install
+```
+
+**Dépendances principales requises :**
+- `symfony/http-client` : pour l'intégration avec Microsoft Graph API (calendrier)
+
+Si une dépendance manque, installez-la avec :
+```bash
+composer require symfony/http-client
 ```
 
 ### 3. Configurer l'environnement

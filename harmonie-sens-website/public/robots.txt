@@ -1,11 +1,11 @@
-# Robots.txt for Harmonie & Sens
+# Robots.txt for Solution, Stratégie et Sens (3s-managers.fr)
 # https://www.robotstxt.org/
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://harmonieetsens.fr/sitemap.xml
+Sitemap: https://3s-managers.fr/sitemap.xml
 
 # Disallow admin section
 Disallow: /admin/

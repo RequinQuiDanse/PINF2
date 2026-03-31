@@ -1,6 +1,6 @@
-# Structure de la Base de Données - Harmonie & Sens
+# Documentation Base de Données - Harmonie & Sens
 
-## Entités à créer
+## Entités Implémentées
 
 ### 1. User (Utilisateurs admin)
 ```
@@ -14,22 +14,7 @@
 - updatedAt (datetime)
 ```
 
-### 2. Content (Pages et contenus dynamiques)
-```
-- id (int, auto)
-- title (string)
-- slug (string, unique)
-- content (text)
-- type (string) // 'page', 'service', 'article'
-- isPublished (boolean)
-- metaDescription (string, nullable)
-- metaKeywords (string, nullable)
-- createdAt (datetime)
-- updatedAt (datetime)
-- author (relation: User)
-```
-
-### 3. Message (Messages de contact)
+### 2. Message (Messages de contact)
 ```
 - id (int, auto)
 - firstName (string)
@@ -44,22 +29,22 @@
 - repliedAt (datetime, nullable)
 ```
 
-### 4. Service (Services du cabinet)
+### 3. Service (Services du cabinet)
 ```
 - id (int, auto)
 - name (string)
 - slug (string, unique)
-- shortDescription (text)
-- fullDescription (text)
-- price (string, nullable)
-- icon (string, nullable)
-- displayOrder (int)
+- description (text, nullable)
+- priceMin (decimal, nullable)
+- priceMax (decimal, nullable)
+- pricingUnit (string, nullable) // 'jour', 'heure', 'mission'
+- pricingDetails (text, nullable)
 - isActive (boolean)
 - createdAt (datetime)
 - updatedAt (datetime)
 ```
 
-### 5. Testimony (Témoignages clients)
+### 4. Testimony (Témoignages clients)
 ```
 - id (int, auto)
 - clientName (string)
@@ -72,90 +57,100 @@
 - createdAt (datetime)
 ```
 
-### 6. Sector (Secteurs d'intervention)
+### 5. Person (Contacts/Leads)
+```
+- id (int, auto)
+- firstName (string)
+- lastName (string)
+- email (string)
+- phone (string, nullable)
+- organization (string, nullable)
+- subscribedToNewsletter (boolean)
+- createdAt (datetime)
+```
+
+### 6. Webinar (Webinaires/Formations en ligne)
 ```
 - id (int, auto)
 - name (string)
-- slug (string, unique)
 - description (text)
-- icon (string, nullable)
-- displayOrder (int)
-- isActive (boolean)
-```
-
-### 7. Formation (Formations proposées)
-```
-- id (int, auto)
-- title (string)
-- slug (string, unique)
-- description (text)
-- duration (string)
-- price (string)
-- maxParticipants (int, nullable)
-- objectives (text)
+- date (datetime)
+- link (string)
+- duration (int, nullable) // en minutes
 - isActive (boolean)
 - createdAt (datetime)
+```
+
+### 7. Timetable (Horaires de disponibilité)
+```
+- id (int, auto)
+- dayOfWeek (string) // 'lundi', 'mardi', etc.
+- startTime (string) // '09:00'
+- endTime (string) // '17:00'
+- isAvailable (boolean)
+- notes (string, nullable)
+```
+
+### 8. ServicePricing (Tarification des services)
+```
+- id (int, auto)
+- serviceName (string)
+- description (text, nullable)
+- unitPrice (decimal, nullable)
+- dailyPricing (json, nullable) // ['1-5' => 1000, '6-10' => 900, etc.]
+- pricingUnit (string, nullable) // 'jour', 'heure', 'mission'
+- isActive (boolean)
 - updatedAt (datetime)
 ```
 
-### 8. Setting (Paramètres du site)
-```
-- id (int, auto)
-- settingKey (string, unique)
-- settingValue (text)
-- description (string, nullable)
-- updatedAt (datetime)
-```
+---
 
 ## Relations
 
-- Content → User (ManyToOne) : author
-- Message : pas de relations
-- Service : pas de relations (standalone)
-- Testimony : pas de relations
-- Sector : pas de relations
-- Formation : pas de relations
-- Setting : pas de relations
+Toutes les entités sont actuellement **standalone** (pas de relations entre elles).
 
-## Commandes pour créer les entités
+---
 
+## Commandes Doctrine
+
+### Commandes utiles
 ```bash
-# Créer l'entité User avec MakerBundle
-php bin/console make:user
+# Voir l'état de la base de données
+php bin/console doctrine:schema:validate
 
-# Créer les autres entités
-php bin/console make:entity Content
-php bin/console make:entity Message
-php bin/console make:entity Service
-php bin/console make:entity Testimony
-php bin/console make:entity Sector
-php bin/console make:entity Formation
-php bin/console make:entity Setting
+# Créer un administrateur
+php bin/console app:create-admin
 
-# Générer la migration
+# Initialiser les services
+php bin/console app:init-services
+
+# Tester l'envoi d'emails
+php bin/console app:test-email
+
+# Générer une migration après modification d'entité
 php bin/console make:migration
 
-# Exécuter la migration
+# Exécuter les migrations
 php bin/console doctrine:migrations:migrate
 ```
 
-## Données initiales à créer
+---
 
-### Settings
-- site_name: "Harmonie & Sens"
-- site_tagline: "Conduire, relier et restaurer l'équilibre au cœur des organisations"
-- contact_email: "contact@harmonieetsens.fr"
-- contact_phone: "06 83 42 40 12"
-- contact_address: "Interventions sur le territoire national"
+## Données Initiales
 
-### Services initiaux
+### Services (via commande app:init-services)
+Les services suivants peuvent être initialisés automatiquement :
 - Direction de transition
 - Diagnostic & Audit
 - Formations et webinaires
 - Accompagnement individuel
 
-### Secteurs initiaux
-- Personnes âgées
-- Adultes en situation de handicap
-- Enfance & protection de l'enfance
-- Champ sanitaire
+### Horaires de disponibilité (Timetable)
+```
+Lundi - Vendredi : 09:00 - 18:00
+```
+
+### Informations de contact
+- Email : contact@harmonieetsens.fr
+- Téléphone : 06 83 42 40 12
+- Zone d'intervention : National

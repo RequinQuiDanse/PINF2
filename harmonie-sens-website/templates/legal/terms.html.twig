@@ -1,0 +1,326 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conditions Générales d'Utilisation - Solution, Stratégie et Sens{% endblock %}
+
+{% block meta_robots %}index, follow{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/legal-pages.css') }}">
+{% endblock %}
+
+{% block navbar %}
+    {% include 'components/navbar_client.html.twig' %}
+{% endblock %}
+
+{% block body %}
+<section class="legal-hero">
+    <div class="container">
+        <h1>Conditions Générales d'Utilisation</h1>
+        <p class="subtitle">Conditions d'accès et d'utilisation du site</p>
+    </div>
+</section>
+
+<div class="legal-page">
+    <div class="container">
+
+        <section class="legal-section">
+            <h2><i class="fas fa-file-contract"></i> 1. Objet</h2>
+            <div class="legal-info">
+                <p>
+                    Les présentes Conditions Générales d'Utilisation (CGU) ont pour objet de définir les 
+                    modalités et conditions d'utilisation du site internet <strong>Solution, Stratégie et Sens</strong> 
+                    ainsi que les droits et obligations des utilisateurs.
+                </p>
+                <p>
+                    L'accès et l'utilisation du site impliquent l'acceptation pleine et entière des présentes CGU.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-check-circle"></i> 2. Acceptation des conditions</h2>
+            <div class="legal-info">
+                <p>
+                    En naviguant sur ce site, vous reconnaissez avoir pris connaissance des présentes CGU 
+                    et vous vous engagez à les respecter.
+                </p>
+                <p>
+                    Solution, Stratégie et Sens se réserve le droit de modifier à tout moment les présentes CGU. 
+                    Les modifications entreront en vigueur dès leur mise en ligne.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-globe"></i> 3. Accès au site</h2>
+            <div class="legal-info">
+                <h3>3.1 Disponibilité</h3>
+                <p>
+                    Le site est accessible 24h/24 et 7j/7, sauf en cas de force majeure, d'événements hors de notre contrôle, 
+                    ou de maintenance technique.
+                </p>
+                <p>
+                    Solution, Stratégie et Sens ne saurait être tenue responsable des interruptions et des conséquences 
+                    qui peuvent en découler pour l'utilisateur.
+                </p>
+
+                <h3>3.2 Moyens d'accès</h3>
+                <p>
+                    L'utilisateur est seul responsable de son équipement informatique, de sa connexion internet 
+                    et des frais de télécommunication associés.
+                </p>
+
+                <h3>3.3 Maintenance</h3>
+                <p>
+                    Solution, Stratégie et Sens se réserve le droit d'interrompre temporairement l'accès au site 
+                    pour des raisons de maintenance, sans préavis ni indemnité.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-user-shield"></i> 4. Utilisation du site</h2>
+            <div class="legal-info">
+                <h3>4.1 Usage autorisé</h3>
+                <p>L'utilisateur s'engage à utiliser le site de manière conforme à sa destination et notamment à :</p>
+                <ul>
+                    <li>Ne pas porter atteinte à l'ordre public et aux bonnes mœurs</li>
+                    <li>Ne pas enfreindre les droits de propriété intellectuelle</li>
+                    <li>Ne pas diffuser de contenu illicite, diffamatoire ou injurieux</li>
+                    <li>Ne pas perturber le fonctionnement du site</li>
+                    <li>Ne pas collecter des données personnelles sans autorisation</li>
+                </ul>
+
+                <h3>4.2 Usage interdit</h3>
+                <p>Il est strictement interdit de :</p>
+                <ul>
+                    <li>Tenter d'accéder de manière non autorisée au site ou aux systèmes</li>
+                    <li>Introduire volontairement des virus ou tout code malveillant</li>
+                    <li>Utiliser des robots, scrapers ou autres moyens automatisés</li>
+                    <li>Usurper l'identité d'une autre personne ou entité</li>
+                    <li>Harceler, menacer ou nuire à autrui</li>
+                </ul>
+
+                <h3>4.3 Sanctions</h3>
+                <p>
+                    Toute violation des présentes CGU peut entraîner la suspension ou la suppression de l'accès au site, 
+                    sans préjudice de toute action judiciaire qui pourrait être engagée.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-copyright"></i> 5. Propriété intellectuelle</h2>
+            <div class="legal-info">
+                <p>
+                    L'ensemble des éléments du site (structure, textes, images, graphismes, logos, vidéos, sons, etc.) 
+                    sont la propriété exclusive de Solution, Stratégie et Sens ou de ses partenaires, 
+                    et sont protégés par les lois relatives à la propriété intellectuelle.
+                </p>
+                <p>
+                    Toute reproduction, représentation, modification, publication, transmission ou dénaturation, 
+                    totale ou partielle du site ou de son contenu, par quelque procédé que ce soit, 
+                    et sur quelque support que ce soit, est interdite sans autorisation écrite préalable.
+                </p>
+                <p>
+                    Le non-respect de cette interdiction constitue une contrefaçon susceptible d'engager 
+                    la responsabilité civile et pénale du contrefacteur.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-database"></i> 6. Protection des données personnelles</h2>
+            <div class="legal-info">
+                <p>
+                    Les données personnelles collectées sur ce site font l'objet d'un traitement conforme 
+                    au RGPD et à la loi Informatique et Libertés.
+                </p>
+                <p>
+                    Pour plus d'informations, consultez notre 
+                    <a href="{{ path('app_privacy_policy') }}">Politique de confidentialité</a>.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-envelope"></i> 7. Formulaires et communications</h2>
+            <div class="legal-info">
+                <h3>7.1 Formulaire de contact</h3>
+                <p>
+                    Les informations transmises via le formulaire de contact sont destinées exclusivement 
+                    à Solution, Stratégie et Sens pour répondre à votre demande.
+                </p>
+
+                <h3>7.2 Newsletter (si applicable)</h3>
+                <p>
+                    L'inscription à notre newsletter est facultative et nécessite votre consentement explicite. 
+                    Vous pouvez vous désinscrire à tout moment via le lien présent dans chaque email.
+                </p>
+
+                <h3>7.3 Témoignages</h3>
+                <p>
+                    La publication de témoignages sur le site nécessite le consentement préalable et écrit 
+                    de la personne concernée.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-link"></i> 8. Liens hypertextes</h2>
+            <div class="legal-info">
+                <h3>8.1 Liens sortants</h3>
+                <p>
+                    Le site peut contenir des liens vers des sites externes. Solution, Stratégie et Sens 
+                    n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu 
+                    et leur politique de confidentialité.
+                </p>
+
+                <h3>8.2 Liens entrants</h3>
+                <p>
+                    Tout lien hypertexte pointant vers ce site doit faire l'objet d'une autorisation préalable. 
+                    Pour toute demande, contactez-nous à : 
+                    <a href="mailto:contact@3s-managers.fr">contact@3s-managers.fr</a>
+                </p>
+                <p>
+                    Les liens profonds (deep linking) vers des pages internes sans passer par la page d'accueil 
+                    sont soumis à autorisation.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-cookie-bite"></i> 9. Cookies</h2>
+            <div class="legal-info">
+                <p>
+                    Ce site utilise des cookies pour améliorer votre expérience de navigation et réaliser 
+                    des statistiques de visite.
+                </p>
+                <p>
+                    Vous pouvez à tout moment gérer vos préférences en cliquant sur 
+                    <a href="#" id="open-cookie-settings-cgu">🍪 Gérer mes cookies</a>.
+                </p>
+                <p>
+                    Pour plus d'informations, consultez notre 
+                    <a href="{{ path('app_privacy_policy') }}#cookies">politique relative aux cookies</a>.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-shield-alt"></i> 10. Limitation de responsabilité</h2>
+            <div class="legal-info">
+                <h3>10.1 Contenu du site</h3>
+                <p>
+                    Solution, Stratégie et Sens s'efforce de fournir des informations exactes et à jour, 
+                    mais ne garantit pas l'exactitude, la précision ou l'exhaustivité des informations présentes sur le site.
+                </p>
+                <p>
+                    L'utilisateur reconnaît utiliser ces informations sous sa responsabilité exclusive.
+                </p>
+
+                <h3>10.2 Virus et malwares</h3>
+                <p>
+                    Solution, Stratégie et Sens met en œuvre tous les moyens nécessaires pour assurer 
+                    la sécurité du site. Toutefois, elle ne peut garantir l'absence totale de virus ou malwares.
+                </p>
+                <p>
+                    L'utilisateur est responsable de la protection de son propre équipement.
+                </p>
+
+                <h3>10.3 Dommages directs et indirects</h3>
+                <p>
+                    Solution, Stratégie et Sens ne pourra être tenue responsable des dommages directs ou indirects 
+                    résultant de l'utilisation ou de l'impossibilité d'utiliser le site, y compris :
+                </p>
+                <ul>
+                    <li>Perte de données</li>
+                    <li>Perte de profits ou d'opportunités commerciales</li>
+                    <li>Interruption d'activité</li>
+                    <li>Dommages résultant d'une intrusion frauduleuse</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-ban"></i> 11. Force majeure</h2>
+            <div class="legal-info">
+                <p>
+                    Solution, Stratégie et Sens ne pourra être tenue responsable de l'inexécution de ses obligations 
+                    en cas de survenance d'un événement de force majeure, tel que défini par la jurisprudence française.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-gavel"></i> 12. Droit applicable et juridiction</h2>
+            <div class="legal-info">
+                <p>
+                    Les présentes CGU sont régies par le droit français.
+                </p>
+                <p>
+                    En cas de litige relatif à l'interprétation ou à l'exécution des présentes CGU, 
+                    et à défaut d'accord amiable, le litige sera porté devant les tribunaux français 
+                    conformément aux règles de compétence en vigueur.
+                </p>
+                <p>
+                    Avant toute action judiciaire, les parties s'engagent à rechercher une solution amiable.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-balance-scale"></i> 13. Médiation</h2>
+            <div class="legal-info">
+                <p>
+                    Conformément aux dispositions du Code de la consommation concernant le règlement amiable 
+                    des litiges, Solution, Stratégie et Sens adhère au Service du Médiateur [NOM DU MÉDIATEUR - si applicable].
+                </p>
+                <p>
+                    En cas de litige, vous pouvez déposer une réclamation sur la plateforme européenne de résolution 
+                    des litiges en ligne : 
+                    <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">
+                        https://ec.europa.eu/consumers/odr/
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-file-alt"></i> 14. Divisibilité</h2>
+            <div class="legal-info">
+                <p>
+                    Si une ou plusieurs stipulations des présentes CGU sont tenues pour non valides ou déclarées 
+                    comme telles en application d'une loi, d'un règlement ou à la suite d'une décision définitive 
+                    d'une juridiction compétente, les autres stipulations garderont toute leur force et leur portée.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2><i class="fas fa-question-circle"></i> 15. Contact</h2>
+            <div class="legal-info">
+                <p>Pour toute question concernant les présentes CGU :</p>
+                <ul>
+                    <li><strong>Email :</strong> <a href="mailto:contact@3s-managers.fr">contact@3s-managers.fr</a></li>
+                    <li><strong>Téléphone :</strong> <a href="tel:+33683424012">06 83 42 40 12</a></li>
+                    <li><strong>Formulaire :</strong> <a href="{{ path('app_contact') }}">Page de contact</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="legal-update">
+            <p><em><i class="fas fa-calendar-alt"></i> Dernière mise à jour : 19/02/2026</em></p>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('open-cookie-settings-cgu')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (window.cookieConsent) {
+        window.cookieConsent.showBanner();
+    }
+});
+</script>
+{% endblock %}

@@ -1,4 +1,4 @@
-# Harmonie & Sens - Makefile
+# Solution, Stratégie et Sens (3S Managers) - Makefile
 # Commandes utilitaires pour le développement
 
 .PHONY: help install start db-create db-reset migrate fresh cache admin lint
@@ -11,7 +11,7 @@ RESET  := $(shell tput -Txterm sgr0)
 ## Aide
 help: ## Affiche cette aide
 	@echo ''
-	@echo '${GREEN}Harmonie & Sens - Commandes disponibles${RESET}'
+	@echo '${GREEN}Solution, Stratégie et Sens - Commandes disponibles${RESET}'
 	@echo ''
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "  ${YELLOW}%-15s${RESET} %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 	@echo ''

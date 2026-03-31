@@ -1,0 +1,69 @@
+{# Composant de gestion du consentement des cookies - Conforme RGPD #}
+<div id="cookie-consent-banner" class="cookie-consent-banner" style="display: none;">
+    <div class="cookie-consent-container">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-icon">
+                <i class="fas fa-cookie-bite"></i>
+            </div>
+            <div class="cookie-consent-text">
+                <h3>Respect de votre vie privée</h3>
+                <p>
+                    Nous utilisons des cookies pour améliorer votre expérience sur notre site. 
+                    Certains cookies sont essentiels au fonctionnement du site, tandis que d'autres 
+                    nous aident à analyser son utilisation et à personnaliser votre expérience.
+                </p>
+                <button type="button" class="cookie-consent-link" id="cookie-details-toggle">
+                    <i class="fas fa-chevron-down"></i> En savoir plus
+                </button>
+                
+                <div id="cookie-details" class="cookie-details" style="display: none;">
+                    <div class="cookie-category">
+                        <h4><i class="fas fa-check-circle"></i> Cookies essentiels (obligatoires)</h4>
+                        <p>Ces cookies sont nécessaires au fonctionnement du site et ne peuvent pas être désactivés. 
+                        Ils comprennent notamment la gestion de votre session et la mémorisation de vos préférences de cookies.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <h4>
+                            <label class="cookie-toggle">
+                                <input type="checkbox" id="analytics-cookies" checked>
+                                <span class="cookie-toggle-slider"></span>
+                            </label>
+                            Cookies analytiques (optionnels)
+                        </h4>
+                        <p>Ces cookies nous permettent de mesurer l'audience et d'analyser la navigation 
+                        pour améliorer nos services. Aucune donnée personnelle n'est collectée.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <h4>
+                            <label class="cookie-toggle">
+                                <input type="checkbox" id="marketing-cookies" checked>
+                                <span class="cookie-toggle-slider"></span>
+                            </label>
+                            Cookies marketing (optionnels)
+                        </h4>
+                        <p>Ces cookies permettent de personnaliser les contenus et publicités affichés. 
+                        Ils peuvent être déposés par nos partenaires publicitaires.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cookie-consent-actions">
+            <button type="button" id="cookie-accept-all" class="cookie-btn cookie-btn-accept">
+                <i class="fas fa-check"></i> Tout accepter
+            </button>
+            <button type="button" id="cookie-accept-selected" class="cookie-btn cookie-btn-customize">
+                <i class="fas fa-sliders-h"></i> Personnaliser
+            </button>
+            <button type="button" id="cookie-refuse-all" class="cookie-btn cookie-btn-refuse">
+                <i class="fas fa-times"></i> Tout refuser
+            </button>
+        </div>
+    </div>
+</div>
+
+{# Bouton flottant pour gérer les cookies après avoir fait un choix #}
+<button id="cookie-settings-trigger" class="cookie-settings-trigger" style="display: none;" 
+        title="Gérer mes préférences de cookies">
+    <i class="fas fa-cookie-bite"></i>
+</button>

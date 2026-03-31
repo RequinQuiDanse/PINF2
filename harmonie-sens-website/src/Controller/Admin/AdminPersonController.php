@@ -15,10 +15,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminPersonController extends AbstractController
 {
     #[Route('/', name: 'admin_person_index')]
-    public function index(PersonRepository $repository): Response
+    public function index(Request $request, PersonRepository $repository): Response
     {
+        $search = $request->query->get('q', '');
+        
+        if ($search) {
+            $persons = $repository->search($search);
+        } else {
+            $persons = $repository->findBy([], ['createdAt' => 'DESC']);
+        }
+        
         return $this->render('admin/person/index.html.twig', [
-            'persons' => $repository->findBy([], ['createdAt' => 'DESC']),
+            'persons' => $persons,
+            'search' => $search,
         ]);
     }
 

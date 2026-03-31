@@ -13,7 +13,7 @@ class SitemapController extends AbstractController
     public function index(): Response
     {
         $urls = [];
-        $hostname = 'https://harmonieetsens.fr';
+        $hostname = 'https://3s-managers.fr';
         
         // Pages principales avec priorité élevée
         $urls[] = [
