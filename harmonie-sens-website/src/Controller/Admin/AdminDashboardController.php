@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Repository\AppointmentRepository;
 use App\Repository\MessageRepository;
 use App\Repository\PersonRepository;
 use App\Repository\TestimonyRepository;
@@ -18,7 +19,8 @@ class AdminDashboardController extends AbstractController
         MessageRepository $messageRepository,
         PersonRepository $personRepository,
         TestimonyRepository $testimonyRepository,
-        WebinarRepository $webinarRepository
+        WebinarRepository $webinarRepository,
+        AppointmentRepository $appointmentRepository
     ): Response
     {
         $unreadMessages = $messageRepository->countUnreadMessages();
@@ -26,13 +28,15 @@ class AdminDashboardController extends AbstractController
         $newsletterSubscribers = count($personRepository->findSubscribedToNewsletter());
         $publishedTestimonies = count($testimonyRepository->findPublishedTestimonies());
         $upcomingWebinars = count($webinarRepository->findUpcomingWebinars());
-        
+        $pendingAppointments = $appointmentRepository->countPendingAppointments();
+
         return $this->render('admin/dashboard/index.html.twig', [
             'unread_messages' => $unreadMessages,
             'total_persons' => $totalPersons,
             'newsletter_subscribers' => $newsletterSubscribers,
             'published_testimonies' => $publishedTestimonies,
             'upcoming_webinars' => $upcomingWebinars,
+            'pending_appointments' => $pendingAppointments,
         ]);
     }
 }

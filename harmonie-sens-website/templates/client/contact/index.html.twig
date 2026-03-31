@@ -48,14 +48,61 @@
         <div class="contact-grid">
             <!-- Colonne formulaire -->
             <div class="contact-form-card">
-                <div class="form-header">
-                    <h2>Envoyez-nous un message</h2>
-                    <p>Décrivez votre projet et nous vous répondrons sous 24h ouvrées</p>
+                <!-- Onglets -->
+                <div class="contact-tabs">
+                    <button class="contact-tab{% if activeTab == 'message' %} active{% endif %}" data-tab="message" type="button">
+                        <i class="fas fa-envelope"></i>
+                        <span>Envoyer un message</span>
+                    </button>
+                    <button class="contact-tab{% if activeTab == 'appointment' %} active{% endif %}" data-tab="appointment" type="button">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Prendre rendez-vous</span>
+                    </button>
                 </div>
-                
+
                 {% for message in app.flashes('success') %}
                     <div class="alert alert-success">{{ message }}</div>
                 {% endfor %}
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-error">{{ message }}</div>
+                {% endfor %}
+
+                <!-- Formulaire Message -->
+                <div class="contact-tab-content{% if activeTab == 'message' %} active{% endif %}" id="tab-message">
+                    <div class="form-header">
+                        <h2>Envoyez-nous un message</h2>
+                        <p>Décrivez votre projet et nous vous répondrons sous 24h ouvrées</p>
+                    </div>
+
+                    {{ form_start(contactForm, {'attr': {'class': 'contact-form'}}) }}
+                        <div class="form-row">
+                            <div class="form-group">
+                                {{ form_label(contactForm.firstName) }} <span class="required">*</span>
+                                {{ form_widget(contactForm.firstName) }}
+                                {{ form_errors(contactForm.firstName) }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form_label(contactForm.lastName) }} <span class="required">*</span>
+                                {{ form_widget(contactForm.lastName) }}
+                                {{ form_errors(contactForm.lastName) }}
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                {{ form_label(contactForm.email) }} <span class="required">*</span>
+                                {{ form_widget(contactForm.email) }}
+                                {{ form_errors(contactForm.email) }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form_label(contactForm.phone) }}
+                                {{ form_widget(contactForm.phone) }}
+                                {{ form_errors(contactForm.phone) }}
+                            </div>
+                        </div>
+
                 
                 {{ form_start(form, {'attr': {'class': 'contact-form', 'id': 'contact-form'}}) }}
                     
@@ -174,30 +221,105 @@
                 {{ form_start(form, {'attr': {'class': 'contact-form'}}) }}
                     <div class="form-row">
                         <div class="form-group">
-                            {{ form_label(form.firstName) }} <span class="required">*</span>
-                            {{ form_widget(form.firstName) }}
-                            {{ form_errors(form.firstName) }}
+                            {{ form_label(contactForm.subject) }} <span class="required">*</span>
+                            {{ form_widget(contactForm.subject) }}
+                            {{ form_errors(contactForm.subject) }}
                         </div>
-                        
+
                         <div class="form-group">
-                            {{ form_label(form.lastName) }} <span class="required">*</span>
-                            {{ form_widget(form.lastName) }}
-                            {{ form_errors(form.lastName) }}
+                            {{ form_label(contactForm.message) }} <span class="required">*</span>
+                            {{ form_widget(contactForm.message) }}
+                            {{ form_errors(contactForm.message) }}
                         </div>
+
+                        <button type="submit" class="btn-submit">
+                            <span>Envoyer le message</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    {{ form_end(contactForm) }}
+                </div>
+
+                <!-- Formulaire Rendez-vous -->
+                <div class="contact-tab-content{% if activeTab == 'appointment' %} active{% endif %}" id="tab-appointment">
+                    <div class="form-header">
+                        <h2>Demande de rendez-vous</h2>
+                        <p>Remplissez le formulaire ci-dessous et nous vous confirmerons le créneau par email</p>
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            {{ form_label(form.email) }} <span class="required">*</span>
-                            {{ form_widget(form.email) }}
-                            {{ form_errors(form.email) }}
+
+                    {{ form_start(appointmentForm, {'attr': {'class': 'contact-form'}}) }}
+                        <div class="form-row">
+                            <div class="form-group">
+                                {{ form_label(appointmentForm.firstName) }} <span class="required">*</span>
+                                {{ form_widget(appointmentForm.firstName) }}
+                                {{ form_errors(appointmentForm.firstName) }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form_label(appointmentForm.lastName) }} <span class="required">*</span>
+                                {{ form_widget(appointmentForm.lastName) }}
+                                {{ form_errors(appointmentForm.lastName) }}
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            {{ form_label(form.phone) }}
-                            {{ form_widget(form.phone) }}
-                            {{ form_errors(form.phone) }}
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                {{ form_label(appointmentForm.email) }} <span class="required">*</span>
+                                {{ form_widget(appointmentForm.email) }}
+                                {{ form_errors(appointmentForm.email) }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form_label(appointmentForm.phone) }}
+                                {{ form_widget(appointmentForm.phone) }}
+                                {{ form_errors(appointmentForm.phone) }}
+                            </div>
                         </div>
+
+                        <div class="form-group">
+                            {{ form_label(appointmentForm.organization) }}
+                            {{ form_widget(appointmentForm.organization) }}
+                            {{ form_errors(appointmentForm.organization) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(appointmentForm.service) }} <span class="required">*</span>
+                            {{ form_widget(appointmentForm.service) }}
+                            {{ form_errors(appointmentForm.service) }}
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                {{ form_label(appointmentForm.desiredDate) }} <span class="required">*</span>
+                                {{ form_widget(appointmentForm.desiredDate) }}
+                                {{ form_errors(appointmentForm.desiredDate) }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form_label(appointmentForm.desiredTime) }} <span class="required">*</span>
+                                {{ form_widget(appointmentForm.desiredTime) }}
+                                {{ form_errors(appointmentForm.desiredTime) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(appointmentForm.notes) }}
+                            {{ form_widget(appointmentForm.notes) }}
+                            {{ form_errors(appointmentForm.notes) }}
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <span>Demander un rendez-vous</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </button>
+                    {{ form_end(appointmentForm) }}
+                </div>
                     </div>
                     
                     <div class="form-group">
@@ -220,7 +342,7 @@
                     </button>
                 {{ form_end(form) }}
             </div>
-            
+
             <!-- Colonne informations -->
             <div class="contact-info-column">
                 <!-- Cartes d'information -->
@@ -233,7 +355,7 @@
                             <p class="info-detail">Réponse sous 24h ouvrées</p>
                         </div>
                     </div>
-                    
+
                     <div class="info-card">
                         <div class="info-icon"><i class="fas fa-phone-alt" style="color: var(--color-sage);"></i></div>
                         <div class="info-content">
@@ -242,7 +364,7 @@
                             <p class="info-detail">Lun - Ven, 9h - 18h</p>
                         </div>
                     </div>
-                    
+
                     <div class="info-card">
                         <div class="info-icon"><i class="fas fa-globe-europe" style="color: var(--color-sage);"></i></div>
                         <div class="info-content">
@@ -252,7 +374,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Carte urgence -->
                 <div class="urgency-card">
                     <div class="urgency-icon"><i class="fas fa-bolt" style="color: var(--color-gold);"></i></div>
@@ -282,6 +404,67 @@
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Onglets
+    var tabs = document.querySelectorAll('.contact-tab');
+    var contents = document.querySelectorAll('.contact-tab-content');
+
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            var target = this.getAttribute('data-tab');
+            tabs.forEach(function(t) { t.classList.remove('active'); });
+            contents.forEach(function(c) { c.classList.remove('active'); });
+            this.classList.add('active');
+            document.getElementById('tab-' + target).classList.add('active');
+        });
+    });
+
+    // Créneaux dynamiques selon la date
+    var dateInput = document.getElementById('appointment_desiredDate');
+    var timeSelect = document.getElementById('appointment_desiredTime');
+
+    if (dateInput && timeSelect) {
+        dateInput.addEventListener('change', function() {
+            var date = this.value;
+            if (!date) return;
+
+            timeSelect.disabled = true;
+            timeSelect.innerHTML = '<option value="">Chargement...</option>';
+
+            fetch('/api/available-slots?date=' + date)
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    timeSelect.innerHTML = '';
+                    if (data.slots && data.slots.length > 0) {
+                        var placeholder = document.createElement('option');
+                        placeholder.value = '';
+                        placeholder.textContent = 'Choisissez un créneau';
+                        timeSelect.appendChild(placeholder);
+
+                        data.slots.forEach(function(slot) {
+                            var opt = document.createElement('option');
+                            opt.value = slot;
+                            opt.textContent = slot;
+                            timeSelect.appendChild(opt);
+                        });
+                    } else {
+                        var noSlot = document.createElement('option');
+                        noSlot.value = '';
+                        noSlot.textContent = 'Aucun créneau disponible ce jour';
+                        timeSelect.appendChild(noSlot);
+                    }
+                    timeSelect.disabled = false;
+                })
+                .catch(function() {
+                    timeSelect.innerHTML = '<option value="">Erreur de chargement</option>';
+                    timeSelect.disabled = false;
+                });
+        });
+    }
+});
+</script>
 {% endblock %}
 
 {% block javascripts %}

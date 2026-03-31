@@ -59,6 +59,16 @@
                 <p>Webinaires à venir</p>
             </div>
         </div>
+
+        <div class="stat-card">
+            <div class="stat-icon" style="background: var(--service-green-light);">
+                <i class="fas fa-calendar-check" style="color: var(--service-green);"></i>
+            </div>
+            <div class="stat-content">
+                <h3>{{ pending_appointments }}</h3>
+                <p>RDV en attente</p>
+            </div>
+        </div>
     </div>
 
     <div class="quick-actions">
@@ -75,6 +85,10 @@
             <a href="{{ path('admin_webinar_new') }}" class="action-card">
                 <i class="fas fa-video"></i>
                 <span>Nouveau webinaire</span>
+            </a>
+            <a href="{{ path('admin_appointment_index') }}" class="action-card">
+                <i class="fas fa-calendar-check"></i>
+                <span>Voir les rendez-vous</span>
             </a>
             <a href="{{ path('admin_person_index') }}" class="action-card">
                 <i class="fas fa-users"></i>

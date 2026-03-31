@@ -1,0 +1,52 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Refuser le rendez-vous{% endblock %}
+
+{% block body %}
+<div class="admin-content">
+    <div class="page-header">
+        <h1>Refuser le rendez-vous</h1>
+        <a href="{{ path('admin_appointment_index') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <strong>Client :</strong> {{ appointment.fullName }}
+            </div>
+            <div class="form-group">
+                <strong>Email :</strong> {{ appointment.email }}
+            </div>
+            <div class="form-group">
+                <strong>Service :</strong> {{ appointment.service }}
+            </div>
+            <div class="form-group">
+                <strong>Date demandée :</strong> {{ appointment.desiredDate|date('d/m/Y') }} à {{ appointment.desiredTime }}
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+        <div class="card-body">
+            <h3 style="margin-top: 0;">Motif du refus</h3>
+            <p style="color: #666;">Ce motif sera envoyé par email au client avec la possibilité de reprogrammer ou d'appeler.</p>
+
+            <form method="post" action="{{ path('admin_appointment_reject', {token: appointment.token}) }}">
+                <div class="form-group">
+                    <label for="reason">Raison du refus (optionnel)</label>
+                    <textarea id="reason" name="reason" rows="4" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit;" placeholder="Ex: Ce créneau n'est malheureusement plus disponible. Nous vous proposons de reprogrammer votre rendez-vous à une date ultérieure."></textarea>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Confirmer le refus de ce rendez-vous ?')">
+                        <i class="fas fa-times"></i> Confirmer le refus et envoyer l'email
+                    </button>
+                    <a href="{{ path('admin_appointment_index') }}" class="btn btn-secondary">Annuler</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
