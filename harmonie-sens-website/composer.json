@@ -10,7 +10,7 @@
         "symfony/asset": "7.3.*",
         "symfony/console": "7.3.*",
         "symfony/dotenv": "7.3.*",
-        "symfony/flex": "^2",
+        "symfony/flex": "^2.9",
         "symfony/form": "7.3.*",
         "symfony/framework-bundle": "7.3.*",
         "symfony/google-mailer": "7.3.*",
@@ -75,7 +75,7 @@
     "require-dev": {
         "doctrine/doctrine-bundle": "^3.1",
         "doctrine/doctrine-migrations-bundle": "^4.0",
-        "doctrine/orm": "^3.5",
-        "symfony/maker-bundle": "^1.65"
+        "doctrine/orm": "^3.5.8",
+        "symfony/maker-bundle": "^1.65.1"
     }
 }

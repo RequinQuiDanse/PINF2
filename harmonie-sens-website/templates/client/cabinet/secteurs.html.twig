@@ -1,20 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Secteurs d'Intervention | EHPAD, ESMS, Sanitaire - Solution, Stratégie et Sens{% endblock %}
+{% block title %}Secteurs d'Intervention | Social, medico-social et sanitaire{% endblock %}
 
-{% block meta_description %}Secteurs d'intervention de Solution, Stratégie et Sens : EHPAD, IME, ESAT, MAS, FAM, SAVS, structures sanitaires. Accompagnement sur tout le territoire national français des établissements médico-sociaux.{% endblock %}
+{% block meta_description %}Harmonie & Sens intervient aupres des structures sociales, medico-sociales et sanitaires, avec une expertise forte en transition de direction et management de transition.{% endblock %}
 
-{% block meta_keywords %}intervention EHPAD, accompagnement IME, conseil ESAT, secteur médico-social France, intervention nationale santé, établissements personnes âgées, handicap{% endblock %}
+{% block meta_keywords %}secteurs intervention social medico-social sanitaire, management de transition, direction de transition{% endblock %}
 
-{% block og_title %}Secteurs d'Intervention | Solution, Stratégie et Sens{% endblock %}
-{% block og_description %}Intervention sur tout le territoire national : EHPAD, IME, ESAT, MAS, structures sanitaires et médico-sociales.{% endblock %}
+{% block og_title %}Secteurs d'Intervention | Harmonie & Sens{% endblock %}
+{% block og_description %}Personnes agees, handicap, enfance, sanitaire et insertion : une intervention nationale, claire et ciblee.{% endblock %}
 
 {% block navbar %}
     {% include 'components/navbar_client.html.twig' %}
 {% endblock %}
 
 {% block body %}
-<!-- Hero Section avec image de fond -->
 <section class="service-hero" style="background-image: url('{{ asset('images/backgrounds/banner_test2.jpg') }}');">
     <div class="container">
         <h1>Secteurs d'Intervention</h1>
@@ -22,169 +21,38 @@
     </div>
 </section>
 
-<!-- Section Introduction (Fond Bleu) -->
 <section class="service-section blue">
     <div class="container">
         <div class="service-content-flex">
             <div class="service-text">
-                <h2>Nos Domaines d'Expertise</h2>
-                <p>Le cabinet Solution, Stratégie et Sens intervient sur l'ensemble du <span class="highlight">champ social, médico-social et sanitaire</span>, auprès des structures accueillant des personnes en situation de dépendance, de handicap, de vulnérabilité ou de fragilité sociale.</p>
-                <p>Nos missions couvrent à la fois les <strong>établissements, services et dispositifs d'accompagnement</strong>, publics, associatifs ou privés à but non lucratif.</p>
+                <h2>Nos secteurs, en une vue</h2>
+                <p>Nous intervenons sur l'ensemble du champ <span class="highlight">social, medico-social et sanitaire</span>, avec une approche de transition de direction, de stabilisation et d'accompagnement strategique.</p>
             </div>
             <div class="service-image">
                 <div class="service-icon">
-                    <i class="fas fa-hospital"></i>
+                    <i class="fas fa-network-wired"></i>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Section 1: Personnes Âgées (Fond Vert, Texte à droite) -->
-<section class="service-section green">
-    <div class="container">
-        <div class="service-content-flex reverse">
-            <div class="service-text">
-                <h2>Personnes Âgées</h2>
-                <p><span class="highlight">Accompagnement du vieillissement</span>, de la dépendance et de la coordination gérontologique.</p>
-                <div class="service-points">
-                    <ul>
-                        <li><strong>EHPAD & USLD</strong>Hébergement et soins de longue durée</li>
-                        <li><strong>Résidences autonomie</strong>Services seniors adaptés</li>
-                        <li><strong>Accueils de jour</strong>Plateformes de répit</li>
-                        <li><strong>SSIAD & ESA</strong>Soins et accompagnement à domicile</li>
-                        <li><strong>SPASAD</strong>Services polyvalents d'aide et de soins</li>
-                        <li><strong>Coordination gérontologique</strong>Dispositifs d'appui territorial</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="service-image">
-                <div class="service-icon">
-                    <i class="fas fa-user-friends"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section 2: Handicap (Fond Bleu, Texte à gauche) -->
-<section class="service-section blue">
-    <div class="container">
-        <div class="service-content-flex">
-            <div class="service-text">
-                <h2>Adultes en Situation de Handicap</h2>
-                <p><span class="highlight">Soutenir la dignité, l'autonomie</span> et la qualité de vie des personnes adultes accompagnées.</p>
-                <div class="service-points">
-                    <ul>
-                        <li><strong>MAS & FAM</strong>Accueil spécialisé et médicalisé</li>
-                        <li><strong>Foyers de vie</strong>Hébergement et accompagnement social</li>
-                        <li><strong>ESAT</strong>Aide par le travail</li>
-                        <li><strong>SAVS & SAMSAH</strong>Accompagnement à la vie sociale</li>
-                        <li><strong>DIME & DAME</strong>Dispositifs intégrés</li>
-                        <li><strong>TSA & Troubles psychiques</strong>Accompagnement spécialisé</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="service-image">
-                <div class="service-icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section 3: Enfance (Fond Vert, Texte à droite) -->
-<section class="service-section green">
-    <div class="container">
-        <div class="service-content-flex reverse">
-            <div class="service-text">
-                <h2>Enfance & Protection</h2>
-                <p>Conjuguer <span class="highlight">protection, accompagnement éducatif et soutien thérapeutique</span> dans l'intérêt supérieur de l'enfant.</p>
-                <div class="service-points">
-                    <ul>
-                        <li><strong>MECS</strong>Maisons d'enfants à caractère social</li>
-                        <li><strong>DITEP</strong>Dispositifs thérapeutiques, éducatifs et pédagogiques</li>
-                        <li><strong>SESSAD</strong>Services d'éducation spéciale et soins à domicile</li>
-                        <li><strong>CAMSP</strong>Action médico-sociale précoce</li>
-                        <li><strong>EMEA</strong>Équipes mobiles d'évaluation</li>
-                        <li><strong>LVA & SIOE</strong>Lieux de vie et investigation éducative</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="service-image">
-                <div class="service-icon">
-                    <i class="fas fa-child"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section 4: Sanitaire (Fond Bleu, Texte à gauche) -->
-<section class="service-section blue">
-    <div class="container">
-        <div class="service-content-flex">
-            <div class="service-text">
-                <h2>Champ Sanitaire & Santé</h2>
-                <p>Relier le <span class="highlight">soin, l'accompagnement et la réhabilitation</span> pour une continuité des parcours de santé.</p>
-                <div class="service-points">
-                    <ul>
-                        <li><strong>CRF & SSR</strong>Rééducation et soins de suite</li>
-                        <li><strong>Centres de Santé</strong>Polyvalents ou spécialisés</li>
-                        <li><strong>Soins Palliatifs</strong>Unités d'accompagnement</li>
-                        <li><strong>Psychiatrie</strong>Services infanto-juvénile et adulte</li>
-                        <li><strong>CMP & CATTP</strong>Centres médico-psychologiques</li>
-                        <li><strong>Coordination</strong>DAC, MAIA, CLIC</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="service-image">
-                <div class="service-icon">
-                    <i class="fas fa-clinic-medical"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section 5: Insertion (Fond Vert, Texte à droite) -->
-<section class="service-section green">
-    <div class="container">
-        <div class="service-content-flex reverse">
-            <div class="service-text">
-                <h2>Insertion Sociale & Professionnelle</h2>
-                <p>Accompagner vers <span class="highlight">l'insertion et l'inclusion sociale</span> et professionnelle.</p>
-                <div class="service-points">
-                    <ul>
-                        <li><strong>CHRS</strong>Centres d'hébergement et de réinsertion sociale</li>
-                        <li><strong>CADA</strong>Centres d'accueil pour demandeurs d'asile</li>
-                        <li><strong>Maisons Relais</strong>Pensions de famille</li>
-                        <li><strong>Urgence sociale</strong>Dispositifs et maraudes</li>
-                        <li><strong>Plateformes territoriales</strong>Inclusion et coordination</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="service-image">
-                <div class="service-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section Zone d'Intervention (Fond Blanc) -->
 <section class="service-section white">
     <div class="container">
         <div class="service-content-flex">
             <div class="service-text">
-                <h2>Zone d'Intervention</h2>
-                <p><strong>Solution, Stratégie et Sens intervient sur l'ensemble du territoire national</strong>, avec une présence rapide sur site selon les besoins urgents.</p>
-                <p>Les missions peuvent être menées sur <span class="highlight">courte, moyenne ou longue durée</span>, en fonction du contexte et des objectifs à atteindre.</p>
-                <p><strong>Une expertise transversale</strong> au service de tous les publics fragiles et des acteurs du soin, du lien et du vivre-ensemble.</p>
+                <h2>Domaines</h2>
+                <div class="service-points">
+                    <ul>
+                        <li><strong>Personnes agees</strong></li>
+                        <li><strong>Handicap</strong></li>
+                        <li><strong>Enfance</strong></li>
+                        <li><strong>Champ sanitaire</strong></li>
+                        <li><strong>Insertion</strong></li>
+                    </ul>
+                </div>
                 <div class="service-cta">
-                    <a href="{{ path('app_contact') }}" class="btn-service">Échangeons sur votre secteur</a>
+                    <a href="{{ path('app_contact') }}" class="btn-service">Echangeons sur votre secteur</a>
                 </div>
             </div>
             <div class="service-image">

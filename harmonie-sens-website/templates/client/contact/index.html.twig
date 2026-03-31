@@ -74,37 +74,34 @@
                         <p>Décrivez votre projet et nous vous répondrons sous 24h ouvrées</p>
                     </div>
 
-                    {{ form_start(contactForm, {'attr': {'class': 'contact-form'}}) }}
-                        <div class="form-row">
-                            <div class="form-group">
-                                {{ form_label(contactForm.firstName) }} <span class="required">*</span>
-                                {{ form_widget(contactForm.firstName) }}
-                                {{ form_errors(contactForm.firstName) }}
-                            </div>
-
-                            <div class="form-group">
-                                {{ form_label(contactForm.lastName) }} <span class="required">*</span>
-                                {{ form_widget(contactForm.lastName) }}
-                                {{ form_errors(contactForm.lastName) }}
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                {{ form_label(contactForm.email) }} <span class="required">*</span>
-                                {{ form_widget(contactForm.email) }}
-                                {{ form_errors(contactForm.email) }}
-                            </div>
-
-                            <div class="form-group">
-                                {{ form_label(contactForm.phone) }}
-                                {{ form_widget(contactForm.phone) }}
-                                {{ form_errors(contactForm.phone) }}
-                            </div>
-                        </div>
-
-                
                 {{ form_start(form, {'attr': {'class': 'contact-form', 'id': 'contact-form'}}) }}
+                    <div class="form-row">
+                        <div class="form-group">
+                            {{ form_label(form.firstName) }} <span class="required">*</span>
+                            {{ form_widget(form.firstName) }}
+                            {{ form_errors(form.firstName) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.lastName) }} <span class="required">*</span>
+                            {{ form_widget(form.lastName) }}
+                            {{ form_errors(form.lastName) }}
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            {{ form_label(form.email) }} <span class="required">*</span>
+                            {{ form_widget(form.email) }}
+                            {{ form_errors(form.email) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.phone) }}
+                            {{ form_widget(form.phone) }}
+                            {{ form_errors(form.phone) }}
+                        </div>
+                    </div>
                     
                     {# Champ caché pour le type de demande #}
                     {{ form_widget(form.requestType) }}
@@ -217,28 +214,26 @@
                     </p>
                 </div>
                 {% endif %}
-                
-                {{ form_start(form, {'attr': {'class': 'contact-form'}}) }}
-                    <div class="form-row">
-                        <div class="form-group">
-                            {{ form_label(contactForm.subject) }} <span class="required">*</span>
-                            {{ form_widget(contactForm.subject) }}
-                            {{ form_errors(contactForm.subject) }}
-                        </div>
 
-                        <div class="form-group">
-                            {{ form_label(contactForm.message) }} <span class="required">*</span>
-                            {{ form_widget(contactForm.message) }}
-                            {{ form_errors(contactForm.message) }}
-                        </div>
-
-                        <button type="submit" class="btn-submit">
-                            <span>Envoyer le message</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                            </svg>
-                        </button>
-                    {{ form_end(contactForm) }}
+                    <div class="form-group">
+                        {{ form_label(form.subject) }} <span class="required">*</span>
+                        {{ form_widget(form.subject) }}
+                        {{ form_errors(form.subject) }}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form_label(form.message) }} <span class="required">*</span>
+                        {{ form_widget(form.message) }}
+                        {{ form_errors(form.message) }}
+                    </div>
+                    
+                    <button type="submit" class="btn-submit" id="submit-btn" name="submit_contact">
+                        <span id="submit-text">Envoyer le message</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
+                {{ form_end(form) }}
                 </div>
 
                 <!-- Formulaire Rendez-vous -->
@@ -320,27 +315,6 @@
                         </button>
                     {{ form_end(appointmentForm) }}
                 </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        {{ form_label(form.subject) }} <span class="required">*</span>
-                        {{ form_widget(form.subject) }}
-                        {{ form_errors(form.subject) }}
-                    </div>
-                    
-                    <div class="form-group">
-                        {{ form_label(form.message) }} <span class="required">*</span>
-                        {{ form_widget(form.message) }}
-                        {{ form_errors(form.message) }}
-                    </div>
-                    
-                    <button type="submit" class="btn-submit" id="submit-btn" name="submit_contact">
-                        <span id="submit-text">Envoyer le message</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                        </svg>
-                    </button>
-                {{ form_end(form) }}
             </div>
 
             <!-- Colonne informations -->
@@ -404,73 +378,28 @@
         </div>
     </div>
 </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Onglets
-    var tabs = document.querySelectorAll('.contact-tab');
-    var contents = document.querySelectorAll('.contact-tab-content');
-
-    tabs.forEach(function(tab) {
-        tab.addEventListener('click', function() {
-            var target = this.getAttribute('data-tab');
-            tabs.forEach(function(t) { t.classList.remove('active'); });
-            contents.forEach(function(c) { c.classList.remove('active'); });
-            this.classList.add('active');
-            document.getElementById('tab-' + target).classList.add('active');
-        });
-    });
-
-    // Créneaux dynamiques selon la date
-    var dateInput = document.getElementById('appointment_desiredDate');
-    var timeSelect = document.getElementById('appointment_desiredTime');
-
-    if (dateInput && timeSelect) {
-        dateInput.addEventListener('change', function() {
-            var date = this.value;
-            if (!date) return;
-
-            timeSelect.disabled = true;
-            timeSelect.innerHTML = '<option value="">Chargement...</option>';
-
-            fetch('/api/available-slots?date=' + date)
-                .then(function(res) { return res.json(); })
-                .then(function(data) {
-                    timeSelect.innerHTML = '';
-                    if (data.slots && data.slots.length > 0) {
-                        var placeholder = document.createElement('option');
-                        placeholder.value = '';
-                        placeholder.textContent = 'Choisissez un créneau';
-                        timeSelect.appendChild(placeholder);
-
-                        data.slots.forEach(function(slot) {
-                            var opt = document.createElement('option');
-                            opt.value = slot;
-                            opt.textContent = slot;
-                            timeSelect.appendChild(opt);
-                        });
-                    } else {
-                        var noSlot = document.createElement('option');
-                        noSlot.value = '';
-                        noSlot.textContent = 'Aucun créneau disponible ce jour';
-                        timeSelect.appendChild(noSlot);
-                    }
-                    timeSelect.disabled = false;
-                })
-                .catch(function() {
-                    timeSelect.innerHTML = '<option value="">Erreur de chargement</option>';
-                    timeSelect.disabled = false;
-                });
-        });
-    }
-});
-</script>
 {% endblock %}
 
 {% block javascripts %}
 {{ parent() }}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.contact-tab');
+    const contents = document.querySelectorAll('.contact-tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const target = this.getAttribute('data-tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+            const targetContent = document.getElementById('tab-' + target);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        });
+    });
+
     // Éléments du DOM
     const requestTypeBtns = document.querySelectorAll('.request-type-btn');
     const requestTypeField = document.querySelector('input[name="contact[requestType]"]');
@@ -540,19 +469,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Navigation semaines
-    prevWeekBtn.addEventListener('click', function() {
-        if (currentWeekOffset > 0) {
-            currentWeekOffset--;
-            loadAvailableSlots();
-        }
-    });
+    if (prevWeekBtn) {
+        prevWeekBtn.addEventListener('click', function() {
+            if (currentWeekOffset > 0) {
+                currentWeekOffset--;
+                loadAvailableSlots();
+            }
+        });
+    }
     
-    nextWeekBtn.addEventListener('click', function() {
-        if (currentWeekOffset < 4) {
-            currentWeekOffset++;
-            loadAvailableSlots();
-        }
-    });
+    if (nextWeekBtn) {
+        nextWeekBtn.addEventListener('click', function() {
+            if (currentWeekOffset < 4) {
+                currentWeekOffset++;
+                loadAvailableSlots();
+            }
+        });
+    }
     
     // Effacer le créneau sélectionné
     if (clearSlotBtn) {
@@ -565,6 +498,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Charger les créneaux disponibles
     function loadAvailableSlots() {
+        if (!calendarLoading || !calendarGrid) {
+            return;
+        }
+
         calendarLoading.style.display = 'flex';
         calendarGrid.innerHTML = '';
         
@@ -578,7 +515,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
                 
-                weekLabel.textContent = data.weekLabel || 'Semaine';
+                if (weekLabel) {
+                    weekLabel.textContent = data.weekLabel || 'Semaine';
+                }
                 renderCalendar(data.slots);
                 filterSlotsByPeriod();
             })

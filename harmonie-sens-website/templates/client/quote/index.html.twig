@@ -17,7 +17,7 @@
 <!-- Hero Section -->
 <section class="quote-hero">
     <div class="container">
-        <h1>Faire mon devis</h1>
+        <h1>Demander un devis</h1>
         <p class="subtitle">Estimez le coût de votre accompagnement en quelques clics</p>
     </div>
 </section>
@@ -69,7 +69,7 @@
                                    name="duration" 
                                    class="form-control" 
                                    min="1" 
-                                   step="0.5" 
+                                step="1" 
                                    value="1" 
                                    required>
                             <span id="durationUnit" class="duration-unit">unité(s)</span>
@@ -150,6 +150,16 @@
                 <p>Une expertise reconnue dans le secteur médico-social</p>
             </div>
         </div>
+
+        <div class="quote-info" style="margin-top: 2rem;">
+            <div class="info-card" style="grid-column: 1 / -1;">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h4>Types de formations</h4>
+                <p><strong>Management et gouvernance :</strong> pilotage strategique, leadership de transition, posture managériale.</p>
+                <p><strong>Communication et climat social :</strong> communication interne, regulation, mediation et gestion des conflits.</p>
+                <p><strong>Qualite et cadre professionnel :</strong> bientraitance, ethiques professionnelles, gestion de crise et conformite.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -168,7 +178,8 @@ document.addEventListener('DOMContentLoaded', function() {
     serviceSelect.addEventListener('change', function() {
         const selectedOption = this.options[this.selectedIndex];
         const description = selectedOption.dataset.description;
-        const unit = selectedOption.dataset.unit || 'unité(s)';
+        const rawUnit = selectedOption.dataset.unit || 'unité(s)';
+        const unit = rawUnit.toLowerCase().includes('demi') ? 'jour(s)' : rawUnit;
         
         if (this.value && description) {
             descriptionText.textContent = description;
@@ -212,7 +223,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Afficher les résultats
             document.getElementById('resultServiceName').textContent = data.service_name;
-            document.getElementById('resultDuration').textContent = duration + ' ' + (data.pricing_unit || 'unité(s)');
+            const pricingUnitRaw = data.pricing_unit || 'unité(s)';
+            const pricingUnit = pricingUnitRaw.toLowerCase().includes('demi') ? 'jour(s)' : pricingUnitRaw;
+            document.getElementById('resultDuration').textContent = duration + ' ' + pricingUnit;
             document.getElementById('resultPriceRange').textContent = data.price_range;
             
             if (data.pricing_details) {
@@ -228,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const params = new URLSearchParams({
                 service: data.service_name,
                 duration: duration,
-                unit: data.pricing_unit || 'unité(s)',
+                unit: pricingUnit,
                 estimation: data.price_range
             });
             contactLink.href = baseContactUrl + '?' + params.toString();

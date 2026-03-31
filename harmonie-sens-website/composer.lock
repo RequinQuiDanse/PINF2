@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5863f8b6f013c3e3783cc4941367096",
+    "content-hash": "66da164e1d3068d61bde0846b61577a3",
     "packages": [
         {
             "name": "doctrine/lexer",
@@ -2138,7 +2138,7 @@
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Symfony Community",asdasdqwe
+                    "name": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -6302,5 +6302,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }

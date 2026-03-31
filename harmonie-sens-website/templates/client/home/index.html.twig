@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Solution, Stratégie et Sens | Cabinet de conseil, audit et formation santé & médico-social{% endblock %}
+{% block title %}Solution, Stratégie et Sens | Direction et management de transition{% endblock %}
 
-{% block meta_description %}Solution, Stratégie et Sens accompagne les établissements de santé, EHPAD et ESMS : direction de transition, audit, diagnostic, formations sur-mesure et accompagnement managérial. Expertise reconnue en secteur médico-social.{% endblock %}
+{% block meta_description %}Direction de transition et accompagnement strategique pour les structures sociales, medico-sociales et sanitaires. Solution, Strategie et Sens intervient en management de transition, pilotage et stabilisation des organisations.{% endblock %}
 
-{% block meta_keywords %}cabinet conseil santé, direction transition EHPAD, formation médico-social, audit ESMS, accompagnement managérial santé, conseil établissement médico-social, gouvernance sanitaire{% endblock %}
+{% block meta_keywords %}direction de transition, management de transition, accompagnement strategique social medico-social sanitaire, pilotage de transition, gouvernance en transition{% endblock %}
 
-{% block og_title %}Solution, Stratégie et Sens | Expert en direction de transition et conseil médico-social{% endblock %}
-{% block og_description %}Cabinet de conseil spécialisé dans l'accompagnement des établissements de santé et médico-sociaux. Direction de transition, audit, formations.{% endblock %}
+{% block og_title %}Solution, Stratégie et Sens | Direction et management de transition{% endblock %}
+{% block og_description %}Direction de transition et accompagnement strategique pour les structures sociales, medico-sociales et sanitaires.{% endblock %}
 
 {% block structured_data %}
 <script type="application/ld+json">
@@ -15,7 +15,7 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Solution, Stratégie et Sens",
-    "description": "Cabinet de conseil, audit et formation pour établissements de santé et médico-sociaux",
+    "description": "Direction de transition et accompagnement strategique pour les structures sociales, medico-sociales et sanitaires",
     "url": "{{ app.request.schemeAndHttpHost }}",
     "logo": "{{ absolute_url(asset('images/logo/logo.png')) }}",
     "contactPoint": {
@@ -26,7 +26,7 @@
         "availableLanguage": "French"
     },
     "areaServed": "FR",
-    "serviceType": ["Direction de transition", "Audit et diagnostic", "Formation professionnelle", "Accompagnement managérial"]
+    "serviceType": ["Direction de transition", "Management de transition", "Accompagnement strategique", "Appui managérial"]
 }
 </script>
 {% endblock %}
@@ -40,9 +40,9 @@
 <section class="hero-banner">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-        <p class="hero-subtitle-small">Cabinet de conseil, audit et formation des établissements de santé et des ESMS</p>
-        <h1 class="hero-title">L'expertise d'une équipe</h1>
-        <p class="hero-slogan">Au service des établissements de la santé, du social et du médico-social</p>
+        <p class="hero-subtitle-small">Direction de transition et accompagnement strategique</p>
+        <h1 class="hero-title">Management de transition pour vos structures</h1>
+        <p class="hero-slogan">Structures sociales, medico-sociales et sanitaires: stabiliser, structurer, transformer</p>
         <a href="{{ path('app_contact') }}" class="btn-appointment">Prendre rendez-vous</a>
     </div>
     <div class="hero-scroll-indicator">
@@ -54,53 +54,25 @@
 <section class="presentation-section">
     <div class="container">
         <div class="presentation-content">
-            <h2>Votre partenaire en direction de transition</h2>
-            <p class="lead">Solution, Stratégie et Sens accompagne les établissements sociaux, médico-sociaux et sanitaires dans leurs périodes de transition, de transformation et de redéploiement stratégique.</p>
+            <h2>Votre partenaire en transition de direction</h2>
+            <p class="lead">Solution, Strategie et Sens accompagne les structures sociales, medico-sociales et sanitaires dans leurs phases de transition, de redressement et de transformation strategique.</p>
             <div class="presentation-grid">
                 <div class="presentation-item">
                     <div class="presentation-icon"><i class="fas fa-bullseye" style="color: var(--color-sage);"></i></div>
-                    <h3>Notre expertise</h3>
-                    <p>Direction de transition, gouvernance humaine et pilotage de transformation durable</p>
+                    <h3>Direction de transition</h3>
+                    <p>Prise de relais, stabilisation de la gouvernance et conduite du changement</p>
                 </div>
                 <div class="presentation-item">
                     <div class="presentation-icon"><i class="fas fa-handshake" style="color: var(--color-sage);"></i></div>
-                    <h3>Notre approche</h3>
-                    <p>Une posture d'équilibre entre exigence institutionnelle et engagement humain</p>
+                    <h3>Management de transition</h3>
+                    <p>Leadership operationnel, cadrage des priorites et remobilisation des equipes</p>
                 </div>
                 <div class="presentation-item">
                     <div class="presentation-icon"><i class="fas fa-balance-scale" style="color: var(--color-sage);"></i></div>
-                    <h3>Nos domaines</h3>
-                    <p>Formation, conseil, appui managérial et direction stratégique opérationnelle</p>
+                    <h3>Accompagnement strategique</h3>
+                    <p>Pilotage, conformité et trajectoire durable pour vos organisations</p>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Actualités -->
-<section class="news-section">
-    <div class="container">
-        <h2>Actualités</h2>
-        <div class="news-grid">
-            <article class="news-card featured">
-                <div class="news-badge">Nouveau</div>
-                <div class="news-date">Décembre 2025</div>
-                <h3>Webinaires gratuits : Bien préparer 2026</h3>
-                <p>Rejoignez-nous pour nos webinaires mensuels sur les enjeux de la transformation des organisations médico-sociales.</p>
-                <a href="#webinaires" class="news-link">S'inscrire →</a>
-            </article>
-            <article class="news-card">
-                <div class="news-date">Novembre 2025</div>
-                <h3>Nouvelle formation : Management de crise</h3>
-                <p>Découvrez notre programme complet pour gérer les situations de crise en établissement.</p>
-                <a href="{{ path('app_services_formations') }}" class="news-link">En savoir plus →</a>
-            </article>
-            <article class="news-card">
-                <div class="news-date">Octobre 2025</div>
-                <h3>Étude de cas : Transformation réussie</h3>
-                <p>Retour d'expérience sur l'accompagnement d'un EHPAD de 120 lits en période de transition.</p>
-                <a href="#" class="news-link">Lire →</a>
-            </article>
         </div>
     </div>
 </section>
