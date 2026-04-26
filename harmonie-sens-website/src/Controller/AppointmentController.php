@@ -39,8 +39,8 @@ class AppointmentController extends AbstractController
             ], UrlGeneratorInterface::ABSOLUTE_URL);
 
             $email = (new TemplatedEmail())
-                ->from(new Address('houss20119@gmail.com', 'Harmonie & Sens'))
-                ->to('houss20119@gmail.com')
+                ->from(new Address('contact@3s-managers.fr', 'Harmonie & Sens'))
+                ->to('contact@3s-managers.fr')
                 ->subject('Nouvelle demande de rendez-vous - ' . $appointment->getFullName())
                 ->htmlTemplate('emails/appointment_admin_notification.html.twig')
                 ->context([
@@ -51,7 +51,7 @@ class AppointmentController extends AbstractController
 
             try {
                 $mailer->send($email);
-                $this->addFlash('success', 'Email envoyé avec succès à houss20119@gmail.com !');
+                $this->addFlash('success', 'Email envoyé avec succès à contact@3s-managers.fr !');
             } catch (\Exception $e) {
                 $this->addFlash('error', 'Erreur email : ' . $e->getMessage());
             }

@@ -99,6 +99,13 @@ class MicrosoftGraphService
                         ],
                         'type' => 'required',
                     ],
+                    [
+                        'emailAddress' => [
+                            'address' => 'malikalamharfi@3smanagers.onmicrosoft.com',
+                            'name' => 'Malika Lamharfi',
+                        ],
+                        'type' => 'required',
+                    ],
                 ],
                 'isOnlineMeeting' => true,
                 'onlineMeetingProvider' => 'teamsForBusiness',
