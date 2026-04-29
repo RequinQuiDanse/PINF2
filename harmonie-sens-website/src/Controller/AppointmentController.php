@@ -39,7 +39,7 @@ class AppointmentController extends AbstractController
             ], UrlGeneratorInterface::ABSOLUTE_URL);
 
             $email = (new TemplatedEmail())
-                ->from(new Address('houss20119@gmail.com', 'Harmonie & Sens'))
+                ->from(new Address('contact@3s-managers.fr', 'Harmonie & Sens'))
                 ->to('malikalamharfi@3smanagers.onmicrosoft.com')
                 ->subject('Nouvelle demande de rendez-vous - ' . $appointment->getFullName())
                 ->htmlTemplate('emails/appointment_admin_notification.html.twig')
