@@ -103,80 +103,9 @@
                         </div>
                     </div>
                     
-                    {# Champ caché pour le type de demande #}
                     {{ form_widget(form.requestType) }}
-                    
-                    {# Sélection du type de demande #}
-                    <div class="form-group request-type-group">
-                        <label>Type de demande</label>
-                        <div class="request-type-buttons">
-                            <div class="request-type-btn active" data-type="contact">
-                                <i class="fas fa-envelope"></i>
-                                <span>Simple message</span>
-                            </div>
-                            <div class="request-type-btn" data-type="appointment">
-                                <i class="fas fa-calendar-check"></i>
-                                <span>Prendre rendez-vous</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {# Section calendrier (cachée par défaut) #}
-                    <div class="appointment-section" id="appointment-section" style="display: none;">
-                        <div class="appointment-header">
-                            <h3><i class="fas fa-calendar-alt"></i> Sélectionnez un créneau</h3>
-                            <p>Choisissez une date et un horaire parmi nos disponibilités</p>
-                        </div>
-                        
-                        <div class="calendar-container">
-                            <div class="calendar-navigation">
-                                <button type="button" class="calendar-nav-btn" id="prev-week">
-                                    <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <span class="calendar-week-label" id="week-label">Semaine en cours</span>
-                                <button type="button" class="calendar-nav-btn" id="next-week">
-                                    <i class="fas fa-chevron-right"></i>
-                                </button>
-                            </div>
-                            
-                            <div class="time-period-selector">
-                                <button type="button" class="period-btn active" data-period="morning">
-                                    <i class="fas fa-sun"></i> Matin (8h-12h)
-                                </button>
-                                <button type="button" class="period-btn" data-period="afternoon">
-                                    <i class="fas fa-cloud-sun"></i> Après-midi (14h-17h)
-                                </button>
-                            </div>
-                            
-                            <div class="calendar-loading" id="calendar-loading">
-                                <i class="fas fa-spinner fa-spin"></i>
-                                <span>Chargement des disponibilités...</span>
-                            </div>
-                            
-                            <div class="calendar-grid" id="calendar-grid">
-                                {# Les créneaux seront injectés ici via JavaScript #}
-                            </div>
-                            
-                            <div class="duration-selector" id="duration-selector">
-                                <label>Durée :</label>
-                                <div class="duration-buttons">
-                                    <button type="button" class="duration-btn active" data-duration="30">30 min</button>
-                                    <button type="button" class="duration-btn" data-duration="60">1 heure</button>
-                                </div>
-                            </div>
-                            
-                            <div class="selected-slot-display" id="selected-slot-display" style="display: none;">
-                                <i class="fas fa-check-circle"></i>
-                                <span id="selected-slot-text"></span>
-                                <button type="button" class="clear-slot-btn" id="clear-slot">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        {{ form_widget(form.appointmentDate) }}
-                        {{ form_widget(form.appointmentDuration) }}
-                    </div>
+                    {{ form_widget(form.appointmentDate) }}
+                    {{ form_widget(form.appointmentDuration) }}
 
                 {% for message in app.flashes('warning') %}
                     <div class="alert alert-warning">⚠️ {{ message }}</div>
