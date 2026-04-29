@@ -98,7 +98,7 @@ class ContactController extends AbstractController
             ], UrlGeneratorInterface::ABSOLUTE_URL);
 
             $emailService->sendTemplatedEmail(
-                'houss20119@gmail.com',
+                'malikalamharfi@3smanagers.onmicrosoft.com',
                 'Nouvelle demande de rendez-vous - ' . $appointment->getFullName(),
                 'emails/appointment_admin_notification.html.twig',
                 [
