@@ -31,6 +31,63 @@
 {% endblock %}
 
 {% block body %}
+{% set flashSuccess = app.flashes('success') %}
+{% set flashError = app.flashes('error') %}
+{% set flashWarning = app.flashes('warning') %}
+{% if flashSuccess|length or flashError|length or flashWarning|length %}
+<div class="toast-container" id="toast-container" aria-live="polite">
+    {% for message in flashSuccess %}
+        <div class="toast toast-success" role="status">
+            <i class="fas fa-check-circle"></i>
+            <span class="toast-message">{{ message }}</span>
+            <button type="button" class="toast-close" aria-label="Fermer">&times;</button>
+        </div>
+    {% endfor %}
+    {% for message in flashWarning %}
+        <div class="toast toast-warning" role="status">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span class="toast-message">{{ message }}</span>
+            <button type="button" class="toast-close" aria-label="Fermer">&times;</button>
+        </div>
+    {% endfor %}
+    {% for message in flashError %}
+        <div class="toast toast-error" role="alert">
+            <i class="fas fa-times-circle"></i>
+            <span class="toast-message">{{ message }}</span>
+            <button type="button" class="toast-close" aria-label="Fermer">&times;</button>
+        </div>
+    {% endfor %}
+</div>
+<style>
+.toast-container { position: fixed; top: 90px; right: 20px; z-index: 9999; max-width: 420px; pointer-events: none; }
+.toast { display: flex; align-items: center; gap: 12px; padding: 14px 18px; margin-bottom: 12px; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.12); animation: toastSlideIn .3s ease-out; pointer-events: auto; font-size: .95rem; }
+.toast-success { background: #d4edda; color: #155724; border-left: 4px solid #28a745; }
+.toast-warning { background: #fff3cd; color: #856404; border-left: 4px solid #ffc107; }
+.toast-error { background: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
+.toast i { font-size: 20px; flex-shrink: 0; }
+.toast-message { flex: 1; }
+.toast-close { background: none; border: none; font-size: 22px; line-height: 1; cursor: pointer; color: inherit; opacity: .55; padding: 0 4px; }
+.toast-close:hover { opacity: 1; }
+.toast.toast-hide { animation: toastSlideOut .3s ease-in forwards; }
+@keyframes toastSlideIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes toastSlideOut { to { transform: translateX(120%); opacity: 0; } }
+@media (max-width: 600px) { .toast-container { top: 80px; right: 10px; left: 10px; max-width: none; } }
+</style>
+<script>
+(function() {
+    document.querySelectorAll('.toast').forEach(function(toast) {
+        var btn = toast.querySelector('.toast-close');
+        var hide = function() { toast.classList.add('toast-hide'); };
+        if (btn) btn.addEventListener('click', hide);
+        setTimeout(hide, 5000);
+        toast.addEventListener('animationend', function(e) {
+            if (e.animationName === 'toastSlideOut') toast.remove();
+        });
+    });
+})();
+</script>
+{% endif %}
+
 <!-- Hero Section Contact -->
 <section class="contact-hero">
     <div class="container">
@@ -59,13 +116,6 @@
                         <span>Prendre rendez-vous</span>
                     </button>
                 </div>
-
-                {% for message in app.flashes('success') %}
-                    <div class="alert alert-success">{{ message }}</div>
-                {% endfor %}
-                {% for message in app.flashes('error') %}
-                    <div class="alert alert-error">{{ message }}</div>
-                {% endfor %}
 
                 <!-- Formulaire Message -->
                 <div class="contact-tab-content{% if activeTab == 'message' %} active{% endif %}" id="tab-message">
@@ -107,14 +157,6 @@
                     {{ form_widget(form.appointmentDate) }}
                     {{ form_widget(form.appointmentDuration) }}
 
-                {% for message in app.flashes('warning') %}
-                    <div class="alert alert-warning">⚠️ {{ message }}</div>
-                {% endfor %}
-                
-                {% for message in app.flashes('error') %}
-                    <div class="alert alert-danger">❌ {{ message }}</div>
-                {% endfor %}
-                
                 {% if quoteData %}
                 <div class="quote-summary-card">
                     <div class="quote-summary-header">
