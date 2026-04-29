@@ -64,7 +64,7 @@ class AdminAppointmentController extends AbstractController
 
         // Envoyer email de confirmation au client avec lien Teams
         $email = (new TemplatedEmail())
-            ->from(new Address('contact@3s-managers.fr', 'Harmonie & Sens'))
+            ->from(new Address('no-reply@3s-managers.fr', 'Harmonie & Sens'))
             ->to($appointment->getEmail())
             ->subject('Votre rendez-vous est confirmé - Harmonie & Sens')
             ->htmlTemplate('emails/appointment_confirmed.html.twig')
@@ -121,7 +121,7 @@ class AdminAppointmentController extends AbstractController
             $rescheduleUrl = $this->generateUrl('app_contact', ['tab' => 'appointment'], UrlGeneratorInterface::ABSOLUTE_URL);
 
             $email = (new TemplatedEmail())
-                ->from(new Address('contact@3s-managers.fr', 'Harmonie & Sens'))
+                ->from(new Address('no-reply@3s-managers.fr', 'Harmonie & Sens'))
                 ->to($appointment->getEmail())
                 ->subject('Concernant votre demande de rendez-vous - Harmonie & Sens')
                 ->htmlTemplate('emails/appointment_rejected.html.twig')
